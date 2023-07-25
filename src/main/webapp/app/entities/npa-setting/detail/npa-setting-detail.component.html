@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="npaSetting">
+      <h2 data-cy="npaSettingDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.npaSetting.detail.title">Npa Setting</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ npaSetting.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.npaClassification">Npa Classification</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.NpaClassification.' + npaSetting.npaClassification }}">{{
+            npaSetting.npaClassification
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.durationStart">Duration Start</span></dt>
+        <dd>
+          <span>{{ npaSetting.durationStart }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.durationEnd">Duration End</span></dt>
+        <dd>
+          <span>{{ npaSetting.durationEnd }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.provision">Provision</span></dt>
+        <dd>
+          <span>{{ npaSetting.provision }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.year">Year</span></dt>
+        <dd>
+          <span>{{ npaSetting.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.interestRate">Interest Rate</span></dt>
+        <dd>
+          <span>{{ npaSetting.interestRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ npaSetting.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ npaSetting.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ npaSetting.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ npaSetting.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ npaSetting.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ npaSetting.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ npaSetting.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ npaSetting.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ npaSetting.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ npaSetting.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.npaSetting.organisation">Organisation</span></dt>
+        <dd>
+          <div *ngIf="npaSetting.organisation">
+            <a [routerLink]="['/organisation', npaSetting.organisation.id, 'view']">{{ npaSetting.organisation.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/npa-setting', npaSetting.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

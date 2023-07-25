@@ -1,0 +1,44 @@
+{
+  "loanOrignationSystemApp": {
+    "amortizationDetails": {
+      "home": {
+        "title": "Amortization Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Amortization Details",
+        "createOrEditLabel": "Create or edit a Amortization Details",
+        "notFound": "No Amortization Details found"
+      },
+      "created": "A new Amortization Details is created with identifier {{ param }}",
+      "updated": "A Amortization Details is updated with identifier {{ param }}",
+      "deleted": "A Amortization Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Amortization Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Amortization Details"
+      },
+      "id": "ID",
+      "installmentDate": "Installment Date",
+      "totalOutstandingPrincipleAmt": "Total Outstanding Principle Amt",
+      "totalOutstandngInterestAmt": "Total Outstandng Interest Amt",
+      "paidPrincipleAmt": "Paid Principle Amt",
+      "paidInterestAmt": "Paid Interest Amt",
+      "balPrincipleAmt": "Bal Principle Amt",
+      "balInterestAmt": "Bal Interest Amt",
+      "loanEmiAmt": "Loan Emi Amt",
+      "principleEMI": "Principle EMI",
+      "roi": "Roi",
+      "paymentStatus": "Payment Status",
+      "year": "Year",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "loanAccount": "Loan Account"
+    }
+  }
+}

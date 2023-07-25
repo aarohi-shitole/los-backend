@@ -1,0 +1,35 @@
+{
+  "loanOrignationSystemApp": {
+    "memberLimit": {
+      "home": {
+        "title": "Member Limits",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Member Limit",
+        "createOrEditLabel": "Create or edit a Member Limit",
+        "notFound": "No Member Limits found"
+      },
+      "created": "A new Member Limit is created with identifier {{ param }}",
+      "updated": "A Member Limit is updated with identifier {{ param }}",
+      "deleted": "A Member Limit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Member Limit {{ id }}?"
+      },
+      "detail": {
+        "title": "Member Limit"
+      },
+      "id": "ID",
+      "limitSanctionAmount": "Limit Sanction Amount",
+      "dtLimitSanctioned": "Dt Limit Sanctioned",
+      "dtLimitExpired": "Dt Limit Expired",
+      "purpose": "Purpose",
+      "isDeleted": "Is Deleted",
+      "isActive": "Is Active",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4"
+    }
+  }
+}

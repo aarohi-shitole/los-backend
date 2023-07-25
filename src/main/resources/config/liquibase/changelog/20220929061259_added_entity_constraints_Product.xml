@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Product.
+    -->
+    <changeSet id="20220929061259-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="loan_catagory_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product__loan_catagory_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="loan_catagory"/>
+
+        <addForeignKeyConstraint baseColumnNames="organisation_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product__organisation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="organisation"/>
+
+        <addForeignKeyConstraint baseColumnNames="ledger_accounts_id"
+                                 baseTableName="product"
+                                 constraintName="fk_product__ledger_accounts_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ledger_accounts"/>
+    </changeSet>
+</databaseChangeLog>

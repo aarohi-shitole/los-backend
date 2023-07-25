@@ -1,0 +1,168 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-region-heading" data-cy="RegionCreateUpdateHeading" jhiTranslate="loanOrignationSystemApp.region.home.createOrEditLabel">
+        Create or edit a Region
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.regionName" for="field_regionName">Region Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="regionName"
+            id="field_regionName"
+            data-cy="regionName"
+            formControlName="regionName"
+          />
+          <div *ngIf="editForm.get('regionName')!.invalid && (editForm.get('regionName')!.dirty || editForm.get('regionName')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('regionName')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.freeField1" for="field_freeField1">Free Field 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.freeField2" for="field_freeField2">Free Field 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.freeField3" for="field_freeField3">Free Field 3</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.freeField4" for="field_freeField4">Free Field 4</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.freeField5" for="field_freeField5">Free Field 5</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.region.organisation" for="field_organisation">Organisation</label>
+          <select
+            class="form-control"
+            id="field_organisation"
+            data-cy="organisation"
+            name="organisation"
+            formControlName="organisation"
+            [compareWith]="compareOrganisation"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="organisationOption" *ngFor="let organisationOption of organisationsSharedCollection">
+              {{ organisationOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,196 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-member-limit-heading"
+        data-cy="MemberLimitCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.memberLimit.home.createOrEditLabel"
+      >
+        Create or edit a Member Limit
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.limitSanctionAmount" for="field_limitSanctionAmount"
+            >Limit Sanction Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="limitSanctionAmount"
+            id="field_limitSanctionAmount"
+            data-cy="limitSanctionAmount"
+            formControlName="limitSanctionAmount"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.dtLimitSanctioned" for="field_dtLimitSanctioned"
+            >Dt Limit Sanctioned</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dtLimitSanctioned"
+              data-cy="dtLimitSanctioned"
+              type="text"
+              class="form-control"
+              name="dtLimitSanctioned"
+              ngbDatepicker
+              #dtLimitSanctionedDp="ngbDatepicker"
+              formControlName="dtLimitSanctioned"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dtLimitSanctionedDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.dtLimitExpired" for="field_dtLimitExpired"
+            >Dt Limit Expired</label
+          >
+          <div class="input-group">
+            <input
+              id="field_dtLimitExpired"
+              data-cy="dtLimitExpired"
+              type="text"
+              class="form-control"
+              name="dtLimitExpired"
+              ngbDatepicker
+              #dtLimitExpiredDp="ngbDatepicker"
+              formControlName="dtLimitExpired"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dtLimitExpiredDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.purpose" for="field_purpose">Purpose</label>
+          <input type="text" class="form-control" name="purpose" id="field_purpose" data-cy="purpose" formControlName="purpose" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.isActive" for="field_isActive">Is Active</label>
+          <input type="checkbox" class="form-check" name="isActive" id="field_isActive" data-cy="isActive" formControlName="isActive" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.freeField1" for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.freeField2" for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.freeField3" for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberLimit.freeField4" for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

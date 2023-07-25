@@ -1,0 +1,42 @@
+{
+  "loanOrignationSystemApp": {
+    "remarkHistory": {
+      "home": {
+        "title": "Remark Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Remark History",
+        "createOrEditLabel": "Create or edit a Remark History",
+        "notFound": "No Remark Histories found"
+      },
+      "created": "A new Remark History is created with identifier {{ param }}",
+      "updated": "A Remark History is updated with identifier {{ param }}",
+      "deleted": "A Remark History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Remark History {{ id }}?"
+      },
+      "detail": {
+        "title": "Remark History"
+      },
+      "id": "ID",
+      "remark": "Remark",
+      "loanAmt": "Loan Amt",
+      "modifiedAmt": "Modified Amt",
+      "loanInterest": "Loan Interest",
+      "modifiedInterest": "Modified Interest",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "branch": "Branch",
+      "applicationNo": "Application No",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "securityUser": "Security User",
+      "loanApplications": "Loan Applications"
+    }
+  }
+}

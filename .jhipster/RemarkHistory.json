@@ -1,0 +1,95 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061312",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "remark_history",
+  "fields": [
+    {
+      "fieldName": "remark",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "loanAmt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "modifiedAmt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "loanInterest",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "modifiedInterest",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "branch",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "applicationNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "RemarkHistory",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "securityUser",
+      "relationshipName": "securityUser",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "loanApplications",
+      "relationshipName": "loanApplications",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

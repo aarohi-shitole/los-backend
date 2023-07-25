@@ -1,0 +1,253 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-income-details-heading"
+        data-cy="IncomeDetailsCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.incomeDetails.home.createOrEditLabel"
+      >
+        Create or edit a Income Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.year" for="field_year">Year</label>
+          <input type="text" class="form-control" name="year" id="field_year" data-cy="year" formControlName="year" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.grossIncome" for="field_grossIncome"
+            >Gross Income</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="grossIncome"
+            id="field_grossIncome"
+            data-cy="grossIncome"
+            formControlName="grossIncome"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.expenses" for="field_expenses">Expenses</label>
+          <input type="number" class="form-control" name="expenses" id="field_expenses" data-cy="expenses" formControlName="expenses" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.netIncome" for="field_netIncome">Net Income</label>
+          <input type="number" class="form-control" name="netIncome" id="field_netIncome" data-cy="netIncome" formControlName="netIncome" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.paidTaxes" for="field_paidTaxes">Paid Taxes</label>
+          <input type="number" class="form-control" name="paidTaxes" id="field_paidTaxes" data-cy="paidTaxes" formControlName="paidTaxes" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.cashSurplus" for="field_cashSurplus"
+            >Cash Surplus</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="cashSurplus"
+            id="field_cashSurplus"
+            data-cy="cashSurplus"
+            formControlName="cashSurplus"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.incomeType" for="field_incomeType"
+            >Income Type</label
+          >
+          <select class="form-control" name="incomeType" formControlName="incomeType" id="field_incomeType" data-cy="incomeType">
+            <option [ngValue]="null">{{ 'loanOrignationSystemApp.IncomeType.null' | translate }}</option>
+            <option *ngFor="let incomeType of incomeTypeValues" [value]="incomeType">
+              {{ 'loanOrignationSystemApp.IncomeType.' + incomeType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField1" for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField2" for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField3" for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField4" for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField5" for="field_freeField5"
+            >Free Field 5</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField6" for="field_freeField6"
+            >Free Field 6</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField6"
+            id="field_freeField6"
+            data-cy="freeField6"
+            formControlName="freeField6"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.incomeDetails.member" for="field_member">Member</label>
+          <select
+            class="form-control"
+            id="field_member"
+            data-cy="member"
+            name="member"
+            formControlName="member"
+            [compareWith]="compareMember"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="memberOption" *ngFor="let memberOption of membersSharedCollection">{{ memberOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

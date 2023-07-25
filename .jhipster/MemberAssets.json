@@ -1,0 +1,141 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061305",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "member_assets",
+  "fields": [
+    {
+      "fieldName": "assetCost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "assetType",
+      "fieldType": "AssetType",
+      "fieldValues": "FARM_MACHINERY (Farm_Machinery),HOUSE (House),FLAT (Flat),FARM_HOUSE (Farm_House),LAND (Land),INVESTMENT (Investment),OTHERS (Others)"
+    },
+    {
+      "fieldName": "areaInSqFt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "assetNature",
+      "fieldType": "AssetNature",
+      "fieldValues": "RESIDENTIAL (Residential),COMMERCIAL (Commercial),OTHER (Other)"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "landMark",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "assetOwner",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "completionYear",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "marketValue",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "isInsured",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isUnderUsed",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isOwned",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "landType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "landGatNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "landAreaInHector",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "jindagiPatrakNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "jindagiAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "MemberAssets",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "member",
+      "relationshipName": "member",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "loanApplications",
+      "relationshipName": "loanApplications",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

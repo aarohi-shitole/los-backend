@@ -1,0 +1,11 @@
+{
+  "loanOrignationSystemApp": {
+    "RepaymentFreqency": {
+      "null": "",
+      "MONTHLY": "Monthly",
+      "QUARTERLY": "quarterly",
+      "HALF_YEARLY": "Half_yearly",
+      "YEARLY": "Yearly"
+    }
+  }
+}

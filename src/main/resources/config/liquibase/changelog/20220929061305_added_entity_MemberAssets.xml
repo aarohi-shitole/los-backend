@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity MemberAssets.
+    -->
+    <changeSet id="20220929061305-1" author="jhipster">
+        <createTable tableName="member_assets">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="asset_cost" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="asset_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="area_in_sq_ft" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="asset_nature" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="address" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="land_mark" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="asset_owner" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="completion_year" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="market_value" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_insured" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_under_used" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_owned" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="land_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="land_gat_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="land_area_in_hector" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="jindagi_patrak_no" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="jindagi_amount" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="created_on" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_deleted" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_6" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="member_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="loan_applications_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="member_assets" columnName="last_modified" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="member_assets" columnName="created_on" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220929061305-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/member_assets.csv"
+                  separator=";"
+                  tableName="member_assets"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="asset_cost" type="numeric"/>
+            <column name="asset_type" type="string"/>
+            <column name="area_in_sq_ft" type="numeric"/>
+            <column name="asset_nature" type="string"/>
+            <column name="address" type="string"/>
+            <column name="land_mark" type="string"/>
+            <column name="asset_owner" type="string"/>
+            <column name="completion_year" type="string"/>
+            <column name="market_value" type="numeric"/>
+            <column name="is_insured" type="boolean"/>
+            <column name="is_under_used" type="boolean"/>
+            <column name="is_owned" type="boolean"/>
+            <column name="land_type" type="string"/>
+            <column name="land_gat_no" type="string"/>
+            <column name="land_area_in_hector" type="numeric"/>
+            <column name="jindagi_patrak_no" type="string"/>
+            <column name="jindagi_amount" type="numeric"/>
+            <column name="last_modified" type="date"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="created_by" type="string"/>
+            <column name="created_on" type="date"/>
+            <column name="is_deleted" type="boolean"/>
+            <column name="free_field_1" type="string"/>
+            <column name="free_field_2" type="string"/>
+            <column name="free_field_3" type="string"/>
+            <column name="free_field_4" type="string"/>
+            <column name="free_field_5" type="string"/>
+            <column name="free_field_6" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

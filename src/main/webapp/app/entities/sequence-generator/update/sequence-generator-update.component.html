@@ -1,0 +1,182 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-sequence-generator-heading"
+        data-cy="SequenceGeneratorCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.sequenceGenerator.home.createOrEditLabel"
+      >
+        Create or edit a Sequence Generator
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.nextValMember" for="field_nextValMember"
+            >Next Val Member</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nextValMember"
+            id="field_nextValMember"
+            data-cy="nextValMember"
+            formControlName="nextValMember"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.nextValLoanApp" for="field_nextValLoanApp"
+            >Next Val Loan App</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nextValLoanApp"
+            id="field_nextValLoanApp"
+            data-cy="nextValLoanApp"
+            formControlName="nextValLoanApp"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="loanOrignationSystemApp.sequenceGenerator.nextValLoanAccount"
+            for="field_nextValLoanAccount"
+            >Next Val Loan Account</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nextValLoanAccount"
+            id="field_nextValLoanAccount"
+            data-cy="nextValLoanAccount"
+            formControlName="nextValLoanAccount"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.nextValVoucher" for="field_nextValVoucher"
+            >Next Val Voucher</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="nextValVoucher"
+            id="field_nextValVoucher"
+            data-cy="nextValVoucher"
+            formControlName="nextValVoucher"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField1" for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField2" for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField3" for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField4" for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField5" for="field_freeField5"
+            >Free Field 5</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.sequenceGenerator.branch" for="field_branch">Branch</label>
+          <select
+            class="form-control"
+            id="field_branch"
+            data-cy="branch"
+            name="branch"
+            formControlName="branch"
+            [compareWith]="compareBranch"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="branchOption" *ngFor="let branchOption of branchesSharedCollection">{{ branchOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

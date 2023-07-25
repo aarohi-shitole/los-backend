@@ -1,0 +1,11 @@
+export enum ConstitutionType {
+  SOLE_PROPRIETOR = 'Sole_Proprietor',
+
+  INDIVIDUAL = 'Individual',
+
+  PARTNERSHIP = 'Partnership',
+
+  LLP = 'Limited_Liability_Partnership',
+
+  PVT_LTD_COMPANY = 'Pvt_Ltd_Company',
+}

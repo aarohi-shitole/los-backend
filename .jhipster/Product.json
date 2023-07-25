@@ -1,0 +1,176 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061259",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "product",
+  "fields": [
+    {
+      "fieldName": "prodCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prodName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bpiTreatmentFlag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amortizationMethod",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amortizationType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "compoundingFreq",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emiRounding",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastRowEMIThreshold",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "graceDays",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "reschLockinPeriod",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "prepayAfterInstNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "prepayBeforeInstNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "minInstallmentGapBetPrepay",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "minPrepayAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "forecloseAfterInstNo",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "forecloseBeforeInstaNo",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "minTenor",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "maxTenor",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "minInstallmentAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "maxInstallmentAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dropLineAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dropLineODYN",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dropLinePerc",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dropMode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dropLIneFreq",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dropLineCycleDay",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "roi",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Product",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "loanCatagory",
+      "relationshipName": "loanCatagory",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "organisation",
+      "relationshipName": "organisation",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "ledgerAccounts",
+      "relationshipName": "ledgerAccounts",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,185 @@
+<div>
+  <h2 id="page-heading" data-cy="MemberLimitHeading">
+    <span jhiTranslate="loanOrignationSystemApp.memberLimit.home.title">Member Limits</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.memberLimit.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-member-limit"
+        [routerLink]="['/member-limit/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.memberLimit.home.createLabel"> Create a new Member Limit </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="memberLimits?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.memberLimit.home.notFound">No Member Limits found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="memberLimits && memberLimits.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="limitSanctionAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.limitSanctionAmount">Limit Sanction Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dtLimitSanctioned">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.dtLimitSanctioned">Dt Limit Sanctioned</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dtLimitExpired">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.dtLimitExpired">Dt Limit Expired</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="purpose">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.purpose">Purpose</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isActive">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.isActive">Is Active</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberLimit.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let memberLimit of memberLimits; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/member-limit', memberLimit.id, 'view']">{{ memberLimit.id }}</a>
+          </td>
+          <td>{{ memberLimit.limitSanctionAmount }}</td>
+          <td>{{ memberLimit.dtLimitSanctioned | formatMediumDate }}</td>
+          <td>{{ memberLimit.dtLimitExpired | formatMediumDate }}</td>
+          <td>{{ memberLimit.purpose }}</td>
+          <td>{{ memberLimit.isDeleted }}</td>
+          <td>{{ memberLimit.isActive }}</td>
+          <td>{{ memberLimit.lastModified | formatMediumDatetime }}</td>
+          <td>{{ memberLimit.lastModifiedBy }}</td>
+          <td>{{ memberLimit.freeField1 }}</td>
+          <td>{{ memberLimit.freeField2 }}</td>
+          <td>{{ memberLimit.freeField3 }}</td>
+          <td>{{ memberLimit.freeField4 }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/member-limit', memberLimit.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/member-limit', memberLimit.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(memberLimit)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="memberLimits && memberLimits.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1317 @@
+entity SecurityUser {
+    firstName String
+    lastName String
+    designation String
+    username String required unique
+    passwordHash String required
+    mobileNo String
+	email String unique 
+    description String
+    department String
+    imageUrl Blob
+    isActivated Boolean 
+    langKey String
+    activationKey String
+    resetKey String
+    resetDate Instant 
+    createdBy String
+	createdOn Instant
+    lastModified Instant 
+	lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+}
+
+entity SecurityRole {
+	roleName String required unique
+	description String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity SecurityPermission{
+	permissionName String required unique
+	description String
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity Organisation{
+    orgName String required unique
+    description String 
+    regNumber String required unique
+    gstin String unique required unique
+    pan String unique
+    tan String unique
+    phone String
+    email String 
+    webSite String
+    fax String
+    isActivate Boolean
+    orgType OrganisationType
+    createdOn Instant
+	createdBy String
+    isDeleted String 
+    lastModified Instant 
+	lastModifiedBy String 
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+}
+
+entity Branch{
+    branchName String required unique
+    description String 
+    branchcode String unique
+    ifscCode String
+    micrCode String
+    swiftCode String
+    ibanCode String
+    isHeadOffice Boolean
+    routingTransitNo String
+    phone String
+    email String 
+    webSite String
+    fax String
+    isActivate Boolean
+    branchType BranchType
+    createdOn Instant
+	createdBy String
+    isDeleted String 
+    lastModified Instant 
+	lastModifiedBy String 
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+}
+
+entity Address {
+	addrStatus AddressType
+    addressLine1 String 
+    addressLine2 String
+    addressLine3 String
+    landMark String
+    pincode String
+    longitude Double
+    latitude Double
+    mapNevUrl String
+    isPrefferedAdd Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+}
+
+entity Region {
+	regionName String required unique
+    isDeleted Boolean
+    lastModified Instant 
+	lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String 
+}
+
+entity State {
+	stateName String required unique
+    isDeleted Boolean
+	lgdCode Long
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity District {
+	districtName String required unique
+    isDeleted Boolean
+	lgdCode Long
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity Taluka {
+	talukaName String required
+    isDeleted Boolean
+	lgdCode Long
+    lastModified Instant 
+	lastModifiedBy String 
+}
+
+entity City {
+	cityName String required
+    isDeleted Boolean
+	lgdCode Long
+    lastModified Instant 
+	lastModifiedBy String 
+}
+entity ParameterLookup {
+	type ParameterLookupType
+    name String
+	description String
+    value String
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+}
+
+entity Declearation{
+    tiltle String
+	type DeclearationType
+	description String
+    tag String
+    subType Long
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+}
+
+entity OrgPrerequisiteDoc {
+    docDesc String
+    docName String
+    docCatagory String
+    ismandatory Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+}
+
+entity SequenceGenerator{
+	nextValMember Long
+    nextValLoanApp Long
+    nextValLoanAccount Long
+    nextValVoucher Long
+    freeField1 Long
+    freeField2 Long
+    freeField3 Long
+    freeField4 Long
+    freeField5 Long
+}
+
+// Loan product class and fields name are taken as per LOS requriment
+entity Product{
+    prodCode String
+    prodName String
+    bpiTreatmentFlag String
+    amortizationMethod String
+    amortizationType String
+    compoundingFreq String
+    emiRounding String
+    lastRowEMIThreshold Double
+    graceDays Long
+    reschLockinPeriod Long
+    prepayAfterInstNo Long
+    prepayBeforeInstNo Long
+    minInstallmentGapBetPrepay Long
+    minPrepayAmount Double
+    forecloseAfterInstNo Double
+    forecloseBeforeInstaNo Double
+    minTenor Double
+    maxTenor Double
+    minInstallmentAmount Double
+    maxInstallmentAmount Double
+    dropLineAmount Double
+    dropLineODYN String
+    dropLinePerc Long
+    dropMode String
+    dropLIneFreq String
+    dropLineCycleDay Long
+    roi Double
+    isDeleted Boolean
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String 
+    freeField5 String
+    freeField6 String 
+}
+
+entity LoanCatagory {
+	productName String
+    decription String
+    value String
+    code String 
+    offer String
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+}
+
+entity Member {
+    title Title
+	firstName String
+    middleName String 
+    lastName String 
+    memberId String unique
+    membershipNo String unique
+    fatherName String 
+    motherName String 
+    gender Gender 
+    dob LocalDate
+    email String 
+    mobileNo String
+    alternateMobile String 
+    fax String
+    contactTimeFrom String 
+    contactTimeTo String 
+    religion String
+    custCategory String
+	cast String
+    aadharCardNo String unique
+    panCard String unique
+    passportNo String unique
+    passportExpiry String 
+    rationCard String 
+    residenceStatus ResidentalStatus
+    maritalStatus MaritalStatus
+    familyMemberCount Long
+    occupation Occupation
+    nationality String
+    noOfDependents Long
+    applicationDate Instant
+    status Status
+    highestQualification String
+    hasAdharCardVerified Boolean
+    hasPanCardVerified Boolean
+    loanStatus LoanStatus
+    enqRefrenceNo String
+    numberOfAssets Integer
+    isActive Boolean
+    isDeleted Boolean
+    profileStepper StepperNumber
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity Guarantor {
+    title Title
+	firstName String
+    middleName String 
+    lastName String 
+    membershipNo String unique
+    gender Gender 
+    dob LocalDate
+    email String 
+    mobileNo String
+    houseOwner String
+    occupation Occupation
+    employerNameAdd String
+    soclibilAmt Double
+    soclibilType String
+    otherlibilAmt Double
+    otherlibilType String
+    aadharCardNo String unique
+    panCard String unique
+    maritalStatus MaritalStatus
+    hasAdharVerified Boolean
+    hasPanVerified Boolean
+    numberOfAssets Integer
+    grossAnnualInc Double
+    netIncome Double
+    isIncomeTaxPayer Boolean
+    isActive Boolean
+    isDeleted Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity Documents {
+	docType String
+    docSubType String
+    tag String
+    fileName String 
+    filePath String
+    fileUrl String
+    refrenceId Long
+    hasVerified Boolean
+    remark String
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+}
+
+entity MemberBank {
+	bankName String 
+	branchName String
+    accountNumber Long unique
+    accHolderName String
+    ifsccode String
+    micrCode String
+    swiftCode String 
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isActive Boolean
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+
+entity MemberAssets {
+	assetCost  Double
+    assetType AssetType
+    AreaInSqFt Double
+    assetNature AssetNature 
+    address String
+    LandMark String
+    assetOwner String
+    completionYear String
+    marketValue Double
+    isInsured Boolean
+    isUnderUsed Boolean
+    isOwned Boolean
+    landType String
+    landGatNo String
+    landAreaInHector Double
+    jindagiPatrakNo String
+    jindagiAmount Double
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity EmployementDetails { 
+    type Occupation
+    employerName String
+    status EmployementStatus 
+    designation String
+    duration String
+    employerAdd String
+    prevCompanyName String
+    prevCompanyduration String
+    orgType CompanyType
+    constitutionType ConstitutionType
+    industryType IndustryType
+    businessRegNo String  unique
+    compOwnerShip Double
+    partnerName1 String
+    partnerName2 String
+    partnerName3 String
+    isDeleted Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+entity IncomeDetails { 
+    year String
+    grossIncome Double
+    expenses Double
+    netIncome Double
+    paidTaxes Double
+    cashSurplus Double
+    incomeType IncomeType
+    isDeleted Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity MemberExistingfacility { 
+    year Integer
+    facilityName String 
+    facilitatedFrom String
+    nature String
+    amtInLac Double
+    purpose String
+    sectionDate Instant
+    outstandingInLac Double
+    status FacilityStatus
+    rating CreditRating
+    isDeleted Boolean
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity Nominee {
+	firstName String  
+    lastName String 
+    fatherName String 
+    motherName String 
+    guardianName String
+	gender String
+    dob LocalDate    
+    aadharCard String unique
+    nomineeDeclareDate Instant
+    relation String
+    permanentAddr String
+    nomineePercentage Double
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isActive Boolean
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+}
+
+
+entity LoanApplications {// it may be loanDemand
+    applicationNo String
+    demandAmount Double
+    loanPurpose String
+    status LoanStatus
+    demandedLandAreaInHector Integer
+    seasonOfCropLoan String
+    loanSteps StepperNumber
+    isInsured Boolean
+    loanBenefitingArea Double
+    costOfInvestment Double
+    mortgageDeedNo Long
+    mortgageDate Instant
+    extentMorgageValue Double
+    downPaymentAmt Double
+    ltvRatio Double
+    processingFee Double
+    penalInterest Double
+    moratorium String
+    roi Double
+    commityAmt Double
+    commityRoi Double
+    sectionAmt Double
+    senctionRoi Double
+    year String
+    assignedTo Long 
+    assignedFrom Long
+    securityDocUrl String
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+    freeField7 String
+}
+
+entity LoanAccount{
+    loanAmount Double
+    applicationNo String
+    status LoanStatus
+    loanStartDate Instant
+    loanEndDate Instant
+    loanPlannedClosureDate Instant
+    loanCloserDate Instant
+    emiStartDate Instant
+    loanNpaClass NpaClassification
+    parentAccHeadCode String
+    loanAccountName String
+    disbursementAmt Double
+    disbursementStatus String
+    repaymentPeriod String
+    year String
+    processingFee Double
+    moratorium String
+    roi Double
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity RemarkHistory{
+	remark String
+    loanAmt Double
+    modifiedAmt Double
+    loanInterest Double
+    modifiedInterest Double
+	createdOn Instant
+	createdBy String
+	branch String
+    applicationNo String
+    lastModified Instant 
+	lastModifiedBy String 
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity LoanDisbursement{
+    dtDisbDate Instant
+    accountNo String
+    ifscCode String
+    disbAmount Double
+    disbuNumber Integer
+    disbursementStatus String
+    paymentMode PaymentMode
+    utrNo String
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+// below entities are taken for LOS process
+entity LedgerAccounts {
+	accountNo Long
+	accountName String
+    accBalance Double
+    accHeadCode String
+    ledgerCode String
+    appCode String // regarding to Loans, deposit, shares
+    ledgerClassification LedgerClassification
+    level Integer
+    year String
+    accountType String
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+}
+
+entity AccountHeadCode {
+	type MappingType
+    value String
+    headCodeName String
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+}
+
+entity NpaSetting 
+{
+	npaClassification NpaClassification
+    durationStart Integer
+    durationEnd Integer
+    provision String
+    year Integer
+    interestRate Integer
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+}
+
+entity InterestConfig{
+    startDate Instant
+    endDate Instant
+    interestBasis String
+    emiBasis String
+    interestType InterestType
+    intrAccrualFreq RepaymentFreqency
+    penalInterestRate Double
+    penalInterestBasis String
+    penalAccountingBasis String
+    minInterestRate Double
+    maxInterestRate Double
+    extendedInterestRate Double
+    surchargeRate Double
+    isDeleted Boolean
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String 
+}
+
+entity SchemesDetails {
+	fdDurationDays Integer
+    interest Double
+    lockInPeriod Integer
+    schemeName String 
+    rdDurationMonths Integer
+    reinvestInterest Boolean
+    minAmount Double
+    lastDayOfScheam Instant
+    lastModified Instant 
+	lastModifiedBy String 
+    createdBy String
+	createdOn Instant
+    isDeleted Boolean
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+} 
+
+
+entity AmortizationDetails{
+    installmentDate Instant
+    totalOutstandingPrincipleAmt Double
+    totalOutstandngInterestAmt Double
+    paidPrincipleAmt Double
+    paidInterestAmt Double
+    balPrincipleAmt Double
+    balInterestAmt Double
+    loanEmiAmt Double
+    principleEMI Double
+    roi Double
+    paymentStatus String
+    year String
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+
+entity LoanRepaymentDetails{
+    repaymentDate Instant
+    totalRepaymentAmt Double
+    installmentNumber Integer
+    principlePaidAmt Double
+    interestPaidAmt Double
+    surChargeAmt Double
+    overDueAmt Double
+    balanceInterestAmt Double
+    balancePrincipleAmt Double
+    paymentMode PaymentMode
+    foreClosureChargeAmt Double
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity Vouchers{
+    voucherDate Instant
+    voucherNo String
+    preparedBy String
+    code VoucherCode 
+    narration String
+    authorisedBy String
+    mode PaymentMode
+    isDeleted Boolean
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity VoucherDetails{
+    accHeadCode String
+    creditAccount String
+    debitAccount String
+    transferAmt Double 
+    isDeleted Boolean
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity VouchersHistory{
+    createdOn Instant
+    createdBy String
+    voucherDate Instant
+    code VoucherCode
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+    freeField5 String
+    freeField6 String
+}
+
+entity MasterAgreement{
+    memberId String
+    portfolioCode String
+    productCode String
+    homeBranch String
+    servBranch String
+    homeState String
+    servState String
+    gstExempted String
+    prefRepayMode String
+    tdsCode String
+    tdsRate String
+    sanctionedAmount Double
+    originationApplnNo String
+    cycleDay Long
+    tenor String
+    interestRate Double
+    repayFreq RepaymentFreqency
+    isDeleted Boolean
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String 
+}
+
+entity MemberLimit{
+    limitSanctionAmount Double
+    dtLimitSanctioned LocalDate
+    dtLimitExpired LocalDate
+    purpose String
+    isDeleted Boolean
+    isActive Boolean
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String
+}
+
+
+entity Epay{
+    instrumentType String
+    dtFromDate LocalDate
+    dtToDate LocalDate
+    bankCode String
+    bankBranchCode String
+    accountType String
+    accountNo String
+    maxCeilAmount Double
+    installmentAmount Double
+    maxInstallmentAmount Double
+    mandateRefNo String
+    depositBank String
+    mandateType String
+    frequency RepaymentFreqency
+    ifscCode String
+    utrNo String
+    isDeleted Boolean
+    isActive Boolean
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String 
+}
+
+entity EnquiryDetails{
+    customerName String
+    subName String
+    purpose String
+    mobileNo String
+    amount Double
+    refrenceNo String
+    isDeleted Boolean
+    isActive Boolean
+    lastModified Instant 
+    lastModifiedBy String
+    freeField1 String
+    freeField2 String
+    freeField3 String
+    freeField4 String 
+}
+
+entity Notification {
+ 	massage String required 
+ 	notificationType NotificationType
+     isActionRequired Boolean
+     freeField1 String
+     freeField2 String
+     lastModified String required
+ 	lastModifiedBy String required
+ }
+
+ enum NotificationType{
+ 	APPROVAL(Apporoval),
+     REQUEST(Request),
+     ALERT(Alert),
+     TRANSFER(Transfer)
+ }
+
+
+// Some enums are also taken considering the entites of LOS
+enum BranchType{
+     ZONAL_OFFICE(Zonal_Office)
+     BRANCH(Branch)
+}
+
+enum Title{
+     MR(Mr)
+     MRS(Mrs)
+     MISS(Miss)
+}
+
+enum Gender{
+	MALE(Male)
+    FEMALE(Female)
+    TRANSGENDER(Transgender)
+    OTHER(Other)
+}
+
+enum MaritalStatus {
+    MARRIED(Married)
+    SINGLE(Single)
+    DIVORCED(Divorced)
+    WIDOW(Widow)
+    OTHERS(Others)
+}
+
+enum AddressType{
+    CURRENT_ADDRESS(Current_Address)
+    PERMANENT_ADDRESS(Permanent_Address)
+    EMPLOYMENT_ADDRESS(Employment_Address)
+}
+
+enum Occupation{
+    SALARIED(Salaried)
+    BUSINESS(Business)
+    PROFESSIONAL(Professional)
+    SERVICE(Service)
+    SELF_EMPLOYED(Self_Employed)
+    AGRICULTURE(Agriculture)
+    PENSIONER(Pensioner)  
+}
+
+enum CompanyType{
+    GOVERNMENT_SECTOR(Government_Sector)
+    PUBLIC_SECTOR(Public_Sector)
+    PRIVATE_SECTOR(Private_Sector)
+    LOCAL_INDUSTRY(Local_Industry)
+}
+
+enum OrganisationType{
+    SOCIETY(Society)
+    CO_SOCIETY(Co_Society)
+    BANK(Bank)
+    URBAN_BANK(Urban_bank)
+    RURAL_BANK(Rural_bank)
+}
+
+enum EmployementStatus{
+    REGULAR(Regular)
+    TEMPORARY(Temporary)
+    CONTRACT(Contract)
+    PROBATION(Probation)
+}
+
+enum ConstitutionType{
+   SOLE_PROPRIETOR(Sole_Proprietor)
+   INDIVIDUAL(Individual)
+   PARTNERSHIP(Partnership)
+   LLP(Limited_Liability_Partnership)
+   PVT_LTD_COMPANY(Pvt_Ltd_Company)
+}
+
+enum IndustryType{
+    MANUFACTURING(Manufacturing)
+    SERVICE_INDUSTRY(Service_Industry)
+    TRADING(Trading)
+}
+
+enum ResidentalStatus{
+    RESIDENT(Resident)
+    NON_RESIDENT(Non_Resident)
+    OTHER(Other)
+}
+
+enum ParameterLookupType { // needs to discuss about parameters and mata data 
+    RELIGION(Religion)
+    CASTE(Caste)
+    CASTE_CATEGORY(Caste_Category)
+    DOC_CATAGORY(Doc_Catagory)
+    ACCOUNT_TYPE(Account_Type)
+    DEPOSIT_TYPE(Deposit_Type)
+}
+
+enum DeclearationType { // needs to discuss about parameters and mata data 
+    BOR_DECLARATION(Borrower_Declaration)
+    GURE_DECLARATION(Guantor_Declaration)
+    ORG_TERMS(Organisation_Terms)
+}
+
+enum InterestType{
+	FIXED(Fixed)
+    FLOATING(Floating)
+}
+
+enum FacilityStatus{
+    REGULAR(Regular)
+    OVERDUE(OverDue)
+    NPA(Npa)
+}
+
+enum AssetType{
+	FARM_MACHINERY(Farm_Machinery)
+    HOUSE(House)
+    FLAT(Flat)
+    FARM_HOUSE(Farm_House)
+    LAND(Land)
+    INVESTMENT(Investment) // needs to ask about investment treated as assets or not 
+    OTHERS(Others)
+}
+
+enum AssetNature{
+    RESIDENTIAL(Residential)
+    COMMERCIAL(Commercial)
+    OTHER(Other)
+}
+
+enum IncomeType{
+	PRINCIPAL_SOURCE(Principal_Source)
+    OTHER_SOURCE(Other_Source)
+}
+
+enum StepperNumber{
+   STEP_1(Step_1)
+   STEP_2(Step_2)
+   STEP_3(Step_3)
+   STEP_4(Step_4)
+   STEP_5(Step_5)
+   STEP_6(Step_6)  
+}
+enum LoanStatus { // needs to discuss the status of loan status and phases
+    DRAFT(Draft)
+    APPLIED(Applied)
+    VERIFIED(Verified)
+    PENDING(Pending)
+    AWAITED(Awaited)
+    AWAITED_FOR_LEG_VAL(Awaited_For_Legal_n_valuation)
+    APPROVED(Approved)
+    SCANTIONED(Secntioned)
+    REJECTED(Rejected)
+    CANCELLED(cancelled)
+    DISBURSED(Disbursed)
+    ACTIVE(Active)
+    CLOSED(Closed) 
+}
+
+enum Status {
+    DRAFT(Draft)
+    CREATED(Created)
+    DOCUMENT_VERIFIED(Document_Verified)
+    KYC_GENREATED(KYC_Genreated)
+    LOAN_DEMAND(loan_Demand) 
+    LOAN_ACTIVE(Loan_Active)
+    LOAN_CANCELLED(Loan_cancelled)
+    LOAN_CLOSED(Loan_Closed)
+}
+
+enum CreditRating{
+    OUTSTANDING(Outstanding)
+    GOOD(Good)
+    FAIR(Fair)
+    POOR(Poor)
+}
+
+enum VoucherCode{
+   LOAN(By_Loan)
+   DEPOSIT(By_Deposit)
+   SHARES(By_Shares)
+   SALES(By_Sales)
+   PURCHASE(By_Purchase)
+   SAVINGS(By_Savings)
+   EXPENSE(By_Expense)
+   ASSETS(By_Assets)
+   INVESTMENT(By_Investment)
+}
+
+enum PaymentMode {
+   ONLINE(Online_Payment)
+   CASH(Cash_Payment)
+   TRANSFER(Transfer)
+   CHEQUE(By_Cheque)
+   OTHERS(Other_Mode)
+}
+
+enum MappingType{
+	HEADOFFICE(HeadOffice)
+    SHARE(Share)
+    CUSTOMER(Customer)
+    LOAN(Loan)
+    SUNDRY(Sundry)
+    PURCHASE(Purchase)
+    SALES(Sales)
+    LOANPRODUCT(LoanProduct)
+    DEPOSIT(Deposit)
+    BORROWING(Borrowing)
+    INVESTMENT(Investment)
+}
+
+enum NpaClassification{
+	SUB_STANDARD_ASSESTS(Sub_Standard_Assets)
+    DOUBTFUL_1(Doubtful_1)
+    DOUBTFUL_2(Doubtful_2)
+    DOUBTFUL_3(Doubtful_3)
+    SUB_STANDARD(Sub_Standard)
+    STANDARD(Standard)
+}
+
+enum RepaymentFreqency{
+    MONTHLY(Monthly)
+    QUARTERLY(quarterly)
+    HALF_YEARLY(Half_yearly)
+    YEARLY(Yearly)
+}
+
+enum LedgerClassification{
+	BALANCE_SHEET(Balance_Sheet)
+    TRADING_ACCOUNT(Trading_Account)
+    PROFIT_AND_LOSS(Profit_And_Loss)
+}
+
+enum Season{
+    KHARIP(Kharip)
+    RABBI(Rabbi)
+    HANGAMI(Hangami)   
+}
+
+
+relationship OneToOne{
+    Organisation{address} to Address
+    Branch{address} to Address
+    LoanAccount{loanApplications} to LoanApplications
+    Member{enquiryDetails} to EnquiryDetails // needs to be discuss
+    Guarantor{memberAssets} to MemberAssets
+    Guarantor{employementDetails} to EmployementDetails
+    SequenceGenerator{branch} to Branch
+}
+
+relationship ManyToOne {
+    OrgPrerequisiteDoc{product} to Product 
+    LoanDisbursement{product} to Product 
+    InterestConfig{product} to Product
+    Product{loanCatagory} to LoanCatagory
+}
+
+relationship ManyToOne {
+	 District{state} to  State
+     Taluka{district} to District
+     City{taluka} to Taluka
+}
+
+relationship ManyToOne {
+     EnquiryDetails{state} to State
+     EnquiryDetails{district} to District
+	 EnquiryDetails{taluka} to Taluka
+     EnquiryDetails{city} to City
+     EnquiryDetails{product} to Product
+}
+
+relationship ManyToOne {
+     Address{state} to State
+     Address{district} to District
+	 Address{taluka} to Taluka
+     Address{city} to City
+}
+
+relationship ManyToOne{
+    ParameterLookup{organisation} to Organisation
+    OrgPrerequisiteDoc{organisation} to Organisation
+    NpaSetting{organisation} to Organisation
+    SchemesDetails{organisation} to Organisation
+    Product{organisation} to Organisation
+    Region{organisation} to Organisation
+    Declearation{organisation} to Organisation
+    Branch{organisation} to Organisation
+   } 
+
+   relationship ManyToOne{ // need to discuss about the branches scope
+    Branch{branch} to Region
+    SecurityUser{branch} to Branch
+    LedgerAccounts{branch} to Branch
+    Member{branch} to Branch
+   } 
+
+   relationship ManyToOne{
+    Guarantor{member} to Member
+    Member{member} to Member
+    Documents{member} to Member
+    Address{member} to Member
+    MemberBank{member} to Member
+    MemberAssets{member} to Member
+    Nominee{member} to Member
+    IncomeDetails{member} to Member
+    EmployementDetails{member} to Member
+    MemberExistingfacility{member} to Member
+    LoanApplications{member} to Member
+    LoanAccount{member} to Member
+}
+
+relationship ManyToOne{
+    Member{securityUser} to SecurityUser
+    Address{securityUser} to SecurityUser
+    LoanApplications{securityUser} to SecurityUser
+    LoanDisbursement{securityUser} to SecurityUser
+    Notification{securityUser} to SecurityUser
+    RemarkHistory{securityUser} to SecurityUser
+}
+   
+relationship ManyToOne{
+    Product{ledgerAccounts} to LedgerAccounts
+    LedgerAccounts{ledgerAccounts} to LedgerAccounts
+    AccountHeadCode{ledgerAccounts} to LedgerAccounts
+    Documents{guarantor} to Guarantor // needs to discuss
+    }
+
+
+relationship ManyToOne{
+    LoanApplications{product} to Product
+    MemberAssets{loanApplications} to LoanApplications
+    LoanAccount{product} to Product
+    AmortizationDetails{loanAccount} to LoanAccount
+    LoanDisbursement{loanAccount} to LoanAccount
+    LoanRepaymentDetails{loanAccount} to LoanAccount
+    RemarkHistory{loanApplications} to LoanApplications
+}
+
+relationship ManyToMany {
+    SecurityRole{securityPermission(permissionName)} to SecurityPermission{securityRole(roleName)}
+    SecurityUser{securityPermission(permissionName)} to SecurityPermission{securityUser(username)}
+    SecurityUser{securityRole(roleName)} to SecurityRole{securityUser(username)}
+  }
+  
+  
+ // Set pagination options
+paginate * with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfert Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service * with serviceClass
+
+filter *
+// Set an angular suffix
+// angularSuffix * with tvg

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Product.
+    -->
+    <changeSet id="20220929061259-1" author="jhipster">
+        <createTable tableName="product">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="prod_code" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="prod_name" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="bpi_treatment_flag" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="amortization_method" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="amortization_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="compounding_freq" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="emi_rounding" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_row_emi_threshold" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="grace_days" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="resch_lockin_period" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="prepay_after_inst_no" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="prepay_before_inst_no" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="min_installment_gap_bet_prepay" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="min_prepay_amount" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="foreclose_after_inst_no" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="foreclose_before_insta_no" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="min_tenor" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="max_tenor" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="min_installment_amount" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="max_installment_amount" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="drop_line_amount" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="drop_line_odyn" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="drop_line_perc" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="drop_mode" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="drop_l_ine_freq" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="drop_line_cycle_day" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="roi" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_deleted" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_by" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_1" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_3" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_4" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_5" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="free_field_6" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="loan_catagory_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="organisation_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="ledger_accounts_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="product" columnName="last_modified" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220929061259-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/product.csv"
+                  separator=";"
+                  tableName="product"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="prod_code" type="string"/>
+            <column name="prod_name" type="string"/>
+            <column name="bpi_treatment_flag" type="string"/>
+            <column name="amortization_method" type="string"/>
+            <column name="amortization_type" type="string"/>
+            <column name="compounding_freq" type="string"/>
+            <column name="emi_rounding" type="string"/>
+            <column name="last_row_emi_threshold" type="numeric"/>
+            <column name="grace_days" type="numeric"/>
+            <column name="resch_lockin_period" type="numeric"/>
+            <column name="prepay_after_inst_no" type="numeric"/>
+            <column name="prepay_before_inst_no" type="numeric"/>
+            <column name="min_installment_gap_bet_prepay" type="numeric"/>
+            <column name="min_prepay_amount" type="numeric"/>
+            <column name="foreclose_after_inst_no" type="numeric"/>
+            <column name="foreclose_before_insta_no" type="numeric"/>
+            <column name="min_tenor" type="numeric"/>
+            <column name="max_tenor" type="numeric"/>
+            <column name="min_installment_amount" type="numeric"/>
+            <column name="max_installment_amount" type="numeric"/>
+            <column name="drop_line_amount" type="numeric"/>
+            <column name="drop_line_odyn" type="string"/>
+            <column name="drop_line_perc" type="numeric"/>
+            <column name="drop_mode" type="string"/>
+            <column name="drop_l_ine_freq" type="string"/>
+            <column name="drop_line_cycle_day" type="numeric"/>
+            <column name="roi" type="numeric"/>
+            <column name="is_deleted" type="boolean"/>
+            <column name="last_modified" type="date"/>
+            <column name="last_modified_by" type="string"/>
+            <column name="free_field_1" type="string"/>
+            <column name="free_field_2" type="string"/>
+            <column name="free_field_3" type="string"/>
+            <column name="free_field_4" type="string"/>
+            <column name="free_field_5" type="string"/>
+            <column name="free_field_6" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

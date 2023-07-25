@@ -1,0 +1,9 @@
+{
+  "loanOrignationSystemApp": {
+    "IncomeType": {
+      "null": "",
+      "PRINCIPAL_SOURCE": "Principal_Source",
+      "OTHER_SOURCE": "Other_Source"
+    }
+  }
+}

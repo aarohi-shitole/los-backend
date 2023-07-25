@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity EnquiryDetails.
+    -->
+    <changeSet id="20220929061327-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="state_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details__state_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="state"/>
+
+        <addForeignKeyConstraint baseColumnNames="district_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details__district_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="district"/>
+
+        <addForeignKeyConstraint baseColumnNames="taluka_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details__taluka_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taluka"/>
+
+        <addForeignKeyConstraint baseColumnNames="city_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details__city_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="city"/>
+
+        <addForeignKeyConstraint baseColumnNames="product_id"
+                                 baseTableName="enquiry_details"
+                                 constraintName="fk_enquiry_details__product_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="product"/>
+    </changeSet>
+</databaseChangeLog>

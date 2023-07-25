@@ -1,0 +1,388 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-security-user-heading"
+        data-cy="SecurityUserCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.securityUser.home.createOrEditLabel"
+      >
+        Create or edit a Security User
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.firstName" for="field_firstName">First Name</label>
+          <input type="text" class="form-control" name="firstName" id="field_firstName" data-cy="firstName" formControlName="firstName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.lastName" for="field_lastName">Last Name</label>
+          <input type="text" class="form-control" name="lastName" id="field_lastName" data-cy="lastName" formControlName="lastName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.designation" for="field_designation"
+            >Designation</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="designation"
+            id="field_designation"
+            data-cy="designation"
+            formControlName="designation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.username" for="field_username">Username</label>
+          <input type="text" class="form-control" name="username" id="field_username" data-cy="username" formControlName="username" />
+          <div *ngIf="editForm.get('username')!.invalid && (editForm.get('username')!.dirty || editForm.get('username')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('username')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.passwordHash" for="field_passwordHash"
+            >Password Hash</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="passwordHash"
+            id="field_passwordHash"
+            data-cy="passwordHash"
+            formControlName="passwordHash"
+          />
+          <div
+            *ngIf="editForm.get('passwordHash')!.invalid && (editForm.get('passwordHash')!.dirty || editForm.get('passwordHash')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('passwordHash')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.mobileNo" for="field_mobileNo">Mobile No</label>
+          <input type="text" class="form-control" name="mobileNo" id="field_mobileNo" data-cy="mobileNo" formControlName="mobileNo" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)"></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.description" for="field_description"
+            >Description</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.department" for="field_department">Department</label>
+          <input
+            type="text"
+            class="form-control"
+            name="department"
+            id="field_department"
+            data-cy="department"
+            formControlName="department"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.imageUrl" for="field_imageUrl">Image Url</label>
+          <div>
+            <div *ngIf="editForm.get('imageUrl')!.value" class="form-text text-danger clearfix">
+              <a
+                class="pull-start"
+                (click)="openFile(editForm.get('imageUrl')!.value!, editForm.get('imageUrlContentType')!.value!)"
+                jhiTranslate="entity.action.open"
+                >Open</a
+              ><br />
+              <span class="pull-start"
+                >{{ editForm.get('imageUrlContentType')!.value }}, {{ byteSize(editForm.get('imageUrl')!.value!) }}</span
+              >
+              <button
+                type="button"
+                (click)="editForm.patchValue({ imageUrl: undefined, imageUrlContentType: undefined })"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_imageUrl"
+              data-cy="imageUrl"
+              (change)="setFileData($event, 'imageUrl', false)"
+              jhiTranslate="entity.action.addblob"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="imageUrl" id="field_imageUrl" data-cy="imageUrl" formControlName="imageUrl" />
+          <input
+            type="hidden"
+            class="form-control"
+            name="imageUrlContentType"
+            id="field_imageUrlContentType"
+            formControlName="imageUrlContentType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.isActivated" for="field_isActivated"
+            >Is Activated</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isActivated"
+            id="field_isActivated"
+            data-cy="isActivated"
+            formControlName="isActivated"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.langKey" for="field_langKey">Lang Key</label>
+          <input type="text" class="form-control" name="langKey" id="field_langKey" data-cy="langKey" formControlName="langKey" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.activationKey" for="field_activationKey"
+            >Activation Key</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="activationKey"
+            id="field_activationKey"
+            data-cy="activationKey"
+            formControlName="activationKey"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.resetKey" for="field_resetKey">Reset Key</label>
+          <input type="text" class="form-control" name="resetKey" id="field_resetKey" data-cy="resetKey" formControlName="resetKey" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.resetDate" for="field_resetDate">Reset Date</label>
+          <div class="d-flex">
+            <input
+              id="field_resetDate"
+              data-cy="resetDate"
+              type="datetime-local"
+              class="form-control"
+              name="resetDate"
+              formControlName="resetDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.freeField1" for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.freeField2" for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.freeField3" for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.freeField4" for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.securityUser.branch" for="field_branch">Branch</label>
+          <select
+            class="form-control"
+            id="field_branch"
+            data-cy="branch"
+            name="branch"
+            formControlName="branch"
+            [compareWith]="compareBranch"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="branchOption" *ngFor="let branchOption of branchesSharedCollection">{{ branchOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="loanOrignationSystemApp.securityUser.securityPermission" for="field_securityPermissions"
+            >Security Permission</label
+          >
+          <select
+            class="form-control"
+            id="field_securityPermissions"
+            data-cy="securityPermission"
+            multiple
+            name="securityPermissions"
+            formControlName="securityPermissions"
+            [compareWith]="compareSecurityPermission"
+          >
+            <option [ngValue]="securityPermissionOption" *ngFor="let securityPermissionOption of securityPermissionsSharedCollection">
+              {{ securityPermissionOption.permissionName }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="loanOrignationSystemApp.securityUser.securityRole" for="field_securityRoles">Security Role</label>
+          <select
+            class="form-control"
+            id="field_securityRoles"
+            data-cy="securityRole"
+            multiple
+            name="securityRoles"
+            formControlName="securityRoles"
+            [compareWith]="compareSecurityRole"
+          >
+            <option [ngValue]="securityRoleOption" *ngFor="let securityRoleOption of securityRolesSharedCollection">
+              {{ securityRoleOption.roleName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

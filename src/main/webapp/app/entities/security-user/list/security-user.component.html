@@ -1,0 +1,281 @@
+<div>
+  <h2 id="page-heading" data-cy="SecurityUserHeading">
+    <span jhiTranslate="loanOrignationSystemApp.securityUser.home.title">Security Users</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.securityUser.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-security-user"
+        [routerLink]="['/security-user/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.securityUser.home.createLabel"> Create a new Security User </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="securityUsers?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.securityUser.home.notFound">No Security Users found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="securityUsers && securityUsers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="designation">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.designation">Designation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="username">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.username">Username</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="passwordHash">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.passwordHash">Password Hash</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mobileNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.mobileNo">Mobile No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="description">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.description">Description</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="department">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.department">Department</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="imageUrl">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.imageUrl">Image Url</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isActivated">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.isActivated">Is Activated</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="langKey">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.langKey">Lang Key</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="activationKey">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.activationKey">Activation Key</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="resetKey">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.resetKey">Reset Key</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="resetDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.resetDate">Reset Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="branch.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.securityUser.branch">Branch</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let securityUser of securityUsers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/security-user', securityUser.id, 'view']">{{ securityUser.id }}</a>
+          </td>
+          <td>{{ securityUser.firstName }}</td>
+          <td>{{ securityUser.lastName }}</td>
+          <td>{{ securityUser.designation }}</td>
+          <td>{{ securityUser.username }}</td>
+          <td>{{ securityUser.passwordHash }}</td>
+          <td>{{ securityUser.mobileNo }}</td>
+          <td>{{ securityUser.email }}</td>
+          <td>{{ securityUser.description }}</td>
+          <td>{{ securityUser.department }}</td>
+          <td>
+            <a
+              *ngIf="securityUser.imageUrl"
+              (click)="openFile(securityUser.imageUrl, securityUser.imageUrlContentType)"
+              jhiTranslate="entity.action.open"
+              >Open</a
+            >
+            <span *ngIf="securityUser.imageUrl">{{ securityUser.imageUrlContentType }}, {{ byteSize(securityUser.imageUrl) }}</span>
+          </td>
+          <td>{{ securityUser.isActivated }}</td>
+          <td>{{ securityUser.langKey }}</td>
+          <td>{{ securityUser.activationKey }}</td>
+          <td>{{ securityUser.resetKey }}</td>
+          <td>{{ securityUser.resetDate | formatMediumDatetime }}</td>
+          <td>{{ securityUser.createdBy }}</td>
+          <td>{{ securityUser.createdOn | formatMediumDatetime }}</td>
+          <td>{{ securityUser.lastModified | formatMediumDatetime }}</td>
+          <td>{{ securityUser.lastModifiedBy }}</td>
+          <td>{{ securityUser.freeField1 }}</td>
+          <td>{{ securityUser.freeField2 }}</td>
+          <td>{{ securityUser.freeField3 }}</td>
+          <td>{{ securityUser.freeField4 }}</td>
+          <td>
+            <div *ngIf="securityUser.branch">
+              <a [routerLink]="['/branch', securityUser.branch.id, 'view']">{{ securityUser.branch.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/security-user', securityUser.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/security-user', securityUser.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(securityUser)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="securityUsers && securityUsers.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

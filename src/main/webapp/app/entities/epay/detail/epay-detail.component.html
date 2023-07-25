@@ -1,0 +1,124 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="epay">
+      <h2 data-cy="epayDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.epay.detail.title">Epay</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ epay.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.instrumentType">Instrument Type</span></dt>
+        <dd>
+          <span>{{ epay.instrumentType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.dtFromDate">Dt From Date</span></dt>
+        <dd>
+          <span>{{ epay.dtFromDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.dtToDate">Dt To Date</span></dt>
+        <dd>
+          <span>{{ epay.dtToDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.bankCode">Bank Code</span></dt>
+        <dd>
+          <span>{{ epay.bankCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.bankBranchCode">Bank Branch Code</span></dt>
+        <dd>
+          <span>{{ epay.bankBranchCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.accountType">Account Type</span></dt>
+        <dd>
+          <span>{{ epay.accountType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.accountNo">Account No</span></dt>
+        <dd>
+          <span>{{ epay.accountNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.maxCeilAmount">Max Ceil Amount</span></dt>
+        <dd>
+          <span>{{ epay.maxCeilAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.installmentAmount">Installment Amount</span></dt>
+        <dd>
+          <span>{{ epay.installmentAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.maxInstallmentAmount">Max Installment Amount</span></dt>
+        <dd>
+          <span>{{ epay.maxInstallmentAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.mandateRefNo">Mandate Ref No</span></dt>
+        <dd>
+          <span>{{ epay.mandateRefNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.depositBank">Deposit Bank</span></dt>
+        <dd>
+          <span>{{ epay.depositBank }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.mandateType">Mandate Type</span></dt>
+        <dd>
+          <span>{{ epay.mandateType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.frequency">Frequency</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.RepaymentFreqency.' + epay.frequency }}">{{ epay.frequency }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.ifscCode">Ifsc Code</span></dt>
+        <dd>
+          <span>{{ epay.ifscCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.utrNo">Utr No</span></dt>
+        <dd>
+          <span>{{ epay.utrNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ epay.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.isActive">Is Active</span></dt>
+        <dd>
+          <span>{{ epay.isActive }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ epay.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ epay.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ epay.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ epay.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ epay.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.epay.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ epay.freeField4 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/epay', epay.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

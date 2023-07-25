@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Guarantor.
+    -->
+    <changeSet id="20220929061302-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="member_assets_id"
+                                 baseTableName="guarantor"
+                                 constraintName="fk_guarantor__member_assets_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="member_assets"/>
+
+        <addForeignKeyConstraint baseColumnNames="employement_details_id"
+                                 baseTableName="guarantor"
+                                 constraintName="fk_guarantor__employement_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employement_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="member_id"
+                                 baseTableName="guarantor"
+                                 constraintName="fk_guarantor__member_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="member"/>
+    </changeSet>
+</databaseChangeLog>

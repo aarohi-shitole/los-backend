@@ -1,0 +1,178 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061310",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "loan_applications",
+  "fields": [
+    {
+      "fieldName": "applicationNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "demandAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "loanPurpose",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "LoanStatus",
+      "fieldValues": "DRAFT (Draft),APPLIED (Applied),VERIFIED (Verified),PENDING (Pending),AWAITED (Awaited),AWAITED_FOR_LEG_VAL (Awaited_For_Legal_n_valuation),APPROVED (Approved),SCANTIONED (Secntioned),REJECTED (Rejected),CANCELLED (cancelled),DISBURSED (Disbursed),ACTIVE (Active),CLOSED (Closed)"
+    },
+    {
+      "fieldName": "demandedLandAreaInHector",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "seasonOfCropLoan",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "loanSteps",
+      "fieldType": "StepperNumber",
+      "fieldValues": "STEP_1 (Step_1),STEP_2 (Step_2),STEP_3 (Step_3),STEP_4 (Step_4),STEP_5 (Step_5),STEP_6 (Step_6)"
+    },
+    {
+      "fieldName": "isInsured",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "loanBenefitingArea",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "costOfInvestment",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "mortgageDeedNo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "mortgageDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "extentMorgageValue",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "downPaymentAmt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "ltvRatio",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "processingFee",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "penalInterest",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "moratorium",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "roi",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "commityAmt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "commityRoi",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "sectionAmt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "senctionRoi",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "year",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "assignedTo",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "assignedFrom",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "securityDocUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField7",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "LoanApplications",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "member",
+      "relationshipName": "member",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "securityUser",
+      "relationshipName": "securityUser",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

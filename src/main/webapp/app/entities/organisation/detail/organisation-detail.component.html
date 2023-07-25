@@ -1,0 +1,124 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="organisation">
+      <h2 data-cy="organisationDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.organisation.detail.title">Organisation</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ organisation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.orgName">Org Name</span></dt>
+        <dd>
+          <span>{{ organisation.orgName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.description">Description</span></dt>
+        <dd>
+          <span>{{ organisation.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.regNumber">Reg Number</span></dt>
+        <dd>
+          <span>{{ organisation.regNumber }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.gstin">Gstin</span></dt>
+        <dd>
+          <span>{{ organisation.gstin }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.pan">Pan</span></dt>
+        <dd>
+          <span>{{ organisation.pan }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.tan">Tan</span></dt>
+        <dd>
+          <span>{{ organisation.tan }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.phone">Phone</span></dt>
+        <dd>
+          <span>{{ organisation.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.email">Email</span></dt>
+        <dd>
+          <span>{{ organisation.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.webSite">Web Site</span></dt>
+        <dd>
+          <span>{{ organisation.webSite }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.fax">Fax</span></dt>
+        <dd>
+          <span>{{ organisation.fax }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.isActivate">Is Activate</span></dt>
+        <dd>
+          <span>{{ organisation.isActivate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.orgType">Org Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.OrganisationType.' + organisation.orgType }}">{{ organisation.orgType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ organisation.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ organisation.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ organisation.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ organisation.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ organisation.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ organisation.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ organisation.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ organisation.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ organisation.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ organisation.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.organisation.address">Address</span></dt>
+        <dd>
+          <div *ngIf="organisation.address">
+            <a [routerLink]="['/address', organisation.address.id, 'view']">{{ organisation.address.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/organisation', organisation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

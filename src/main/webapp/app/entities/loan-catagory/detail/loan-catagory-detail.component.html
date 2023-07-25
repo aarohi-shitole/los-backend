@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="loanCatagory">
+      <h2 data-cy="loanCatagoryDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.loanCatagory.detail.title">Loan Catagory</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ loanCatagory.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.productName">Product Name</span></dt>
+        <dd>
+          <span>{{ loanCatagory.productName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.decription">Decription</span></dt>
+        <dd>
+          <span>{{ loanCatagory.decription }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.value">Value</span></dt>
+        <dd>
+          <span>{{ loanCatagory.value }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.code">Code</span></dt>
+        <dd>
+          <span>{{ loanCatagory.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.offer">Offer</span></dt>
+        <dd>
+          <span>{{ loanCatagory.offer }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ loanCatagory.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ loanCatagory.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ loanCatagory.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ loanCatagory.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ loanCatagory.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ loanCatagory.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ loanCatagory.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ loanCatagory.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanCatagory.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ loanCatagory.freeField4 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/loan-catagory', loanCatagory.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="documents">
+      <h2 data-cy="documentsDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.documents.detail.title">Documents</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ documents.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.docType">Doc Type</span></dt>
+        <dd>
+          <span>{{ documents.docType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.docSubType">Doc Sub Type</span></dt>
+        <dd>
+          <span>{{ documents.docSubType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.tag">Tag</span></dt>
+        <dd>
+          <span>{{ documents.tag }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.fileName">File Name</span></dt>
+        <dd>
+          <span>{{ documents.fileName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.filePath">File Path</span></dt>
+        <dd>
+          <span>{{ documents.filePath }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.fileUrl">File Url</span></dt>
+        <dd>
+          <span>{{ documents.fileUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.refrenceId">Refrence Id</span></dt>
+        <dd>
+          <span>{{ documents.refrenceId }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.hasVerified">Has Verified</span></dt>
+        <dd>
+          <span>{{ documents.hasVerified }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.remark">Remark</span></dt>
+        <dd>
+          <span>{{ documents.remark }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ documents.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ documents.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ documents.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ documents.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ documents.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ documents.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ documents.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ documents.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ documents.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ documents.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.member">Member</span></dt>
+        <dd>
+          <div *ngIf="documents.member">
+            <a [routerLink]="['/member', documents.member.id, 'view']">{{ documents.member.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.documents.guarantor">Guarantor</span></dt>
+        <dd>
+          <div *ngIf="documents.guarantor">
+            <a [routerLink]="['/guarantor', documents.guarantor.id, 'view']">{{ documents.guarantor.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/documents', documents.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,128 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="interestConfig">
+      <h2 data-cy="interestConfigDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.interestConfig.detail.title">Interest Config</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ interestConfig.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.startDate">Start Date</span></dt>
+        <dd>
+          <span>{{ interestConfig.startDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.endDate">End Date</span></dt>
+        <dd>
+          <span>{{ interestConfig.endDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.interestBasis">Interest Basis</span></dt>
+        <dd>
+          <span>{{ interestConfig.interestBasis }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.emiBasis">Emi Basis</span></dt>
+        <dd>
+          <span>{{ interestConfig.emiBasis }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.interestType">Interest Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.InterestType.' + interestConfig.interestType }}">{{
+            interestConfig.interestType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.intrAccrualFreq">Intr Accrual Freq</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.RepaymentFreqency.' + interestConfig.intrAccrualFreq }}">{{
+            interestConfig.intrAccrualFreq
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.penalInterestRate">Penal Interest Rate</span></dt>
+        <dd>
+          <span>{{ interestConfig.penalInterestRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.penalInterestBasis">Penal Interest Basis</span></dt>
+        <dd>
+          <span>{{ interestConfig.penalInterestBasis }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.penalAccountingBasis">Penal Accounting Basis</span></dt>
+        <dd>
+          <span>{{ interestConfig.penalAccountingBasis }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.minInterestRate">Min Interest Rate</span></dt>
+        <dd>
+          <span>{{ interestConfig.minInterestRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.maxInterestRate">Max Interest Rate</span></dt>
+        <dd>
+          <span>{{ interestConfig.maxInterestRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.extendedInterestRate">Extended Interest Rate</span></dt>
+        <dd>
+          <span>{{ interestConfig.extendedInterestRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.surchargeRate">Surcharge Rate</span></dt>
+        <dd>
+          <span>{{ interestConfig.surchargeRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ interestConfig.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ interestConfig.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ interestConfig.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ interestConfig.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ interestConfig.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ interestConfig.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ interestConfig.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ interestConfig.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ interestConfig.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.interestConfig.product">Product</span></dt>
+        <dd>
+          <div *ngIf="interestConfig.product">
+            <a [routerLink]="['/product', interestConfig.product.id, 'view']">{{ interestConfig.product.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/interest-config', interestConfig.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

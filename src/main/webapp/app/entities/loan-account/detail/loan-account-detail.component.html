@@ -1,0 +1,152 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="loanAccount">
+      <h2 data-cy="loanAccountDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.loanAccount.detail.title">Loan Account</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ loanAccount.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.loanAmount">Loan Amount</span></dt>
+        <dd>
+          <span>{{ loanAccount.loanAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.applicationNo">Application No</span></dt>
+        <dd>
+          <span>{{ loanAccount.applicationNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.LoanStatus.' + loanAccount.status }}">{{ loanAccount.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.loanStartDate">Loan Start Date</span></dt>
+        <dd>
+          <span>{{ loanAccount.loanStartDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.loanEndDate">Loan End Date</span></dt>
+        <dd>
+          <span>{{ loanAccount.loanEndDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.loanPlannedClosureDate">Loan Planned Closure Date</span></dt>
+        <dd>
+          <span>{{ loanAccount.loanPlannedClosureDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.loanCloserDate">Loan Closer Date</span></dt>
+        <dd>
+          <span>{{ loanAccount.loanCloserDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.emiStartDate">Emi Start Date</span></dt>
+        <dd>
+          <span>{{ loanAccount.emiStartDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.loanNpaClass">Loan Npa Class</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.NpaClassification.' + loanAccount.loanNpaClass }}">{{
+            loanAccount.loanNpaClass
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.parentAccHeadCode">Parent Acc Head Code</span></dt>
+        <dd>
+          <span>{{ loanAccount.parentAccHeadCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.loanAccountName">Loan Account Name</span></dt>
+        <dd>
+          <span>{{ loanAccount.loanAccountName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.disbursementAmt">Disbursement Amt</span></dt>
+        <dd>
+          <span>{{ loanAccount.disbursementAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.disbursementStatus">Disbursement Status</span></dt>
+        <dd>
+          <span>{{ loanAccount.disbursementStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.repaymentPeriod">Repayment Period</span></dt>
+        <dd>
+          <span>{{ loanAccount.repaymentPeriod }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.year">Year</span></dt>
+        <dd>
+          <span>{{ loanAccount.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.processingFee">Processing Fee</span></dt>
+        <dd>
+          <span>{{ loanAccount.processingFee }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.moratorium">Moratorium</span></dt>
+        <dd>
+          <span>{{ loanAccount.moratorium }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.roi">Roi</span></dt>
+        <dd>
+          <span>{{ loanAccount.roi }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ loanAccount.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ loanAccount.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ loanAccount.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ loanAccount.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ loanAccount.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ loanAccount.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ loanAccount.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ loanAccount.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.loanApplications">Loan Applications</span></dt>
+        <dd>
+          <div *ngIf="loanAccount.loanApplications">
+            <a [routerLink]="['/loan-applications', loanAccount.loanApplications.id, 'view']">{{ loanAccount.loanApplications.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.member">Member</span></dt>
+        <dd>
+          <div *ngIf="loanAccount.member">
+            <a [routerLink]="['/member', loanAccount.member.id, 'view']">{{ loanAccount.member.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanAccount.product">Product</span></dt>
+        <dd>
+          <div *ngIf="loanAccount.product">
+            <a [routerLink]="['/product', loanAccount.product.id, 'view']">{{ loanAccount.product.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/loan-account', loanAccount.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

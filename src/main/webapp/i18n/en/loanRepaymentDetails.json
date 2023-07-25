@@ -1,0 +1,43 @@
+{
+  "loanOrignationSystemApp": {
+    "loanRepaymentDetails": {
+      "home": {
+        "title": "Loan Repayment Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Loan Repayment Details",
+        "createOrEditLabel": "Create or edit a Loan Repayment Details",
+        "notFound": "No Loan Repayment Details found"
+      },
+      "created": "A new Loan Repayment Details is created with identifier {{ param }}",
+      "updated": "A Loan Repayment Details is updated with identifier {{ param }}",
+      "deleted": "A Loan Repayment Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Loan Repayment Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Loan Repayment Details"
+      },
+      "id": "ID",
+      "repaymentDate": "Repayment Date",
+      "totalRepaymentAmt": "Total Repayment Amt",
+      "installmentNumber": "Installment Number",
+      "principlePaidAmt": "Principle Paid Amt",
+      "interestPaidAmt": "Interest Paid Amt",
+      "surChargeAmt": "Sur Charge Amt",
+      "overDueAmt": "Over Due Amt",
+      "balanceInterestAmt": "Balance Interest Amt",
+      "balancePrincipleAmt": "Balance Principle Amt",
+      "paymentMode": "Payment Mode",
+      "foreClosureChargeAmt": "Fore Closure Charge Amt",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "loanAccount": "Loan Account"
+    }
+  }
+}

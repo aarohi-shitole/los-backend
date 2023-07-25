@@ -1,0 +1,9 @@
+{
+  "loanOrignationSystemApp": {
+    "InterestType": {
+      "null": "",
+      "FIXED": "Fixed",
+      "FLOATING": "Floating"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "loanOrignationSystemApp": {
+    "securityUser": {
+      "home": {
+        "title": "Security Users",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Security User",
+        "createOrEditLabel": "Create or edit a Security User",
+        "notFound": "No Security Users found"
+      },
+      "created": "A new Security User is created with identifier {{ param }}",
+      "updated": "A Security User is updated with identifier {{ param }}",
+      "deleted": "A Security User is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Security User {{ id }}?"
+      },
+      "detail": {
+        "title": "Security User"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "designation": "Designation",
+      "username": "Username",
+      "passwordHash": "Password Hash",
+      "mobileNo": "Mobile No",
+      "email": "Email",
+      "description": "Description",
+      "department": "Department",
+      "imageUrl": "Image Url",
+      "isActivated": "Is Activated",
+      "langKey": "Lang Key",
+      "activationKey": "Activation Key",
+      "resetKey": "Reset Key",
+      "resetDate": "Reset Date",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "branch": "Branch",
+      "securityPermission": "Security Permission",
+      "securityRole": "Security Role"
+    }
+  }
+}

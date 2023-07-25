@@ -1,0 +1,53 @@
+{
+  "loanOrignationSystemApp": {
+    "memberAssets": {
+      "home": {
+        "title": "Member Assets",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Member Assets",
+        "createOrEditLabel": "Create or edit a Member Assets",
+        "notFound": "No Member Assets found"
+      },
+      "created": "A new Member Assets is created with identifier {{ param }}",
+      "updated": "A Member Assets is updated with identifier {{ param }}",
+      "deleted": "A Member Assets is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Member Assets {{ id }}?"
+      },
+      "detail": {
+        "title": "Member Assets"
+      },
+      "id": "ID",
+      "assetCost": "Asset Cost",
+      "assetType": "Asset Type",
+      "areaInSqFt": "Area In Sq Ft",
+      "assetNature": "Asset Nature",
+      "address": "Address",
+      "landMark": "Land Mark",
+      "assetOwner": "Asset Owner",
+      "completionYear": "Completion Year",
+      "marketValue": "Market Value",
+      "isInsured": "Is Insured",
+      "isUnderUsed": "Is Under Used",
+      "isOwned": "Is Owned",
+      "landType": "Land Type",
+      "landGatNo": "Land Gat No",
+      "landAreaInHector": "Land Area In Hector",
+      "jindagiPatrakNo": "Jindagi Patrak No",
+      "jindagiAmount": "Jindagi Amount",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "isDeleted": "Is Deleted",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "member": "Member",
+      "loanApplications": "Loan Applications"
+    }
+  }
+}

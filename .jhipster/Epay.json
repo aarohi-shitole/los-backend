@@ -1,0 +1,113 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061326",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "epay",
+  "fields": [
+    {
+      "fieldName": "instrumentType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dtFromDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dtToDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "bankCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bankBranchCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maxCeilAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "installmentAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "maxInstallmentAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "mandateRefNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "depositBank",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mandateType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "frequency",
+      "fieldType": "RepaymentFreqency",
+      "fieldValues": "MONTHLY (Monthly),QUARTERLY (quarterly),HALF_YEARLY (Half_yearly),YEARLY (Yearly)"
+    },
+    {
+      "fieldName": "ifscCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "utrNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Epay",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

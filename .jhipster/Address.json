@@ -1,0 +1,128 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061249",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "address",
+  "fields": [
+    {
+      "fieldName": "addrStatus",
+      "fieldType": "AddressType",
+      "fieldValues": "CURRENT_ADDRESS (Current_Address),PERMANENT_ADDRESS (Permanent_Address),EMPLOYMENT_ADDRESS (Employment_Address)"
+    },
+    {
+      "fieldName": "addressLine1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addressLine2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "addressLine3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "landMark",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pincode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "longitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "latitude",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "mapNevUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isPrefferedAdd",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Address",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "state",
+      "relationshipName": "state",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "district",
+      "relationshipName": "district",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "taluka",
+      "relationshipName": "taluka",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "city",
+      "relationshipName": "city",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "member",
+      "relationshipName": "member",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "securityUser",
+      "relationshipName": "securityUser",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

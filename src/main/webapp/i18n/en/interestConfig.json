@@ -1,0 +1,46 @@
+{
+  "loanOrignationSystemApp": {
+    "interestConfig": {
+      "home": {
+        "title": "Interest Configs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Interest Config",
+        "createOrEditLabel": "Create or edit a Interest Config",
+        "notFound": "No Interest Configs found"
+      },
+      "created": "A new Interest Config is created with identifier {{ param }}",
+      "updated": "A Interest Config is updated with identifier {{ param }}",
+      "deleted": "A Interest Config is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Interest Config {{ id }}?"
+      },
+      "detail": {
+        "title": "Interest Config"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "interestBasis": "Interest Basis",
+      "emiBasis": "Emi Basis",
+      "interestType": "Interest Type",
+      "intrAccrualFreq": "Intr Accrual Freq",
+      "penalInterestRate": "Penal Interest Rate",
+      "penalInterestBasis": "Penal Interest Basis",
+      "penalAccountingBasis": "Penal Accounting Basis",
+      "minInterestRate": "Min Interest Rate",
+      "maxInterestRate": "Max Interest Rate",
+      "extendedInterestRate": "Extended Interest Rate",
+      "surchargeRate": "Surcharge Rate",
+      "isDeleted": "Is Deleted",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "product": "Product"
+    }
+  }
+}

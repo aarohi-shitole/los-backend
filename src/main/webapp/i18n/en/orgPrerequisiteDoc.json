@@ -1,0 +1,39 @@
+{
+  "loanOrignationSystemApp": {
+    "orgPrerequisiteDoc": {
+      "home": {
+        "title": "Org Prerequisite Docs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Org Prerequisite Doc",
+        "createOrEditLabel": "Create or edit a Org Prerequisite Doc",
+        "notFound": "No Org Prerequisite Docs found"
+      },
+      "created": "A new Org Prerequisite Doc is created with identifier {{ param }}",
+      "updated": "A Org Prerequisite Doc is updated with identifier {{ param }}",
+      "deleted": "A Org Prerequisite Doc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Org Prerequisite Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Org Prerequisite Doc"
+      },
+      "id": "ID",
+      "docDesc": "Doc Desc",
+      "docName": "Doc Name",
+      "docCatagory": "Doc Catagory",
+      "ismandatory": "Ismandatory",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "isDeleted": "Is Deleted",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "product": "Product",
+      "organisation": "Organisation"
+    }
+  }
+}

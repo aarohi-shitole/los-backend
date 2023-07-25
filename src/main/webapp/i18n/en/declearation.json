@@ -1,0 +1,38 @@
+{
+  "loanOrignationSystemApp": {
+    "declearation": {
+      "home": {
+        "title": "Declearations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Declearation",
+        "createOrEditLabel": "Create or edit a Declearation",
+        "notFound": "No Declearations found"
+      },
+      "created": "A new Declearation is created with identifier {{ param }}",
+      "updated": "A Declearation is updated with identifier {{ param }}",
+      "deleted": "A Declearation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Declearation {{ id }}?"
+      },
+      "detail": {
+        "title": "Declearation"
+      },
+      "id": "ID",
+      "tiltle": "Tiltle",
+      "type": "Type",
+      "description": "Description",
+      "tag": "Tag",
+      "subType": "Sub Type",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "isDeleted": "Is Deleted",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "organisation": "Organisation"
+    }
+  }
+}

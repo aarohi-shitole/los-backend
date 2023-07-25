@@ -1,0 +1,122 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="nominee">
+      <h2 data-cy="nomineeDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.nominee.detail.title">Nominee</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ nominee.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ nominee.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ nominee.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.fatherName">Father Name</span></dt>
+        <dd>
+          <span>{{ nominee.fatherName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.motherName">Mother Name</span></dt>
+        <dd>
+          <span>{{ nominee.motherName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.guardianName">Guardian Name</span></dt>
+        <dd>
+          <span>{{ nominee.guardianName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.gender">Gender</span></dt>
+        <dd>
+          <span>{{ nominee.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.dob">Dob</span></dt>
+        <dd>
+          <span>{{ nominee.dob | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.aadharCard">Aadhar Card</span></dt>
+        <dd>
+          <span>{{ nominee.aadharCard }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.nomineeDeclareDate">Nominee Declare Date</span></dt>
+        <dd>
+          <span>{{ nominee.nomineeDeclareDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.relation">Relation</span></dt>
+        <dd>
+          <span>{{ nominee.relation }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.permanentAddr">Permanent Addr</span></dt>
+        <dd>
+          <span>{{ nominee.permanentAddr }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.nomineePercentage">Nominee Percentage</span></dt>
+        <dd>
+          <span>{{ nominee.nomineePercentage }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ nominee.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ nominee.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ nominee.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ nominee.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.isActive">Is Active</span></dt>
+        <dd>
+          <span>{{ nominee.isActive }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ nominee.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ nominee.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ nominee.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ nominee.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ nominee.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.nominee.member">Member</span></dt>
+        <dd>
+          <div *ngIf="nominee.member">
+            <a [routerLink]="['/member', nominee.member.id, 'view']">{{ nominee.member.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/nominee', nominee.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

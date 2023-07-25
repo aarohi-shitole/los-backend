@@ -1,0 +1,72 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="sequenceGenerator">
+      <h2 data-cy="sequenceGeneratorDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.detail.title">Sequence Generator</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.nextValMember">Next Val Member</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.nextValMember }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.nextValLoanApp">Next Val Loan App</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.nextValLoanApp }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.nextValLoanAccount">Next Val Loan Account</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.nextValLoanAccount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.nextValVoucher">Next Val Voucher</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.nextValVoucher }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ sequenceGenerator.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.sequenceGenerator.branch">Branch</span></dt>
+        <dd>
+          <div *ngIf="sequenceGenerator.branch">
+            <a [routerLink]="['/branch', sequenceGenerator.branch.id, 'view']">{{ sequenceGenerator.branch.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/sequence-generator', sequenceGenerator.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

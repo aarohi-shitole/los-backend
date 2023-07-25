@@ -1,0 +1,226 @@
+<div>
+  <h2 id="page-heading" data-cy="NpaSettingHeading">
+    <span jhiTranslate="loanOrignationSystemApp.npaSetting.home.title">Npa Settings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.npaSetting.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-npa-setting"
+        [routerLink]="['/npa-setting/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.npaSetting.home.createLabel"> Create a new Npa Setting </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="npaSettings?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.npaSetting.home.notFound">No Npa Settings found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="npaSettings && npaSettings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="npaClassification">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.npaClassification">Npa Classification</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationStart">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.durationStart">Duration Start</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="durationEnd">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.durationEnd">Duration End</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="provision">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.provision">Provision</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="year">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.year">Year</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="interestRate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.interestRate">Interest Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="organisation.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.npaSetting.organisation">Organisation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let npaSetting of npaSettings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/npa-setting', npaSetting.id, 'view']">{{ npaSetting.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.NpaClassification.' + npaSetting.npaClassification }}">
+            {{ npaSetting.npaClassification }}
+          </td>
+          <td>{{ npaSetting.durationStart }}</td>
+          <td>{{ npaSetting.durationEnd }}</td>
+          <td>{{ npaSetting.provision }}</td>
+          <td>{{ npaSetting.year }}</td>
+          <td>{{ npaSetting.interestRate }}</td>
+          <td>{{ npaSetting.lastModified | formatMediumDatetime }}</td>
+          <td>{{ npaSetting.lastModifiedBy }}</td>
+          <td>{{ npaSetting.createdBy }}</td>
+          <td>{{ npaSetting.createdOn | formatMediumDatetime }}</td>
+          <td>{{ npaSetting.isDeleted }}</td>
+          <td>{{ npaSetting.freeField1 }}</td>
+          <td>{{ npaSetting.freeField2 }}</td>
+          <td>{{ npaSetting.freeField3 }}</td>
+          <td>{{ npaSetting.freeField4 }}</td>
+          <td>{{ npaSetting.freeField5 }}</td>
+          <td>
+            <div *ngIf="npaSetting.organisation">
+              <a [routerLink]="['/organisation', npaSetting.organisation.id, 'view']">{{ npaSetting.organisation.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/npa-setting', npaSetting.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/npa-setting', npaSetting.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(npaSetting)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="npaSettings && npaSettings.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

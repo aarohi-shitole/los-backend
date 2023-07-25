@@ -1,0 +1,252 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-documents-heading"
+        data-cy="DocumentsCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.documents.home.createOrEditLabel"
+      >
+        Create or edit a Documents
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.docType" for="field_docType">Doc Type</label>
+          <input type="text" class="form-control" name="docType" id="field_docType" data-cy="docType" formControlName="docType" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.docSubType" for="field_docSubType">Doc Sub Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="docSubType"
+            id="field_docSubType"
+            data-cy="docSubType"
+            formControlName="docSubType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.tag" for="field_tag">Tag</label>
+          <input type="text" class="form-control" name="tag" id="field_tag" data-cy="tag" formControlName="tag" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.fileName" for="field_fileName">File Name</label>
+          <input type="text" class="form-control" name="fileName" id="field_fileName" data-cy="fileName" formControlName="fileName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.filePath" for="field_filePath">File Path</label>
+          <input type="text" class="form-control" name="filePath" id="field_filePath" data-cy="filePath" formControlName="filePath" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.fileUrl" for="field_fileUrl">File Url</label>
+          <input type="text" class="form-control" name="fileUrl" id="field_fileUrl" data-cy="fileUrl" formControlName="fileUrl" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.refrenceId" for="field_refrenceId">Refrence Id</label>
+          <input
+            type="number"
+            class="form-control"
+            name="refrenceId"
+            id="field_refrenceId"
+            data-cy="refrenceId"
+            formControlName="refrenceId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.hasVerified" for="field_hasVerified"
+            >Has Verified</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="hasVerified"
+            id="field_hasVerified"
+            data-cy="hasVerified"
+            formControlName="hasVerified"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.remark" for="field_remark">Remark</label>
+          <input type="text" class="form-control" name="remark" id="field_remark" data-cy="remark" formControlName="remark" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.freeField1" for="field_freeField1">Free Field 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.freeField2" for="field_freeField2">Free Field 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.freeField3" for="field_freeField3">Free Field 3</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.freeField4" for="field_freeField4">Free Field 4</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.freeField5" for="field_freeField5">Free Field 5</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.member" for="field_member">Member</label>
+          <select
+            class="form-control"
+            id="field_member"
+            data-cy="member"
+            name="member"
+            formControlName="member"
+            [compareWith]="compareMember"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="memberOption" *ngFor="let memberOption of membersSharedCollection">{{ memberOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.documents.guarantor" for="field_guarantor">Guarantor</label>
+          <select
+            class="form-control"
+            id="field_guarantor"
+            data-cy="guarantor"
+            name="guarantor"
+            formControlName="guarantor"
+            [compareWith]="compareGuarantor"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="guarantorOption" *ngFor="let guarantorOption of guarantorsSharedCollection">{{ guarantorOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

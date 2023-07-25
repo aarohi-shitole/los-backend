@@ -1,0 +1,42 @@
+{
+  "loanOrignationSystemApp": {
+    "loanDisbursement": {
+      "home": {
+        "title": "Loan Disbursements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Loan Disbursement",
+        "createOrEditLabel": "Create or edit a Loan Disbursement",
+        "notFound": "No Loan Disbursements found"
+      },
+      "created": "A new Loan Disbursement is created with identifier {{ param }}",
+      "updated": "A Loan Disbursement is updated with identifier {{ param }}",
+      "deleted": "A Loan Disbursement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Loan Disbursement {{ id }}?"
+      },
+      "detail": {
+        "title": "Loan Disbursement"
+      },
+      "id": "ID",
+      "dtDisbDate": "Dt Disb Date",
+      "accountNo": "Account No",
+      "ifscCode": "Ifsc Code",
+      "disbAmount": "Disb Amount",
+      "disbuNumber": "Disbu Number",
+      "disbursementStatus": "Disbursement Status",
+      "paymentMode": "Payment Mode",
+      "utrNo": "Utr No",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "product": "Product",
+      "securityUser": "Security User",
+      "loanAccount": "Loan Account"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "loanOrignationSystemApp": {
+    "IndustryType": {
+      "null": "",
+      "MANUFACTURING": "Manufacturing",
+      "SERVICE_INDUSTRY": "Service_Industry",
+      "TRADING": "Trading"
+    }
+  }
+}

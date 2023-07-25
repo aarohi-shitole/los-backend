@@ -1,0 +1,45 @@
+{
+  "loanOrignationSystemApp": {
+    "ledgerAccounts": {
+      "home": {
+        "title": "Ledger Accounts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ledger Accounts",
+        "createOrEditLabel": "Create or edit a Ledger Accounts",
+        "notFound": "No Ledger Accounts found"
+      },
+      "created": "A new Ledger Accounts is created with identifier {{ param }}",
+      "updated": "A Ledger Accounts is updated with identifier {{ param }}",
+      "deleted": "A Ledger Accounts is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ledger Accounts {{ id }}?"
+      },
+      "detail": {
+        "title": "Ledger Accounts"
+      },
+      "id": "ID",
+      "accountNo": "Account No",
+      "accountName": "Account Name",
+      "accBalance": "Acc Balance",
+      "accHeadCode": "Acc Head Code",
+      "ledgerCode": "Ledger Code",
+      "appCode": "App Code",
+      "ledgerClassification": "Ledger Classification",
+      "level": "Level",
+      "year": "Year",
+      "accountType": "Account Type",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "isDeleted": "Is Deleted",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "branch": "Branch",
+      "ledgerAccounts": "Ledger Accounts"
+    }
+  }
+}

@@ -1,0 +1,318 @@
+<div>
+  <h2 id="page-heading" data-cy="LoanAccountHeading">
+    <span jhiTranslate="loanOrignationSystemApp.loanAccount.home.title">Loan Accounts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.loanAccount.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-loan-account"
+        [routerLink]="['/loan-account/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.loanAccount.home.createLabel"> Create a new Loan Account </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="loanAccounts?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.loanAccount.home.notFound">No Loan Accounts found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="loanAccounts && loanAccounts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.loanAmount">Loan Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="applicationNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.applicationNo">Application No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanStartDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.loanStartDate">Loan Start Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanEndDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.loanEndDate">Loan End Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanPlannedClosureDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.loanPlannedClosureDate">Loan Planned Closure Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanCloserDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.loanCloserDate">Loan Closer Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emiStartDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.emiStartDate">Emi Start Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanNpaClass">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.loanNpaClass">Loan Npa Class</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="parentAccHeadCode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.parentAccHeadCode">Parent Acc Head Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanAccountName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.loanAccountName">Loan Account Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="disbursementAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.disbursementAmt">Disbursement Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="disbursementStatus">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.disbursementStatus">Disbursement Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="repaymentPeriod">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.repaymentPeriod">Repayment Period</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="year">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.year">Year</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="processingFee">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.processingFee">Processing Fee</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="moratorium">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.moratorium">Moratorium</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="roi">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.roi">Roi</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanApplications.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.loanApplications">Loan Applications</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="member.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.member">Member</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="product.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanAccount.product">Product</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loanAccount of loanAccounts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/loan-account', loanAccount.id, 'view']">{{ loanAccount.id }}</a>
+          </td>
+          <td>{{ loanAccount.loanAmount }}</td>
+          <td>{{ loanAccount.applicationNo }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.LoanStatus.' + loanAccount.status }}">{{ loanAccount.status }}</td>
+          <td>{{ loanAccount.loanStartDate | formatMediumDatetime }}</td>
+          <td>{{ loanAccount.loanEndDate | formatMediumDatetime }}</td>
+          <td>{{ loanAccount.loanPlannedClosureDate | formatMediumDatetime }}</td>
+          <td>{{ loanAccount.loanCloserDate | formatMediumDatetime }}</td>
+          <td>{{ loanAccount.emiStartDate | formatMediumDatetime }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.NpaClassification.' + loanAccount.loanNpaClass }}">
+            {{ loanAccount.loanNpaClass }}
+          </td>
+          <td>{{ loanAccount.parentAccHeadCode }}</td>
+          <td>{{ loanAccount.loanAccountName }}</td>
+          <td>{{ loanAccount.disbursementAmt }}</td>
+          <td>{{ loanAccount.disbursementStatus }}</td>
+          <td>{{ loanAccount.repaymentPeriod }}</td>
+          <td>{{ loanAccount.year }}</td>
+          <td>{{ loanAccount.processingFee }}</td>
+          <td>{{ loanAccount.moratorium }}</td>
+          <td>{{ loanAccount.roi }}</td>
+          <td>{{ loanAccount.lastModified | formatMediumDatetime }}</td>
+          <td>{{ loanAccount.lastModifiedBy }}</td>
+          <td>{{ loanAccount.freeField1 }}</td>
+          <td>{{ loanAccount.freeField2 }}</td>
+          <td>{{ loanAccount.freeField3 }}</td>
+          <td>{{ loanAccount.freeField4 }}</td>
+          <td>{{ loanAccount.freeField5 }}</td>
+          <td>{{ loanAccount.freeField6 }}</td>
+          <td>
+            <div *ngIf="loanAccount.loanApplications">
+              <a [routerLink]="['/loan-applications', loanAccount.loanApplications.id, 'view']">{{ loanAccount.loanApplications.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="loanAccount.member">
+              <a [routerLink]="['/member', loanAccount.member.id, 'view']">{{ loanAccount.member.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="loanAccount.product">
+              <a [routerLink]="['/product', loanAccount.product.id, 'view']">{{ loanAccount.product.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/loan-account', loanAccount.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/loan-account', loanAccount.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(loanAccount)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="loanAccounts && loanAccounts.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

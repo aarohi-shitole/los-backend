@@ -1,0 +1,63 @@
+{
+  "loanOrignationSystemApp": {
+    "guarantor": {
+      "home": {
+        "title": "Guarantors",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Guarantor",
+        "createOrEditLabel": "Create or edit a Guarantor",
+        "notFound": "No Guarantors found"
+      },
+      "created": "A new Guarantor is created with identifier {{ param }}",
+      "updated": "A Guarantor is updated with identifier {{ param }}",
+      "deleted": "A Guarantor is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Guarantor {{ id }}?"
+      },
+      "detail": {
+        "title": "Guarantor"
+      },
+      "id": "ID",
+      "title": "Title",
+      "firstName": "First Name",
+      "middleName": "Middle Name",
+      "lastName": "Last Name",
+      "membershipNo": "Membership No",
+      "gender": "Gender",
+      "dob": "Dob",
+      "email": "Email",
+      "mobileNo": "Mobile No",
+      "houseOwner": "House Owner",
+      "occupation": "Occupation",
+      "employerNameAdd": "Employer Name Add",
+      "soclibilAmt": "Soclibil Amt",
+      "soclibilType": "Soclibil Type",
+      "otherlibilAmt": "Otherlibil Amt",
+      "otherlibilType": "Otherlibil Type",
+      "aadharCardNo": "Aadhar Card No",
+      "panCard": "Pan Card",
+      "maritalStatus": "Marital Status",
+      "hasAdharVerified": "Has Adhar Verified",
+      "hasPanVerified": "Has Pan Verified",
+      "numberOfAssets": "Number Of Assets",
+      "grossAnnualInc": "Gross Annual Inc",
+      "netIncome": "Net Income",
+      "isIncomeTaxPayer": "Is Income Tax Payer",
+      "isActive": "Is Active",
+      "isDeleted": "Is Deleted",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "memberAssets": "Member Assets",
+      "employementDetails": "Employement Details",
+      "member": "Member"
+    }
+  }
+}

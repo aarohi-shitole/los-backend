@@ -1,0 +1,203 @@
+<div>
+  <h2 id="page-heading" data-cy="AccountHeadCodeHeading">
+    <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.home.title">Account Head Codes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-account-head-code"
+        [routerLink]="['/account-head-code/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.home.createLabel"> Create a new Account Head Code </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="accountHeadCodes?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.home.notFound">No Account Head Codes found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="accountHeadCodes && accountHeadCodes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="value">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.value">Value</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="headCodeName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.headCodeName">Head Code Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ledgerAccounts.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.ledgerAccounts">Ledger Accounts</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let accountHeadCode of accountHeadCodes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/account-head-code', accountHeadCode.id, 'view']">{{ accountHeadCode.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.MappingType.' + accountHeadCode.type }}">{{ accountHeadCode.type }}</td>
+          <td>{{ accountHeadCode.value }}</td>
+          <td>{{ accountHeadCode.headCodeName }}</td>
+          <td>{{ accountHeadCode.lastModified | formatMediumDatetime }}</td>
+          <td>{{ accountHeadCode.lastModifiedBy }}</td>
+          <td>{{ accountHeadCode.createdBy }}</td>
+          <td>{{ accountHeadCode.createdOn | formatMediumDatetime }}</td>
+          <td>{{ accountHeadCode.isDeleted }}</td>
+          <td>{{ accountHeadCode.freeField1 }}</td>
+          <td>{{ accountHeadCode.freeField2 }}</td>
+          <td>{{ accountHeadCode.freeField3 }}</td>
+          <td>{{ accountHeadCode.freeField4 }}</td>
+          <td>{{ accountHeadCode.freeField5 }}</td>
+          <td>
+            <div *ngIf="accountHeadCode.ledgerAccounts">
+              <a [routerLink]="['/ledger-accounts', accountHeadCode.ledgerAccounts.id, 'view']">{{ accountHeadCode.ledgerAccounts.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/account-head-code', accountHeadCode.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/account-head-code', accountHeadCode.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(accountHeadCode)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="accountHeadCodes && accountHeadCodes.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

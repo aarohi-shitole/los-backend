@@ -1,0 +1,42 @@
+{
+  "loanOrignationSystemApp": {
+    "enquiryDetails": {
+      "home": {
+        "title": "Enquiry Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Enquiry Details",
+        "createOrEditLabel": "Create or edit a Enquiry Details",
+        "notFound": "No Enquiry Details found"
+      },
+      "created": "A new Enquiry Details is created with identifier {{ param }}",
+      "updated": "A Enquiry Details is updated with identifier {{ param }}",
+      "deleted": "A Enquiry Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Enquiry Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Enquiry Details"
+      },
+      "id": "ID",
+      "customerName": "Customer Name",
+      "subName": "Sub Name",
+      "purpose": "Purpose",
+      "mobileNo": "Mobile No",
+      "amount": "Amount",
+      "refrenceNo": "Refrence No",
+      "isDeleted": "Is Deleted",
+      "isActive": "Is Active",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "state": "State",
+      "district": "District",
+      "taluka": "Taluka",
+      "city": "City",
+      "product": "Product"
+    }
+  }
+}

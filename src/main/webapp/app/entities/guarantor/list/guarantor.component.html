@@ -1,0 +1,393 @@
+<div>
+  <h2 id="page-heading" data-cy="GuarantorHeading">
+    <span jhiTranslate="loanOrignationSystemApp.guarantor.home.title">Guarantors</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.guarantor.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-guarantor"
+        [routerLink]="['/guarantor/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.guarantor.home.createLabel"> Create a new Guarantor </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="guarantors?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.guarantor.home.notFound">No Guarantors found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="guarantors && guarantors.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="title">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.title">Title</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="middleName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.middleName">Middle Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="membershipNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.membershipNo">Membership No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gender">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.gender">Gender</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dob">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.dob">Dob</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="email">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.email">Email</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mobileNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.mobileNo">Mobile No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="houseOwner">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.houseOwner">House Owner</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="occupation">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.occupation">Occupation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="employerNameAdd">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.employerNameAdd">Employer Name Add</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="soclibilAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.soclibilAmt">Soclibil Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="soclibilType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.soclibilType">Soclibil Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="otherlibilAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.otherlibilAmt">Otherlibil Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="otherlibilType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.otherlibilType">Otherlibil Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="aadharCardNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.aadharCardNo">Aadhar Card No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="panCard">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.panCard">Pan Card</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maritalStatus">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.maritalStatus">Marital Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="hasAdharVerified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.hasAdharVerified">Has Adhar Verified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="hasPanVerified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.hasPanVerified">Has Pan Verified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="numberOfAssets">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.numberOfAssets">Number Of Assets</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="grossAnnualInc">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.grossAnnualInc">Gross Annual Inc</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="netIncome">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.netIncome">Net Income</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isIncomeTaxPayer">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.isIncomeTaxPayer">Is Income Tax Payer</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isActive">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.isActive">Is Active</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="memberAssets.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.memberAssets">Member Assets</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="employementDetails.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.employementDetails">Employement Details</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="member.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.guarantor.member">Member</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let guarantor of guarantors; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/guarantor', guarantor.id, 'view']">{{ guarantor.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.Title.' + guarantor.title }}">{{ guarantor.title }}</td>
+          <td>{{ guarantor.firstName }}</td>
+          <td>{{ guarantor.middleName }}</td>
+          <td>{{ guarantor.lastName }}</td>
+          <td>{{ guarantor.membershipNo }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.Gender.' + guarantor.gender }}">{{ guarantor.gender }}</td>
+          <td>{{ guarantor.dob | formatMediumDate }}</td>
+          <td>{{ guarantor.email }}</td>
+          <td>{{ guarantor.mobileNo }}</td>
+          <td>{{ guarantor.houseOwner }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.Occupation.' + guarantor.occupation }}">{{ guarantor.occupation }}</td>
+          <td>{{ guarantor.employerNameAdd }}</td>
+          <td>{{ guarantor.soclibilAmt }}</td>
+          <td>{{ guarantor.soclibilType }}</td>
+          <td>{{ guarantor.otherlibilAmt }}</td>
+          <td>{{ guarantor.otherlibilType }}</td>
+          <td>{{ guarantor.aadharCardNo }}</td>
+          <td>{{ guarantor.panCard }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.MaritalStatus.' + guarantor.maritalStatus }}">{{ guarantor.maritalStatus }}</td>
+          <td>{{ guarantor.hasAdharVerified }}</td>
+          <td>{{ guarantor.hasPanVerified }}</td>
+          <td>{{ guarantor.numberOfAssets }}</td>
+          <td>{{ guarantor.grossAnnualInc }}</td>
+          <td>{{ guarantor.netIncome }}</td>
+          <td>{{ guarantor.isIncomeTaxPayer }}</td>
+          <td>{{ guarantor.isActive }}</td>
+          <td>{{ guarantor.isDeleted }}</td>
+          <td>{{ guarantor.lastModified | formatMediumDatetime }}</td>
+          <td>{{ guarantor.lastModifiedBy }}</td>
+          <td>{{ guarantor.createdBy }}</td>
+          <td>{{ guarantor.createdOn | formatMediumDatetime }}</td>
+          <td>{{ guarantor.freeField1 }}</td>
+          <td>{{ guarantor.freeField2 }}</td>
+          <td>{{ guarantor.freeField3 }}</td>
+          <td>{{ guarantor.freeField4 }}</td>
+          <td>{{ guarantor.freeField5 }}</td>
+          <td>{{ guarantor.freeField6 }}</td>
+          <td>
+            <div *ngIf="guarantor.memberAssets">
+              <a [routerLink]="['/member-assets', guarantor.memberAssets.id, 'view']">{{ guarantor.memberAssets.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="guarantor.employementDetails">
+              <a [routerLink]="['/employement-details', guarantor.employementDetails.id, 'view']">{{ guarantor.employementDetails.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="guarantor.member">
+              <a [routerLink]="['/member', guarantor.member.id, 'view']">{{ guarantor.member.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/guarantor', guarantor.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/guarantor', guarantor.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(guarantor)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="guarantors && guarantors.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

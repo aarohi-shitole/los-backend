@@ -1,0 +1,189 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061302",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "guarantor",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "Title",
+      "fieldValues": "MR (Mr),MRS (Mrs),MISS (Miss)"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "middleName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "membershipNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE (Male),FEMALE (Female),TRANSGENDER (Transgender),OTHER (Other)"
+    },
+    {
+      "fieldName": "dob",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "houseOwner",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "occupation",
+      "fieldType": "Occupation",
+      "fieldValues": "SALARIED (Salaried),BUSINESS (Business),PROFESSIONAL (Professional),SERVICE (Service),SELF_EMPLOYED (Self_Employed),AGRICULTURE (Agriculture),PENSIONER (Pensioner)"
+    },
+    {
+      "fieldName": "employerNameAdd",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "soclibilAmt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "soclibilType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "otherlibilAmt",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "otherlibilType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aadharCardNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "panCard",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "maritalStatus",
+      "fieldType": "MaritalStatus",
+      "fieldValues": "MARRIED (Married),SINGLE (Single),DIVORCED (Divorced),WIDOW (Widow),OTHERS (Others)"
+    },
+    {
+      "fieldName": "hasAdharVerified",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "hasPanVerified",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "numberOfAssets",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "grossAnnualInc",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "netIncome",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "isIncomeTaxPayer",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Guarantor",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "memberAssets",
+      "ownerSide": true,
+      "relationshipName": "memberAssets",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "employementDetails",
+      "ownerSide": true,
+      "relationshipName": "employementDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "member",
+      "relationshipName": "member",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

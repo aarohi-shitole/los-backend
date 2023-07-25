@@ -1,0 +1,124 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="memberExistingfacility">
+      <h2 data-cy="memberExistingfacilityDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.detail.title">Member Existingfacility</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.year">Year</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.facilityName">Facility Name</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.facilityName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.facilitatedFrom">Facilitated From</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.facilitatedFrom }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.nature">Nature</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.nature }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.amtInLac">Amt In Lac</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.amtInLac }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.purpose">Purpose</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.purpose }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.sectionDate">Section Date</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.sectionDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.outstandingInLac">Outstanding In Lac</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.outstandingInLac }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.FacilityStatus.' + memberExistingfacility.status }}">{{
+            memberExistingfacility.status
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.rating">Rating</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.CreditRating.' + memberExistingfacility.rating }}">{{
+            memberExistingfacility.rating
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ memberExistingfacility.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.member">Member</span></dt>
+        <dd>
+          <div *ngIf="memberExistingfacility.member">
+            <a [routerLink]="['/member', memberExistingfacility.member.id, 'view']">{{ memberExistingfacility.member.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/member-existingfacility', memberExistingfacility.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

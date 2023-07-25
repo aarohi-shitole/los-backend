@@ -1,0 +1,52 @@
+{
+  "loanOrignationSystemApp": {
+    "loanAccount": {
+      "home": {
+        "title": "Loan Accounts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Loan Account",
+        "createOrEditLabel": "Create or edit a Loan Account",
+        "notFound": "No Loan Accounts found"
+      },
+      "created": "A new Loan Account is created with identifier {{ param }}",
+      "updated": "A Loan Account is updated with identifier {{ param }}",
+      "deleted": "A Loan Account is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Loan Account {{ id }}?"
+      },
+      "detail": {
+        "title": "Loan Account"
+      },
+      "id": "ID",
+      "loanAmount": "Loan Amount",
+      "applicationNo": "Application No",
+      "status": "Status",
+      "loanStartDate": "Loan Start Date",
+      "loanEndDate": "Loan End Date",
+      "loanPlannedClosureDate": "Loan Planned Closure Date",
+      "loanCloserDate": "Loan Closer Date",
+      "emiStartDate": "Emi Start Date",
+      "loanNpaClass": "Loan Npa Class",
+      "parentAccHeadCode": "Parent Acc Head Code",
+      "loanAccountName": "Loan Account Name",
+      "disbursementAmt": "Disbursement Amt",
+      "disbursementStatus": "Disbursement Status",
+      "repaymentPeriod": "Repayment Period",
+      "year": "Year",
+      "processingFee": "Processing Fee",
+      "moratorium": "Moratorium",
+      "roi": "Roi",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "loanApplications": "Loan Applications",
+      "member": "Member",
+      "product": "Product"
+    }
+  }
+}

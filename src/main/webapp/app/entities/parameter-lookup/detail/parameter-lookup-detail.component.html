@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="parameterLookup">
+      <h2 data-cy="parameterLookupDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.parameterLookup.detail.title">Parameter Lookup</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ parameterLookup.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.ParameterLookupType.' + parameterLookup.type }}">{{ parameterLookup.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.name">Name</span></dt>
+        <dd>
+          <span>{{ parameterLookup.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.description">Description</span></dt>
+        <dd>
+          <span>{{ parameterLookup.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.value">Value</span></dt>
+        <dd>
+          <span>{{ parameterLookup.value }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ parameterLookup.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ parameterLookup.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ parameterLookup.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ parameterLookup.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ parameterLookup.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ parameterLookup.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ parameterLookup.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ parameterLookup.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ parameterLookup.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.parameterLookup.organisation">Organisation</span></dt>
+        <dd>
+          <div *ngIf="parameterLookup.organisation">
+            <a [routerLink]="['/organisation', parameterLookup.organisation.id, 'view']">{{ parameterLookup.organisation.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/parameter-lookup', parameterLookup.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,247 @@
+<div>
+  <h2 id="page-heading" data-cy="LoanRepaymentDetailsHeading">
+    <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.home.title">Loan Repayment Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-loan-repayment-details"
+        [routerLink]="['/loan-repayment-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.home.createLabel"> Create a new Loan Repayment Details </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="loanRepaymentDetails?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.home.notFound">No Loan Repayment Details found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="loanRepaymentDetails && loanRepaymentDetails.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="repaymentDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.repaymentDate">Repayment Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="totalRepaymentAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.totalRepaymentAmt">Total Repayment Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="installmentNumber">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.installmentNumber">Installment Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="principlePaidAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.principlePaidAmt">Principle Paid Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="interestPaidAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.interestPaidAmt">Interest Paid Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="surChargeAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.surChargeAmt">Sur Charge Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="overDueAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.overDueAmt">Over Due Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="balanceInterestAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.balanceInterestAmt">Balance Interest Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="balancePrincipleAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.balancePrincipleAmt">Balance Principle Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="paymentMode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.paymentMode">Payment Mode</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="foreClosureChargeAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.foreClosureChargeAmt">Fore Closure Charge Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanAccount.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanRepaymentDetails.loanAccount">Loan Account</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loanRepaymentDetails of loanRepaymentDetails; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/loan-repayment-details', loanRepaymentDetails.id, 'view']">{{ loanRepaymentDetails.id }}</a>
+          </td>
+          <td>{{ loanRepaymentDetails.repaymentDate | formatMediumDatetime }}</td>
+          <td>{{ loanRepaymentDetails.totalRepaymentAmt }}</td>
+          <td>{{ loanRepaymentDetails.installmentNumber }}</td>
+          <td>{{ loanRepaymentDetails.principlePaidAmt }}</td>
+          <td>{{ loanRepaymentDetails.interestPaidAmt }}</td>
+          <td>{{ loanRepaymentDetails.surChargeAmt }}</td>
+          <td>{{ loanRepaymentDetails.overDueAmt }}</td>
+          <td>{{ loanRepaymentDetails.balanceInterestAmt }}</td>
+          <td>{{ loanRepaymentDetails.balancePrincipleAmt }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.PaymentMode.' + loanRepaymentDetails.paymentMode }}">
+            {{ loanRepaymentDetails.paymentMode }}
+          </td>
+          <td>{{ loanRepaymentDetails.foreClosureChargeAmt }}</td>
+          <td>{{ loanRepaymentDetails.lastModified | formatMediumDatetime }}</td>
+          <td>{{ loanRepaymentDetails.lastModifiedBy }}</td>
+          <td>{{ loanRepaymentDetails.freeField1 }}</td>
+          <td>{{ loanRepaymentDetails.freeField2 }}</td>
+          <td>{{ loanRepaymentDetails.freeField3 }}</td>
+          <td>{{ loanRepaymentDetails.freeField4 }}</td>
+          <td>{{ loanRepaymentDetails.freeField5 }}</td>
+          <td>{{ loanRepaymentDetails.freeField6 }}</td>
+          <td>
+            <div *ngIf="loanRepaymentDetails.loanAccount">
+              <a [routerLink]="['/loan-account', loanRepaymentDetails.loanAccount.id, 'view']">{{ loanRepaymentDetails.loanAccount.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/loan-repayment-details', loanRepaymentDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/loan-repayment-details', loanRepaymentDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(loanRepaymentDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="loanRepaymentDetails && loanRepaymentDetails.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,386 @@
+<div>
+  <h2 id="page-heading" data-cy="ProductHeading">
+    <span jhiTranslate="loanOrignationSystemApp.product.home.title">Products</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.product.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-product"
+        [routerLink]="['/product/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.product.home.createLabel"> Create a new Product </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="products?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.product.home.notFound">No Products found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="products && products.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prodCode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.prodCode">Prod Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prodName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.prodName">Prod Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bpiTreatmentFlag">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.bpiTreatmentFlag">Bpi Treatment Flag</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amortizationMethod">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.amortizationMethod">Amortization Method</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amortizationType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.amortizationType">Amortization Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="compoundingFreq">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.compoundingFreq">Compounding Freq</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emiRounding">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.emiRounding">Emi Rounding</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastRowEMIThreshold">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.lastRowEMIThreshold">Last Row EMI Threshold</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="graceDays">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.graceDays">Grace Days</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="reschLockinPeriod">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.reschLockinPeriod">Resch Lockin Period</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prepayAfterInstNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.prepayAfterInstNo">Prepay After Inst No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prepayBeforeInstNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.prepayBeforeInstNo">Prepay Before Inst No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="minInstallmentGapBetPrepay">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.minInstallmentGapBetPrepay">Min Installment Gap Bet Prepay</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="minPrepayAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.minPrepayAmount">Min Prepay Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="forecloseAfterInstNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.forecloseAfterInstNo">Foreclose After Inst No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="forecloseBeforeInstaNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.forecloseBeforeInstaNo">Foreclose Before Insta No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="minTenor">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.minTenor">Min Tenor</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maxTenor">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.maxTenor">Max Tenor</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="minInstallmentAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.minInstallmentAmount">Min Installment Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maxInstallmentAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.maxInstallmentAmount">Max Installment Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dropLineAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.dropLineAmount">Drop Line Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dropLineODYN">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.dropLineODYN">Drop Line ODYN</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dropLinePerc">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.dropLinePerc">Drop Line Perc</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dropMode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.dropMode">Drop Mode</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dropLIneFreq">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.dropLIneFreq">Drop L Ine Freq</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dropLineCycleDay">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.dropLineCycleDay">Drop Line Cycle Day</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="roi">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.roi">Roi</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanCatagory.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.loanCatagory">Loan Catagory</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="organisation.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.organisation">Organisation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ledgerAccounts.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.product.ledgerAccounts">Ledger Accounts</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/product', product.id, 'view']">{{ product.id }}</a>
+          </td>
+          <td>{{ product.prodCode }}</td>
+          <td>{{ product.prodName }}</td>
+          <td>{{ product.bpiTreatmentFlag }}</td>
+          <td>{{ product.amortizationMethod }}</td>
+          <td>{{ product.amortizationType }}</td>
+          <td>{{ product.compoundingFreq }}</td>
+          <td>{{ product.emiRounding }}</td>
+          <td>{{ product.lastRowEMIThreshold }}</td>
+          <td>{{ product.graceDays }}</td>
+          <td>{{ product.reschLockinPeriod }}</td>
+          <td>{{ product.prepayAfterInstNo }}</td>
+          <td>{{ product.prepayBeforeInstNo }}</td>
+          <td>{{ product.minInstallmentGapBetPrepay }}</td>
+          <td>{{ product.minPrepayAmount }}</td>
+          <td>{{ product.forecloseAfterInstNo }}</td>
+          <td>{{ product.forecloseBeforeInstaNo }}</td>
+          <td>{{ product.minTenor }}</td>
+          <td>{{ product.maxTenor }}</td>
+          <td>{{ product.minInstallmentAmount }}</td>
+          <td>{{ product.maxInstallmentAmount }}</td>
+          <td>{{ product.dropLineAmount }}</td>
+          <td>{{ product.dropLineODYN }}</td>
+          <td>{{ product.dropLinePerc }}</td>
+          <td>{{ product.dropMode }}</td>
+          <td>{{ product.dropLIneFreq }}</td>
+          <td>{{ product.dropLineCycleDay }}</td>
+          <td>{{ product.roi }}</td>
+          <td>{{ product.isDeleted }}</td>
+          <td>{{ product.lastModified | formatMediumDatetime }}</td>
+          <td>{{ product.lastModifiedBy }}</td>
+          <td>{{ product.freeField1 }}</td>
+          <td>{{ product.freeField2 }}</td>
+          <td>{{ product.freeField3 }}</td>
+          <td>{{ product.freeField4 }}</td>
+          <td>{{ product.freeField5 }}</td>
+          <td>{{ product.freeField6 }}</td>
+          <td>
+            <div *ngIf="product.loanCatagory">
+              <a [routerLink]="['/loan-catagory', product.loanCatagory.id, 'view']">{{ product.loanCatagory.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="product.organisation">
+              <a [routerLink]="['/organisation', product.organisation.id, 'view']">{{ product.organisation.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="product.ledgerAccounts">
+              <a [routerLink]="['/ledger-accounts', product.ledgerAccounts.id, 'view']">{{ product.ledgerAccounts.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/product', product.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/product', product.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(product)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="products && products.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

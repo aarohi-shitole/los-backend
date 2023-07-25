@@ -1,0 +1,243 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-npa-setting-heading"
+        data-cy="NpaSettingCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.npaSetting.home.createOrEditLabel"
+      >
+        Create or edit a Npa Setting
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.npaClassification" for="field_npaClassification"
+            >Npa Classification</label
+          >
+          <select
+            class="form-control"
+            name="npaClassification"
+            formControlName="npaClassification"
+            id="field_npaClassification"
+            data-cy="npaClassification"
+          >
+            <option [ngValue]="null">{{ 'loanOrignationSystemApp.NpaClassification.null' | translate }}</option>
+            <option *ngFor="let npaClassification of npaClassificationValues" [value]="npaClassification">
+              {{ 'loanOrignationSystemApp.NpaClassification.' + npaClassification | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.durationStart" for="field_durationStart"
+            >Duration Start</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="durationStart"
+            id="field_durationStart"
+            data-cy="durationStart"
+            formControlName="durationStart"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.durationEnd" for="field_durationEnd"
+            >Duration End</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="durationEnd"
+            id="field_durationEnd"
+            data-cy="durationEnd"
+            formControlName="durationEnd"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.provision" for="field_provision">Provision</label>
+          <input type="text" class="form-control" name="provision" id="field_provision" data-cy="provision" formControlName="provision" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.year" for="field_year">Year</label>
+          <input type="number" class="form-control" name="year" id="field_year" data-cy="year" formControlName="year" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.interestRate" for="field_interestRate"
+            >Interest Rate</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="interestRate"
+            id="field_interestRate"
+            data-cy="interestRate"
+            formControlName="interestRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.freeField1" for="field_freeField1">Free Field 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.freeField2" for="field_freeField2">Free Field 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.freeField3" for="field_freeField3">Free Field 3</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.freeField4" for="field_freeField4">Free Field 4</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.freeField5" for="field_freeField5">Free Field 5</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.npaSetting.organisation" for="field_organisation"
+            >Organisation</label
+          >
+          <select
+            class="form-control"
+            id="field_organisation"
+            data-cy="organisation"
+            name="organisation"
+            formControlName="organisation"
+            [compareWith]="compareOrganisation"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="organisationOption" *ngFor="let organisationOption of organisationsSharedCollection">
+              {{ organisationOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

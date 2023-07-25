@@ -1,0 +1,113 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061324",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "master_agreement",
+  "fields": [
+    {
+      "fieldName": "memberId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "portfolioCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "homeBranch",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "servBranch",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "homeState",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "servState",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gstExempted",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prefRepayMode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tdsCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tdsRate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sanctionedAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "originationApplnNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cycleDay",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "tenor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "interestRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "repayFreq",
+      "fieldType": "RepaymentFreqency",
+      "fieldValues": "MONTHLY (Monthly),QUARTERLY (quarterly),HALF_YEARLY (Half_yearly),YEARLY (Yearly)"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "MasterAgreement",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

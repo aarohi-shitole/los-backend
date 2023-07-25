@@ -1,0 +1,356 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-interest-config-heading"
+        data-cy="InterestConfigCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.interestConfig.home.createOrEditLabel"
+      >
+        Create or edit a Interest Config
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.startDate" for="field_startDate">Start Date</label>
+          <div class="d-flex">
+            <input
+              id="field_startDate"
+              data-cy="startDate"
+              type="datetime-local"
+              class="form-control"
+              name="startDate"
+              formControlName="startDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.endDate" for="field_endDate">End Date</label>
+          <div class="d-flex">
+            <input
+              id="field_endDate"
+              data-cy="endDate"
+              type="datetime-local"
+              class="form-control"
+              name="endDate"
+              formControlName="endDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.interestBasis" for="field_interestBasis"
+            >Interest Basis</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="interestBasis"
+            id="field_interestBasis"
+            data-cy="interestBasis"
+            formControlName="interestBasis"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.emiBasis" for="field_emiBasis">Emi Basis</label>
+          <input type="text" class="form-control" name="emiBasis" id="field_emiBasis" data-cy="emiBasis" formControlName="emiBasis" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.interestType" for="field_interestType"
+            >Interest Type</label
+          >
+          <select class="form-control" name="interestType" formControlName="interestType" id="field_interestType" data-cy="interestType">
+            <option [ngValue]="null">{{ 'loanOrignationSystemApp.InterestType.null' | translate }}</option>
+            <option *ngFor="let interestType of interestTypeValues" [value]="interestType">
+              {{ 'loanOrignationSystemApp.InterestType.' + interestType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.intrAccrualFreq" for="field_intrAccrualFreq"
+            >Intr Accrual Freq</label
+          >
+          <select
+            class="form-control"
+            name="intrAccrualFreq"
+            formControlName="intrAccrualFreq"
+            id="field_intrAccrualFreq"
+            data-cy="intrAccrualFreq"
+          >
+            <option [ngValue]="null">{{ 'loanOrignationSystemApp.RepaymentFreqency.null' | translate }}</option>
+            <option *ngFor="let repaymentFreqency of repaymentFreqencyValues" [value]="repaymentFreqency">
+              {{ 'loanOrignationSystemApp.RepaymentFreqency.' + repaymentFreqency | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.penalInterestRate" for="field_penalInterestRate"
+            >Penal Interest Rate</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="penalInterestRate"
+            id="field_penalInterestRate"
+            data-cy="penalInterestRate"
+            formControlName="penalInterestRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.penalInterestBasis" for="field_penalInterestBasis"
+            >Penal Interest Basis</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="penalInterestBasis"
+            id="field_penalInterestBasis"
+            data-cy="penalInterestBasis"
+            formControlName="penalInterestBasis"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="loanOrignationSystemApp.interestConfig.penalAccountingBasis"
+            for="field_penalAccountingBasis"
+            >Penal Accounting Basis</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="penalAccountingBasis"
+            id="field_penalAccountingBasis"
+            data-cy="penalAccountingBasis"
+            formControlName="penalAccountingBasis"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.minInterestRate" for="field_minInterestRate"
+            >Min Interest Rate</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="minInterestRate"
+            id="field_minInterestRate"
+            data-cy="minInterestRate"
+            formControlName="minInterestRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.maxInterestRate" for="field_maxInterestRate"
+            >Max Interest Rate</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="maxInterestRate"
+            id="field_maxInterestRate"
+            data-cy="maxInterestRate"
+            formControlName="maxInterestRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="loanOrignationSystemApp.interestConfig.extendedInterestRate"
+            for="field_extendedInterestRate"
+            >Extended Interest Rate</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="extendedInterestRate"
+            id="field_extendedInterestRate"
+            data-cy="extendedInterestRate"
+            formControlName="extendedInterestRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.surchargeRate" for="field_surchargeRate"
+            >Surcharge Rate</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="surchargeRate"
+            id="field_surchargeRate"
+            data-cy="surchargeRate"
+            formControlName="surchargeRate"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.freeField1" for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.freeField2" for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.freeField3" for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.freeField4" for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.freeField5" for="field_freeField5"
+            >Free Field 5</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.freeField6" for="field_freeField6"
+            >Free Field 6</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField6"
+            id="field_freeField6"
+            data-cy="freeField6"
+            formControlName="freeField6"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.interestConfig.product" for="field_product">Product</label>
+          <select
+            class="form-control"
+            id="field_product"
+            data-cy="product"
+            name="product"
+            formControlName="product"
+            [compareWith]="compareProduct"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="productOption" *ngFor="let productOption of productsSharedCollection">{{ productOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

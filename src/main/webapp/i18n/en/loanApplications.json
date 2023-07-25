@@ -1,0 +1,62 @@
+{
+  "loanOrignationSystemApp": {
+    "loanApplications": {
+      "home": {
+        "title": "Loan Applications",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Loan Applications",
+        "createOrEditLabel": "Create or edit a Loan Applications",
+        "notFound": "No Loan Applications found"
+      },
+      "created": "A new Loan Applications is created with identifier {{ param }}",
+      "updated": "A Loan Applications is updated with identifier {{ param }}",
+      "deleted": "A Loan Applications is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Loan Applications {{ id }}?"
+      },
+      "detail": {
+        "title": "Loan Applications"
+      },
+      "id": "ID",
+      "applicationNo": "Application No",
+      "demandAmount": "Demand Amount",
+      "loanPurpose": "Loan Purpose",
+      "status": "Status",
+      "demandedLandAreaInHector": "Demanded Land Area In Hector",
+      "seasonOfCropLoan": "Season Of Crop Loan",
+      "loanSteps": "Loan Steps",
+      "isInsured": "Is Insured",
+      "loanBenefitingArea": "Loan Benefiting Area",
+      "costOfInvestment": "Cost Of Investment",
+      "mortgageDeedNo": "Mortgage Deed No",
+      "mortgageDate": "Mortgage Date",
+      "extentMorgageValue": "Extent Morgage Value",
+      "downPaymentAmt": "Down Payment Amt",
+      "ltvRatio": "Ltv Ratio",
+      "processingFee": "Processing Fee",
+      "penalInterest": "Penal Interest",
+      "moratorium": "Moratorium",
+      "roi": "Roi",
+      "commityAmt": "Commity Amt",
+      "commityRoi": "Commity Roi",
+      "sectionAmt": "Section Amt",
+      "senctionRoi": "Senction Roi",
+      "year": "Year",
+      "assignedTo": "Assigned To",
+      "assignedFrom": "Assigned From",
+      "securityDocUrl": "Security Doc Url",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "freeField7": "Free Field 7",
+      "member": "Member",
+      "securityUser": "Security User",
+      "product": "Product"
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061303",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "documents",
+  "fields": [
+    {
+      "fieldName": "docType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docSubType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fileName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "filePath",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fileUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "refrenceId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "hasVerified",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "remark",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Documents",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "member",
+      "relationshipName": "member",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "guarantor",
+      "relationshipName": "guarantor",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

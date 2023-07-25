@@ -1,0 +1,381 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-member-assets-heading"
+        data-cy="MemberAssetsCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.memberAssets.home.createOrEditLabel"
+      >
+        Create or edit a Member Assets
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.assetCost" for="field_assetCost">Asset Cost</label>
+          <input type="number" class="form-control" name="assetCost" id="field_assetCost" data-cy="assetCost" formControlName="assetCost" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.assetType" for="field_assetType">Asset Type</label>
+          <select class="form-control" name="assetType" formControlName="assetType" id="field_assetType" data-cy="assetType">
+            <option [ngValue]="null">{{ 'loanOrignationSystemApp.AssetType.null' | translate }}</option>
+            <option *ngFor="let assetType of assetTypeValues" [value]="assetType">
+              {{ 'loanOrignationSystemApp.AssetType.' + assetType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.areaInSqFt" for="field_areaInSqFt"
+            >Area In Sq Ft</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="areaInSqFt"
+            id="field_areaInSqFt"
+            data-cy="areaInSqFt"
+            formControlName="areaInSqFt"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.assetNature" for="field_assetNature"
+            >Asset Nature</label
+          >
+          <select class="form-control" name="assetNature" formControlName="assetNature" id="field_assetNature" data-cy="assetNature">
+            <option [ngValue]="null">{{ 'loanOrignationSystemApp.AssetNature.null' | translate }}</option>
+            <option *ngFor="let assetNature of assetNatureValues" [value]="assetNature">
+              {{ 'loanOrignationSystemApp.AssetNature.' + assetNature | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.address" for="field_address">Address</label>
+          <input type="text" class="form-control" name="address" id="field_address" data-cy="address" formControlName="address" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.landMark" for="field_landMark">Land Mark</label>
+          <input type="text" class="form-control" name="landMark" id="field_landMark" data-cy="landMark" formControlName="landMark" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.assetOwner" for="field_assetOwner"
+            >Asset Owner</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="assetOwner"
+            id="field_assetOwner"
+            data-cy="assetOwner"
+            formControlName="assetOwner"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.completionYear" for="field_completionYear"
+            >Completion Year</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="completionYear"
+            id="field_completionYear"
+            data-cy="completionYear"
+            formControlName="completionYear"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.marketValue" for="field_marketValue"
+            >Market Value</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="marketValue"
+            id="field_marketValue"
+            data-cy="marketValue"
+            formControlName="marketValue"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.isInsured" for="field_isInsured">Is Insured</label>
+          <input type="checkbox" class="form-check" name="isInsured" id="field_isInsured" data-cy="isInsured" formControlName="isInsured" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.isUnderUsed" for="field_isUnderUsed"
+            >Is Under Used</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isUnderUsed"
+            id="field_isUnderUsed"
+            data-cy="isUnderUsed"
+            formControlName="isUnderUsed"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.isOwned" for="field_isOwned">Is Owned</label>
+          <input type="checkbox" class="form-check" name="isOwned" id="field_isOwned" data-cy="isOwned" formControlName="isOwned" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.landType" for="field_landType">Land Type</label>
+          <input type="text" class="form-control" name="landType" id="field_landType" data-cy="landType" formControlName="landType" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.landGatNo" for="field_landGatNo">Land Gat No</label>
+          <input type="text" class="form-control" name="landGatNo" id="field_landGatNo" data-cy="landGatNo" formControlName="landGatNo" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.landAreaInHector" for="field_landAreaInHector"
+            >Land Area In Hector</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="landAreaInHector"
+            id="field_landAreaInHector"
+            data-cy="landAreaInHector"
+            formControlName="landAreaInHector"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.jindagiPatrakNo" for="field_jindagiPatrakNo"
+            >Jindagi Patrak No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="jindagiPatrakNo"
+            id="field_jindagiPatrakNo"
+            data-cy="jindagiPatrakNo"
+            formControlName="jindagiPatrakNo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.jindagiAmount" for="field_jindagiAmount"
+            >Jindagi Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="jindagiAmount"
+            id="field_jindagiAmount"
+            data-cy="jindagiAmount"
+            formControlName="jindagiAmount"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.freeField1" for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.freeField2" for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.freeField3" for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.freeField4" for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.freeField5" for="field_freeField5"
+            >Free Field 5</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.freeField6" for="field_freeField6"
+            >Free Field 6</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField6"
+            id="field_freeField6"
+            data-cy="freeField6"
+            formControlName="freeField6"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.member" for="field_member">Member</label>
+          <select
+            class="form-control"
+            id="field_member"
+            data-cy="member"
+            name="member"
+            formControlName="member"
+            [compareWith]="compareMember"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="memberOption" *ngFor="let memberOption of membersSharedCollection">{{ memberOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.memberAssets.loanApplications" for="field_loanApplications"
+            >Loan Applications</label
+          >
+          <select
+            class="form-control"
+            id="field_loanApplications"
+            data-cy="loanApplications"
+            name="loanApplications"
+            formControlName="loanApplications"
+            [compareWith]="compareLoanApplications"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="loanApplicationsOption" *ngFor="let loanApplicationsOption of loanApplicationsSharedCollection">
+              {{ loanApplicationsOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

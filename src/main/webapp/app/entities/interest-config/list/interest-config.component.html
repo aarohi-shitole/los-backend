@@ -1,0 +1,270 @@
+<div>
+  <h2 id="page-heading" data-cy="InterestConfigHeading">
+    <span jhiTranslate="loanOrignationSystemApp.interestConfig.home.title">Interest Configs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.interestConfig.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-interest-config"
+        [routerLink]="['/interest-config/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.interestConfig.home.createLabel"> Create a new Interest Config </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="interestConfigs?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.interestConfig.home.notFound">No Interest Configs found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="interestConfigs && interestConfigs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="startDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.startDate">Start Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="endDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.endDate">End Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="interestBasis">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.interestBasis">Interest Basis</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="emiBasis">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.emiBasis">Emi Basis</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="interestType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.interestType">Interest Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="intrAccrualFreq">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.intrAccrualFreq">Intr Accrual Freq</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="penalInterestRate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.penalInterestRate">Penal Interest Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="penalInterestBasis">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.penalInterestBasis">Penal Interest Basis</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="penalAccountingBasis">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.penalAccountingBasis">Penal Accounting Basis</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="minInterestRate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.minInterestRate">Min Interest Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maxInterestRate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.maxInterestRate">Max Interest Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="extendedInterestRate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.extendedInterestRate">Extended Interest Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="surchargeRate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.surchargeRate">Surcharge Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="product.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.interestConfig.product">Product</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let interestConfig of interestConfigs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/interest-config', interestConfig.id, 'view']">{{ interestConfig.id }}</a>
+          </td>
+          <td>{{ interestConfig.startDate | formatMediumDatetime }}</td>
+          <td>{{ interestConfig.endDate | formatMediumDatetime }}</td>
+          <td>{{ interestConfig.interestBasis }}</td>
+          <td>{{ interestConfig.emiBasis }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.InterestType.' + interestConfig.interestType }}">
+            {{ interestConfig.interestType }}
+          </td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.RepaymentFreqency.' + interestConfig.intrAccrualFreq }}">
+            {{ interestConfig.intrAccrualFreq }}
+          </td>
+          <td>{{ interestConfig.penalInterestRate }}</td>
+          <td>{{ interestConfig.penalInterestBasis }}</td>
+          <td>{{ interestConfig.penalAccountingBasis }}</td>
+          <td>{{ interestConfig.minInterestRate }}</td>
+          <td>{{ interestConfig.maxInterestRate }}</td>
+          <td>{{ interestConfig.extendedInterestRate }}</td>
+          <td>{{ interestConfig.surchargeRate }}</td>
+          <td>{{ interestConfig.isDeleted }}</td>
+          <td>{{ interestConfig.lastModified | formatMediumDatetime }}</td>
+          <td>{{ interestConfig.lastModifiedBy }}</td>
+          <td>{{ interestConfig.freeField1 }}</td>
+          <td>{{ interestConfig.freeField2 }}</td>
+          <td>{{ interestConfig.freeField3 }}</td>
+          <td>{{ interestConfig.freeField4 }}</td>
+          <td>{{ interestConfig.freeField5 }}</td>
+          <td>{{ interestConfig.freeField6 }}</td>
+          <td>
+            <div *ngIf="interestConfig.product">
+              <a [routerLink]="['/product', interestConfig.product.id, 'view']">{{ interestConfig.product.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/interest-config', interestConfig.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/interest-config', interestConfig.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(interestConfig)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="interestConfigs && interestConfigs.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

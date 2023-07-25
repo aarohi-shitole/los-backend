@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="orgPrerequisiteDoc">
+      <h2 data-cy="orgPrerequisiteDocDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.detail.title">Org Prerequisite Doc</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.docDesc">Doc Desc</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.docDesc }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.docName">Doc Name</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.docName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.docCatagory">Doc Catagory</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.docCatagory }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.ismandatory">Ismandatory</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.ismandatory }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ orgPrerequisiteDoc.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.product">Product</span></dt>
+        <dd>
+          <div *ngIf="orgPrerequisiteDoc.product">
+            <a [routerLink]="['/product', orgPrerequisiteDoc.product.id, 'view']">{{ orgPrerequisiteDoc.product.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.orgPrerequisiteDoc.organisation">Organisation</span></dt>
+        <dd>
+          <div *ngIf="orgPrerequisiteDoc.organisation">
+            <a [routerLink]="['/organisation', orgPrerequisiteDoc.organisation.id, 'view']">{{ orgPrerequisiteDoc.organisation.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/org-prerequisite-doc', orgPrerequisiteDoc.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

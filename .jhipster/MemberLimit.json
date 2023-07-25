@@ -1,0 +1,64 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061325",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "member_limit",
+  "fields": [
+    {
+      "fieldName": "limitSanctionAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dtLimitSanctioned",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dtLimitExpired",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "purpose",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "MemberLimit",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceClass"
+}

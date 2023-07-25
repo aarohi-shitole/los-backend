@@ -1,0 +1,112 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061317",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "interest_config",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "interestBasis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "emiBasis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "interestType",
+      "fieldType": "InterestType",
+      "fieldValues": "FIXED (Fixed),FLOATING (Floating)"
+    },
+    {
+      "fieldName": "intrAccrualFreq",
+      "fieldType": "RepaymentFreqency",
+      "fieldValues": "MONTHLY (Monthly),QUARTERLY (quarterly),HALF_YEARLY (Half_yearly),YEARLY (Yearly)"
+    },
+    {
+      "fieldName": "penalInterestRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "penalInterestBasis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "penalAccountingBasis",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "minInterestRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "maxInterestRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "extendedInterestRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "surchargeRate",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "InterestConfig",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

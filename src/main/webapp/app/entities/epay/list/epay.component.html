@@ -1,0 +1,259 @@
+<div>
+  <h2 id="page-heading" data-cy="EpayHeading">
+    <span jhiTranslate="loanOrignationSystemApp.epay.home.title">Epays</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.epay.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-epay"
+        [routerLink]="['/epay/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.epay.home.createLabel"> Create a new Epay </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="epays?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.epay.home.notFound">No Epays found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="epays && epays.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="instrumentType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.instrumentType">Instrument Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dtFromDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.dtFromDate">Dt From Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="dtToDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.dtToDate">Dt To Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bankCode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.bankCode">Bank Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="bankBranchCode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.bankBranchCode">Bank Branch Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="accountType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.accountType">Account Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="accountNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.accountNo">Account No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maxCeilAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.maxCeilAmount">Max Ceil Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="installmentAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.installmentAmount">Installment Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maxInstallmentAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.maxInstallmentAmount">Max Installment Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mandateRefNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.mandateRefNo">Mandate Ref No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="depositBank">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.depositBank">Deposit Bank</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mandateType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.mandateType">Mandate Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="frequency">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.frequency">Frequency</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ifscCode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.ifscCode">Ifsc Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="utrNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.utrNo">Utr No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isActive">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.isActive">Is Active</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.epay.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let epay of epays; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/epay', epay.id, 'view']">{{ epay.id }}</a>
+          </td>
+          <td>{{ epay.instrumentType }}</td>
+          <td>{{ epay.dtFromDate | formatMediumDate }}</td>
+          <td>{{ epay.dtToDate | formatMediumDate }}</td>
+          <td>{{ epay.bankCode }}</td>
+          <td>{{ epay.bankBranchCode }}</td>
+          <td>{{ epay.accountType }}</td>
+          <td>{{ epay.accountNo }}</td>
+          <td>{{ epay.maxCeilAmount }}</td>
+          <td>{{ epay.installmentAmount }}</td>
+          <td>{{ epay.maxInstallmentAmount }}</td>
+          <td>{{ epay.mandateRefNo }}</td>
+          <td>{{ epay.depositBank }}</td>
+          <td>{{ epay.mandateType }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.RepaymentFreqency.' + epay.frequency }}">{{ epay.frequency }}</td>
+          <td>{{ epay.ifscCode }}</td>
+          <td>{{ epay.utrNo }}</td>
+          <td>{{ epay.isDeleted }}</td>
+          <td>{{ epay.isActive }}</td>
+          <td>{{ epay.lastModified | formatMediumDatetime }}</td>
+          <td>{{ epay.lastModifiedBy }}</td>
+          <td>{{ epay.freeField1 }}</td>
+          <td>{{ epay.freeField2 }}</td>
+          <td>{{ epay.freeField3 }}</td>
+          <td>{{ epay.freeField4 }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/epay', epay.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/epay', epay.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(epay)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="epays && epays.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

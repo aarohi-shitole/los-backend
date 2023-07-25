@@ -1,0 +1,33 @@
+{
+  "loanOrignationSystemApp": {
+    "sequenceGenerator": {
+      "home": {
+        "title": "Sequence Generators",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Sequence Generator",
+        "createOrEditLabel": "Create or edit a Sequence Generator",
+        "notFound": "No Sequence Generators found"
+      },
+      "created": "A new Sequence Generator is created with identifier {{ param }}",
+      "updated": "A Sequence Generator is updated with identifier {{ param }}",
+      "deleted": "A Sequence Generator is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Sequence Generator {{ id }}?"
+      },
+      "detail": {
+        "title": "Sequence Generator"
+      },
+      "id": "ID",
+      "nextValMember": "Next Val Member",
+      "nextValLoanApp": "Next Val Loan App",
+      "nextValLoanAccount": "Next Val Loan Account",
+      "nextValVoucher": "Next Val Voucher",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "branch": "Branch"
+    }
+  }
+}

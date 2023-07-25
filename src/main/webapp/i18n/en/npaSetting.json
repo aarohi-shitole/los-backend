@@ -1,0 +1,40 @@
+{
+  "loanOrignationSystemApp": {
+    "npaSetting": {
+      "home": {
+        "title": "Npa Settings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Npa Setting",
+        "createOrEditLabel": "Create or edit a Npa Setting",
+        "notFound": "No Npa Settings found"
+      },
+      "created": "A new Npa Setting is created with identifier {{ param }}",
+      "updated": "A Npa Setting is updated with identifier {{ param }}",
+      "deleted": "A Npa Setting is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Npa Setting {{ id }}?"
+      },
+      "detail": {
+        "title": "Npa Setting"
+      },
+      "id": "ID",
+      "npaClassification": "Npa Classification",
+      "durationStart": "Duration Start",
+      "durationEnd": "Duration End",
+      "provision": "Provision",
+      "year": "Year",
+      "interestRate": "Interest Rate",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "isDeleted": "Is Deleted",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "organisation": "Organisation"
+    }
+  }
+}

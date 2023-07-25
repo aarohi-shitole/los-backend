@@ -1,0 +1,244 @@
+<div>
+  <h2 id="page-heading" data-cy="RemarkHistoryHeading">
+    <span jhiTranslate="loanOrignationSystemApp.remarkHistory.home.title">Remark Histories</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.remarkHistory.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-remark-history"
+        [routerLink]="['/remark-history/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.remarkHistory.home.createLabel"> Create a new Remark History </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="remarkHistories?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.remarkHistory.home.notFound">No Remark Histories found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="remarkHistories && remarkHistories.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="remark">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.remark">Remark</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.loanAmt">Loan Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="modifiedAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.modifiedAmt">Modified Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanInterest">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.loanInterest">Loan Interest</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="modifiedInterest">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.modifiedInterest">Modified Interest</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="branch">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.branch">Branch</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="applicationNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.applicationNo">Application No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="securityUser.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.securityUser">Security User</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanApplications.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.remarkHistory.loanApplications">Loan Applications</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let remarkHistory of remarkHistories; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/remark-history', remarkHistory.id, 'view']">{{ remarkHistory.id }}</a>
+          </td>
+          <td>{{ remarkHistory.remark }}</td>
+          <td>{{ remarkHistory.loanAmt }}</td>
+          <td>{{ remarkHistory.modifiedAmt }}</td>
+          <td>{{ remarkHistory.loanInterest }}</td>
+          <td>{{ remarkHistory.modifiedInterest }}</td>
+          <td>{{ remarkHistory.createdOn | formatMediumDatetime }}</td>
+          <td>{{ remarkHistory.createdBy }}</td>
+          <td>{{ remarkHistory.branch }}</td>
+          <td>{{ remarkHistory.applicationNo }}</td>
+          <td>{{ remarkHistory.lastModified | formatMediumDatetime }}</td>
+          <td>{{ remarkHistory.lastModifiedBy }}</td>
+          <td>{{ remarkHistory.freeField1 }}</td>
+          <td>{{ remarkHistory.freeField2 }}</td>
+          <td>{{ remarkHistory.freeField3 }}</td>
+          <td>{{ remarkHistory.freeField4 }}</td>
+          <td>{{ remarkHistory.freeField5 }}</td>
+          <td>{{ remarkHistory.freeField6 }}</td>
+          <td>
+            <div *ngIf="remarkHistory.securityUser">
+              <a [routerLink]="['/security-user', remarkHistory.securityUser.id, 'view']">{{ remarkHistory.securityUser.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="remarkHistory.loanApplications">
+              <a [routerLink]="['/loan-applications', remarkHistory.loanApplications.id, 'view']">{{
+                remarkHistory.loanApplications.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/remark-history', remarkHistory.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/remark-history', remarkHistory.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(remarkHistory)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="remarkHistories && remarkHistories.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,79 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061256",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "declearation",
+  "fields": [
+    {
+      "fieldName": "tiltle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "DeclearationType",
+      "fieldValues": "BOR_DECLARATION (Borrower_Declaration),GURE_DECLARATION (Guantor_Declaration),ORG_TERMS (Organisation_Terms)"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tag",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subType",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Declearation",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "organisation",
+      "relationshipName": "organisation",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

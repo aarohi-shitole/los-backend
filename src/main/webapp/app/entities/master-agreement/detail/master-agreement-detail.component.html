@@ -1,0 +1,128 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="masterAgreement">
+      <h2 data-cy="masterAgreementDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.masterAgreement.detail.title">Master Agreement</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ masterAgreement.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.memberId">Member Id</span></dt>
+        <dd>
+          <span>{{ masterAgreement.memberId }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.portfolioCode">Portfolio Code</span></dt>
+        <dd>
+          <span>{{ masterAgreement.portfolioCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.productCode">Product Code</span></dt>
+        <dd>
+          <span>{{ masterAgreement.productCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.homeBranch">Home Branch</span></dt>
+        <dd>
+          <span>{{ masterAgreement.homeBranch }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.servBranch">Serv Branch</span></dt>
+        <dd>
+          <span>{{ masterAgreement.servBranch }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.homeState">Home State</span></dt>
+        <dd>
+          <span>{{ masterAgreement.homeState }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.servState">Serv State</span></dt>
+        <dd>
+          <span>{{ masterAgreement.servState }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.gstExempted">Gst Exempted</span></dt>
+        <dd>
+          <span>{{ masterAgreement.gstExempted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.prefRepayMode">Pref Repay Mode</span></dt>
+        <dd>
+          <span>{{ masterAgreement.prefRepayMode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.tdsCode">Tds Code</span></dt>
+        <dd>
+          <span>{{ masterAgreement.tdsCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.tdsRate">Tds Rate</span></dt>
+        <dd>
+          <span>{{ masterAgreement.tdsRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.sanctionedAmount">Sanctioned Amount</span></dt>
+        <dd>
+          <span>{{ masterAgreement.sanctionedAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.originationApplnNo">Origination Appln No</span></dt>
+        <dd>
+          <span>{{ masterAgreement.originationApplnNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.cycleDay">Cycle Day</span></dt>
+        <dd>
+          <span>{{ masterAgreement.cycleDay }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.tenor">Tenor</span></dt>
+        <dd>
+          <span>{{ masterAgreement.tenor }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.interestRate">Interest Rate</span></dt>
+        <dd>
+          <span>{{ masterAgreement.interestRate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.repayFreq">Repay Freq</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.RepaymentFreqency.' + masterAgreement.repayFreq }}">{{
+            masterAgreement.repayFreq
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ masterAgreement.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ masterAgreement.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ masterAgreement.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ masterAgreement.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ masterAgreement.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ masterAgreement.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.masterAgreement.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ masterAgreement.freeField4 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/master-agreement', masterAgreement.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

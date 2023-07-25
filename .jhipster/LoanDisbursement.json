@@ -1,0 +1,97 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061313",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "loan_disbursement",
+  "fields": [
+    {
+      "fieldName": "dtDisbDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "accountNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ifscCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "disbAmount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "disbuNumber",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "disbursementStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentMode",
+      "fieldType": "PaymentMode",
+      "fieldValues": "ONLINE (Online_Payment),CASH (Cash_Payment),TRANSFER (Transfer),CHEQUE (By_Cheque),OTHERS (Other_Mode)"
+    },
+    {
+      "fieldName": "utrNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "LoanDisbursement",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "securityUser",
+      "relationshipName": "securityUser",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "loanAccount",
+      "relationshipName": "loanAccount",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

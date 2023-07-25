@@ -1,0 +1,51 @@
+import dayjs from 'dayjs/esm';
+import { IMember } from 'app/entities/member/member.model';
+import { ISecurityUser } from 'app/entities/security-user/security-user.model';
+import { IProduct } from 'app/entities/product/product.model';
+import { LoanStatus } from 'app/entities/enumerations/loan-status.model';
+import { StepperNumber } from 'app/entities/enumerations/stepper-number.model';
+
+export interface ILoanApplications {
+  id: number;
+  applicationNo?: string | null;
+  demandAmount?: number | null;
+  loanPurpose?: string | null;
+  status?: LoanStatus | null;
+  demandedLandAreaInHector?: number | null;
+  seasonOfCropLoan?: string | null;
+  loanSteps?: StepperNumber | null;
+  isInsured?: boolean | null;
+  loanBenefitingArea?: number | null;
+  costOfInvestment?: number | null;
+  mortgageDeedNo?: number | null;
+  mortgageDate?: dayjs.Dayjs | null;
+  extentMorgageValue?: number | null;
+  downPaymentAmt?: number | null;
+  ltvRatio?: number | null;
+  processingFee?: number | null;
+  penalInterest?: number | null;
+  moratorium?: string | null;
+  roi?: number | null;
+  commityAmt?: number | null;
+  commityRoi?: number | null;
+  sectionAmt?: number | null;
+  senctionRoi?: number | null;
+  year?: string | null;
+  assignedTo?: number | null;
+  assignedFrom?: number | null;
+  securityDocUrl?: string | null;
+  lastModified?: dayjs.Dayjs | null;
+  lastModifiedBy?: string | null;
+  freeField1?: string | null;
+  freeField2?: string | null;
+  freeField3?: string | null;
+  freeField4?: string | null;
+  freeField5?: string | null;
+  freeField6?: string | null;
+  freeField7?: string | null;
+  member?: Pick<IMember, 'id'> | null;
+  securityUser?: Pick<ISecurityUser, 'id'> | null;
+  product?: Pick<IProduct, 'id'> | null;
+}
+
+export type NewLoanApplications = Omit<ILoanApplications, 'id'> & { id: null };

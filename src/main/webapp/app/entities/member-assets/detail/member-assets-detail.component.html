@@ -1,0 +1,154 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="memberAssets">
+      <h2 data-cy="memberAssetsDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.memberAssets.detail.title">Member Assets</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ memberAssets.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.assetCost">Asset Cost</span></dt>
+        <dd>
+          <span>{{ memberAssets.assetCost }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.assetType">Asset Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.AssetType.' + memberAssets.assetType }}">{{ memberAssets.assetType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.areaInSqFt">Area In Sq Ft</span></dt>
+        <dd>
+          <span>{{ memberAssets.areaInSqFt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.assetNature">Asset Nature</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.AssetNature.' + memberAssets.assetNature }}">{{ memberAssets.assetNature }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.address">Address</span></dt>
+        <dd>
+          <span>{{ memberAssets.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.landMark">Land Mark</span></dt>
+        <dd>
+          <span>{{ memberAssets.landMark }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.assetOwner">Asset Owner</span></dt>
+        <dd>
+          <span>{{ memberAssets.assetOwner }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.completionYear">Completion Year</span></dt>
+        <dd>
+          <span>{{ memberAssets.completionYear }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.marketValue">Market Value</span></dt>
+        <dd>
+          <span>{{ memberAssets.marketValue }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.isInsured">Is Insured</span></dt>
+        <dd>
+          <span>{{ memberAssets.isInsured }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.isUnderUsed">Is Under Used</span></dt>
+        <dd>
+          <span>{{ memberAssets.isUnderUsed }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.isOwned">Is Owned</span></dt>
+        <dd>
+          <span>{{ memberAssets.isOwned }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.landType">Land Type</span></dt>
+        <dd>
+          <span>{{ memberAssets.landType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.landGatNo">Land Gat No</span></dt>
+        <dd>
+          <span>{{ memberAssets.landGatNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.landAreaInHector">Land Area In Hector</span></dt>
+        <dd>
+          <span>{{ memberAssets.landAreaInHector }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.jindagiPatrakNo">Jindagi Patrak No</span></dt>
+        <dd>
+          <span>{{ memberAssets.jindagiPatrakNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.jindagiAmount">Jindagi Amount</span></dt>
+        <dd>
+          <span>{{ memberAssets.jindagiAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ memberAssets.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ memberAssets.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ memberAssets.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ memberAssets.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ memberAssets.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ memberAssets.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ memberAssets.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ memberAssets.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ memberAssets.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ memberAssets.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ memberAssets.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.member">Member</span></dt>
+        <dd>
+          <div *ngIf="memberAssets.member">
+            <a [routerLink]="['/member', memberAssets.member.id, 'view']">{{ memberAssets.member.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.memberAssets.loanApplications">Loan Applications</span></dt>
+        <dd>
+          <div *ngIf="memberAssets.loanApplications">
+            <a [routerLink]="['/loan-applications', memberAssets.loanApplications.id, 'view']">{{ memberAssets.loanApplications.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/member-assets', memberAssets.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

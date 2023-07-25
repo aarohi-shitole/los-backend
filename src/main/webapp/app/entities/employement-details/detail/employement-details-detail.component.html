@@ -1,0 +1,152 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="employementDetails">
+      <h2 data-cy="employementDetailsDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.employementDetails.detail.title">Employement Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ employementDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.Occupation.' + employementDetails.type }}">{{ employementDetails.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.employerName">Employer Name</span></dt>
+        <dd>
+          <span>{{ employementDetails.employerName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.EmployementStatus.' + employementDetails.status }}">{{
+            employementDetails.status
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.designation">Designation</span></dt>
+        <dd>
+          <span>{{ employementDetails.designation }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.duration">Duration</span></dt>
+        <dd>
+          <span>{{ employementDetails.duration }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.employerAdd">Employer Add</span></dt>
+        <dd>
+          <span>{{ employementDetails.employerAdd }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.prevCompanyName">Prev Company Name</span></dt>
+        <dd>
+          <span>{{ employementDetails.prevCompanyName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.prevCompanyduration">Prev Companyduration</span></dt>
+        <dd>
+          <span>{{ employementDetails.prevCompanyduration }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.orgType">Org Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.CompanyType.' + employementDetails.orgType }}">{{
+            employementDetails.orgType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.constitutionType">Constitution Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.ConstitutionType.' + employementDetails.constitutionType }}">{{
+            employementDetails.constitutionType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.industryType">Industry Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.IndustryType.' + employementDetails.industryType }}">{{
+            employementDetails.industryType
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.businessRegNo">Business Reg No</span></dt>
+        <dd>
+          <span>{{ employementDetails.businessRegNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.compOwnerShip">Comp Owner Ship</span></dt>
+        <dd>
+          <span>{{ employementDetails.compOwnerShip }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.partnerName1">Partner Name 1</span></dt>
+        <dd>
+          <span>{{ employementDetails.partnerName1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.partnerName2">Partner Name 2</span></dt>
+        <dd>
+          <span>{{ employementDetails.partnerName2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.partnerName3">Partner Name 3</span></dt>
+        <dd>
+          <span>{{ employementDetails.partnerName3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ employementDetails.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ employementDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ employementDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ employementDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ employementDetails.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ employementDetails.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ employementDetails.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ employementDetails.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ employementDetails.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ employementDetails.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ employementDetails.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.employementDetails.member">Member</span></dt>
+        <dd>
+          <div *ngIf="employementDetails.member">
+            <a [routerLink]="['/member', employementDetails.member.id, 'view']">{{ employementDetails.member.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/employement-details', employementDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

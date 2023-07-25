@@ -1,0 +1,51 @@
+{
+  "loanOrignationSystemApp": {
+    "employementDetails": {
+      "home": {
+        "title": "Employement Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Employement Details",
+        "createOrEditLabel": "Create or edit a Employement Details",
+        "notFound": "No Employement Details found"
+      },
+      "created": "A new Employement Details is created with identifier {{ param }}",
+      "updated": "A Employement Details is updated with identifier {{ param }}",
+      "deleted": "A Employement Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employement Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Employement Details"
+      },
+      "id": "ID",
+      "type": "Type",
+      "employerName": "Employer Name",
+      "status": "Status",
+      "designation": "Designation",
+      "duration": "Duration",
+      "employerAdd": "Employer Add",
+      "prevCompanyName": "Prev Company Name",
+      "prevCompanyduration": "Prev Companyduration",
+      "orgType": "Org Type",
+      "constitutionType": "Constitution Type",
+      "industryType": "Industry Type",
+      "businessRegNo": "Business Reg No",
+      "compOwnerShip": "Comp Owner Ship",
+      "partnerName1": "Partner Name 1",
+      "partnerName2": "Partner Name 2",
+      "partnerName3": "Partner Name 3",
+      "isDeleted": "Is Deleted",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "member": "Member"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061258",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "sequence_generator",
+  "fields": [
+    {
+      "fieldName": "nextValMember",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nextValLoanApp",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nextValLoanAccount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nextValVoucher",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "SequenceGenerator",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "branch",
+      "ownerSide": true,
+      "relationshipName": "branch",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

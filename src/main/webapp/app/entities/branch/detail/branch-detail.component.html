@@ -1,0 +1,146 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="branch">
+      <h2 data-cy="branchDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.branch.detail.title">Branch</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ branch.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.branchName">Branch Name</span></dt>
+        <dd>
+          <span>{{ branch.branchName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.description">Description</span></dt>
+        <dd>
+          <span>{{ branch.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.branchcode">Branchcode</span></dt>
+        <dd>
+          <span>{{ branch.branchcode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.ifscCode">Ifsc Code</span></dt>
+        <dd>
+          <span>{{ branch.ifscCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.micrCode">Micr Code</span></dt>
+        <dd>
+          <span>{{ branch.micrCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.swiftCode">Swift Code</span></dt>
+        <dd>
+          <span>{{ branch.swiftCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.ibanCode">Iban Code</span></dt>
+        <dd>
+          <span>{{ branch.ibanCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.isHeadOffice">Is Head Office</span></dt>
+        <dd>
+          <span>{{ branch.isHeadOffice }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.routingTransitNo">Routing Transit No</span></dt>
+        <dd>
+          <span>{{ branch.routingTransitNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.phone">Phone</span></dt>
+        <dd>
+          <span>{{ branch.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.email">Email</span></dt>
+        <dd>
+          <span>{{ branch.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.webSite">Web Site</span></dt>
+        <dd>
+          <span>{{ branch.webSite }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.fax">Fax</span></dt>
+        <dd>
+          <span>{{ branch.fax }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.isActivate">Is Activate</span></dt>
+        <dd>
+          <span>{{ branch.isActivate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.branchType">Branch Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.BranchType.' + branch.branchType }}">{{ branch.branchType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ branch.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ branch.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ branch.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ branch.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ branch.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ branch.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ branch.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ branch.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ branch.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ branch.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.address">Address</span></dt>
+        <dd>
+          <div *ngIf="branch.address">
+            <a [routerLink]="['/address', branch.address.id, 'view']">{{ branch.address.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.organisation">Organisation</span></dt>
+        <dd>
+          <div *ngIf="branch.organisation">
+            <a [routerLink]="['/organisation', branch.organisation.id, 'view']">{{ branch.organisation.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.branch.branch">Branch</span></dt>
+        <dd>
+          <div *ngIf="branch.branch">
+            <a [routerLink]="['/region', branch.branch.id, 'view']">{{ branch.branch.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/branch', branch.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

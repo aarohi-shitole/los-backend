@@ -1,0 +1,10 @@
+{
+  "loanOrignationSystemApp": {
+    "FacilityStatus": {
+      "null": "",
+      "REGULAR": "Regular",
+      "OVERDUE": "OverDue",
+      "NPA": "Npa"
+    }
+  }
+}

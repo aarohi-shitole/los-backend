@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061253",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "taluka",
+  "fields": [
+    {
+      "fieldName": "talukaName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lgdCode",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Taluka",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "district",
+      "relationshipName": "district",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

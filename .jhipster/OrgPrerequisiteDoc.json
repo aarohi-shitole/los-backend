@@ -1,0 +1,83 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061257",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "org_prerequisite_doc",
+  "fields": [
+    {
+      "fieldName": "docDesc",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "docCatagory",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ismandatory",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "OrgPrerequisiteDoc",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "organisation",
+      "relationshipName": "organisation",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

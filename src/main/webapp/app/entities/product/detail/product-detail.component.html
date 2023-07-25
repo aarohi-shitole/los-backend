@@ -1,0 +1,190 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="product">
+      <h2 data-cy="productDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.product.detail.title">Product</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ product.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.prodCode">Prod Code</span></dt>
+        <dd>
+          <span>{{ product.prodCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.prodName">Prod Name</span></dt>
+        <dd>
+          <span>{{ product.prodName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.bpiTreatmentFlag">Bpi Treatment Flag</span></dt>
+        <dd>
+          <span>{{ product.bpiTreatmentFlag }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.amortizationMethod">Amortization Method</span></dt>
+        <dd>
+          <span>{{ product.amortizationMethod }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.amortizationType">Amortization Type</span></dt>
+        <dd>
+          <span>{{ product.amortizationType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.compoundingFreq">Compounding Freq</span></dt>
+        <dd>
+          <span>{{ product.compoundingFreq }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.emiRounding">Emi Rounding</span></dt>
+        <dd>
+          <span>{{ product.emiRounding }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.lastRowEMIThreshold">Last Row EMI Threshold</span></dt>
+        <dd>
+          <span>{{ product.lastRowEMIThreshold }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.graceDays">Grace Days</span></dt>
+        <dd>
+          <span>{{ product.graceDays }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.reschLockinPeriod">Resch Lockin Period</span></dt>
+        <dd>
+          <span>{{ product.reschLockinPeriod }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.prepayAfterInstNo">Prepay After Inst No</span></dt>
+        <dd>
+          <span>{{ product.prepayAfterInstNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.prepayBeforeInstNo">Prepay Before Inst No</span></dt>
+        <dd>
+          <span>{{ product.prepayBeforeInstNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.minInstallmentGapBetPrepay">Min Installment Gap Bet Prepay</span></dt>
+        <dd>
+          <span>{{ product.minInstallmentGapBetPrepay }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.minPrepayAmount">Min Prepay Amount</span></dt>
+        <dd>
+          <span>{{ product.minPrepayAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.forecloseAfterInstNo">Foreclose After Inst No</span></dt>
+        <dd>
+          <span>{{ product.forecloseAfterInstNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.forecloseBeforeInstaNo">Foreclose Before Insta No</span></dt>
+        <dd>
+          <span>{{ product.forecloseBeforeInstaNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.minTenor">Min Tenor</span></dt>
+        <dd>
+          <span>{{ product.minTenor }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.maxTenor">Max Tenor</span></dt>
+        <dd>
+          <span>{{ product.maxTenor }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.minInstallmentAmount">Min Installment Amount</span></dt>
+        <dd>
+          <span>{{ product.minInstallmentAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.maxInstallmentAmount">Max Installment Amount</span></dt>
+        <dd>
+          <span>{{ product.maxInstallmentAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.dropLineAmount">Drop Line Amount</span></dt>
+        <dd>
+          <span>{{ product.dropLineAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.dropLineODYN">Drop Line ODYN</span></dt>
+        <dd>
+          <span>{{ product.dropLineODYN }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.dropLinePerc">Drop Line Perc</span></dt>
+        <dd>
+          <span>{{ product.dropLinePerc }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.dropMode">Drop Mode</span></dt>
+        <dd>
+          <span>{{ product.dropMode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.dropLIneFreq">Drop L Ine Freq</span></dt>
+        <dd>
+          <span>{{ product.dropLIneFreq }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.dropLineCycleDay">Drop Line Cycle Day</span></dt>
+        <dd>
+          <span>{{ product.dropLineCycleDay }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.roi">Roi</span></dt>
+        <dd>
+          <span>{{ product.roi }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ product.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ product.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ product.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ product.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ product.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ product.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ product.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ product.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ product.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.loanCatagory">Loan Catagory</span></dt>
+        <dd>
+          <div *ngIf="product.loanCatagory">
+            <a [routerLink]="['/loan-catagory', product.loanCatagory.id, 'view']">{{ product.loanCatagory.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.organisation">Organisation</span></dt>
+        <dd>
+          <div *ngIf="product.organisation">
+            <a [routerLink]="['/organisation', product.organisation.id, 'view']">{{ product.organisation.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.product.ledgerAccounts">Ledger Accounts</span></dt>
+        <dd>
+          <div *ngIf="product.ledgerAccounts">
+            <a [routerLink]="['/ledger-accounts', product.ledgerAccounts.id, 'view']">{{ product.ledgerAccounts.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/product', product.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

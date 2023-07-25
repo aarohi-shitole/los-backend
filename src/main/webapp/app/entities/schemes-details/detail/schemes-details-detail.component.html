@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="schemesDetails">
+      <h2 data-cy="schemesDetailsDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.schemesDetails.detail.title">Schemes Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ schemesDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.fdDurationDays">Fd Duration Days</span></dt>
+        <dd>
+          <span>{{ schemesDetails.fdDurationDays }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.interest">Interest</span></dt>
+        <dd>
+          <span>{{ schemesDetails.interest }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.lockInPeriod">Lock In Period</span></dt>
+        <dd>
+          <span>{{ schemesDetails.lockInPeriod }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.schemeName">Scheme Name</span></dt>
+        <dd>
+          <span>{{ schemesDetails.schemeName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.rdDurationMonths">Rd Duration Months</span></dt>
+        <dd>
+          <span>{{ schemesDetails.rdDurationMonths }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.reinvestInterest">Reinvest Interest</span></dt>
+        <dd>
+          <span>{{ schemesDetails.reinvestInterest }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.minAmount">Min Amount</span></dt>
+        <dd>
+          <span>{{ schemesDetails.minAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.lastDayOfScheam">Last Day Of Scheam</span></dt>
+        <dd>
+          <span>{{ schemesDetails.lastDayOfScheam | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ schemesDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ schemesDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ schemesDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ schemesDetails.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ schemesDetails.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ schemesDetails.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ schemesDetails.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ schemesDetails.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ schemesDetails.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ schemesDetails.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.schemesDetails.organisation">Organisation</span></dt>
+        <dd>
+          <div *ngIf="schemesDetails.organisation">
+            <a [routerLink]="['/organisation', schemesDetails.organisation.id, 'view']">{{ schemesDetails.organisation.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/schemes-details', schemesDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

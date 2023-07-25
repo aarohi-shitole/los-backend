@@ -1,0 +1,144 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="address">
+      <h2 data-cy="addressDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.address.detail.title">Address</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ address.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.addrStatus">Addr Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.AddressType.' + address.addrStatus }}">{{ address.addrStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.addressLine1">Address Line 1</span></dt>
+        <dd>
+          <span>{{ address.addressLine1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.addressLine2">Address Line 2</span></dt>
+        <dd>
+          <span>{{ address.addressLine2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.addressLine3">Address Line 3</span></dt>
+        <dd>
+          <span>{{ address.addressLine3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.landMark">Land Mark</span></dt>
+        <dd>
+          <span>{{ address.landMark }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.pincode">Pincode</span></dt>
+        <dd>
+          <span>{{ address.pincode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.longitude">Longitude</span></dt>
+        <dd>
+          <span>{{ address.longitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.latitude">Latitude</span></dt>
+        <dd>
+          <span>{{ address.latitude }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.mapNevUrl">Map Nev Url</span></dt>
+        <dd>
+          <span>{{ address.mapNevUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.isPrefferedAdd">Is Preffered Add</span></dt>
+        <dd>
+          <span>{{ address.isPrefferedAdd }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ address.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ address.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ address.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ address.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ address.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ address.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ address.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ address.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ address.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ address.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.state">State</span></dt>
+        <dd>
+          <div *ngIf="address.state">
+            <a [routerLink]="['/state', address.state.id, 'view']">{{ address.state.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.district">District</span></dt>
+        <dd>
+          <div *ngIf="address.district">
+            <a [routerLink]="['/district', address.district.id, 'view']">{{ address.district.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.taluka">Taluka</span></dt>
+        <dd>
+          <div *ngIf="address.taluka">
+            <a [routerLink]="['/taluka', address.taluka.id, 'view']">{{ address.taluka.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.city">City</span></dt>
+        <dd>
+          <div *ngIf="address.city">
+            <a [routerLink]="['/city', address.city.id, 'view']">{{ address.city.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.member">Member</span></dt>
+        <dd>
+          <div *ngIf="address.member">
+            <a [routerLink]="['/member', address.member.id, 'view']">{{ address.member.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.address.securityUser">Security User</span></dt>
+        <dd>
+          <div *ngIf="address.securityUser">
+            <a [routerLink]="['/security-user', address.securityUser.id, 'view']">{{ address.securityUser.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/address', address.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

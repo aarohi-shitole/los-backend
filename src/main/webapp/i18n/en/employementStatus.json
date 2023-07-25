@@ -1,0 +1,11 @@
+{
+  "loanOrignationSystemApp": {
+    "EmployementStatus": {
+      "null": "",
+      "REGULAR": "Regular",
+      "TEMPORARY": "Temporary",
+      "CONTRACT": "Contract",
+      "PROBATION": "Probation"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "loanOrignationSystemApp": {
+    "masterAgreement": {
+      "home": {
+        "title": "Master Agreements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Master Agreement",
+        "createOrEditLabel": "Create or edit a Master Agreement",
+        "notFound": "No Master Agreements found"
+      },
+      "created": "A new Master Agreement is created with identifier {{ param }}",
+      "updated": "A Master Agreement is updated with identifier {{ param }}",
+      "deleted": "A Master Agreement is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Master Agreement {{ id }}?"
+      },
+      "detail": {
+        "title": "Master Agreement"
+      },
+      "id": "ID",
+      "memberId": "Member Id",
+      "portfolioCode": "Portfolio Code",
+      "productCode": "Product Code",
+      "homeBranch": "Home Branch",
+      "servBranch": "Serv Branch",
+      "homeState": "Home State",
+      "servState": "Serv State",
+      "gstExempted": "Gst Exempted",
+      "prefRepayMode": "Pref Repay Mode",
+      "tdsCode": "Tds Code",
+      "tdsRate": "Tds Rate",
+      "sanctionedAmount": "Sanctioned Amount",
+      "originationApplnNo": "Origination Appln No",
+      "cycleDay": "Cycle Day",
+      "tenor": "Tenor",
+      "interestRate": "Interest Rate",
+      "repayFreq": "Repay Freq",
+      "isDeleted": "Is Deleted",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "loanOrignationSystemApp": {
+    "epay": {
+      "home": {
+        "title": "Epays",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Epay",
+        "createOrEditLabel": "Create or edit a Epay",
+        "notFound": "No Epays found"
+      },
+      "created": "A new Epay is created with identifier {{ param }}",
+      "updated": "A Epay is updated with identifier {{ param }}",
+      "deleted": "A Epay is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Epay {{ id }}?"
+      },
+      "detail": {
+        "title": "Epay"
+      },
+      "id": "ID",
+      "instrumentType": "Instrument Type",
+      "dtFromDate": "Dt From Date",
+      "dtToDate": "Dt To Date",
+      "bankCode": "Bank Code",
+      "bankBranchCode": "Bank Branch Code",
+      "accountType": "Account Type",
+      "accountNo": "Account No",
+      "maxCeilAmount": "Max Ceil Amount",
+      "installmentAmount": "Installment Amount",
+      "maxInstallmentAmount": "Max Installment Amount",
+      "mandateRefNo": "Mandate Ref No",
+      "depositBank": "Deposit Bank",
+      "mandateType": "Mandate Type",
+      "frequency": "Frequency",
+      "ifscCode": "Ifsc Code",
+      "utrNo": "Utr No",
+      "isDeleted": "Is Deleted",
+      "isActive": "Is Active",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4"
+    }
+  }
+}

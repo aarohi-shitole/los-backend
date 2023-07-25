@@ -1,0 +1,10 @@
+{
+  "loanOrignationSystemApp": {
+    "AssetNature": {
+      "null": "",
+      "RESIDENTIAL": "Residential",
+      "COMMERCIAL": "Commercial",
+      "OTHER": "Other"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="remarkHistory">
+      <h2 data-cy="remarkHistoryDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.remarkHistory.detail.title">Remark History</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ remarkHistory.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.remark">Remark</span></dt>
+        <dd>
+          <span>{{ remarkHistory.remark }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.loanAmt">Loan Amt</span></dt>
+        <dd>
+          <span>{{ remarkHistory.loanAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.modifiedAmt">Modified Amt</span></dt>
+        <dd>
+          <span>{{ remarkHistory.modifiedAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.loanInterest">Loan Interest</span></dt>
+        <dd>
+          <span>{{ remarkHistory.loanInterest }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.modifiedInterest">Modified Interest</span></dt>
+        <dd>
+          <span>{{ remarkHistory.modifiedInterest }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ remarkHistory.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ remarkHistory.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.branch">Branch</span></dt>
+        <dd>
+          <span>{{ remarkHistory.branch }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.applicationNo">Application No</span></dt>
+        <dd>
+          <span>{{ remarkHistory.applicationNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ remarkHistory.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ remarkHistory.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ remarkHistory.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ remarkHistory.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ remarkHistory.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ remarkHistory.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ remarkHistory.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ remarkHistory.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.securityUser">Security User</span></dt>
+        <dd>
+          <div *ngIf="remarkHistory.securityUser">
+            <a [routerLink]="['/security-user', remarkHistory.securityUser.id, 'view']">{{ remarkHistory.securityUser.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.remarkHistory.loanApplications">Loan Applications</span></dt>
+        <dd>
+          <div *ngIf="remarkHistory.loanApplications">
+            <a [routerLink]="['/loan-applications', remarkHistory.loanApplications.id, 'view']">{{ remarkHistory.loanApplications.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/remark-history', remarkHistory.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

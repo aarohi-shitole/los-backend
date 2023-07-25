@@ -1,0 +1,88 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="accountHeadCode">
+      <h2 data-cy="accountHeadCodeDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.accountHeadCode.detail.title">Account Head Code</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.type">Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.MappingType.' + accountHeadCode.type }}">{{ accountHeadCode.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.value">Value</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.value }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.headCodeName">Head Code Name</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.headCodeName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ accountHeadCode.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.accountHeadCode.ledgerAccounts">Ledger Accounts</span></dt>
+        <dd>
+          <div *ngIf="accountHeadCode.ledgerAccounts">
+            <a [routerLink]="['/ledger-accounts', accountHeadCode.ledgerAccounts.id, 'view']">{{ accountHeadCode.ledgerAccounts.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/account-head-code', accountHeadCode.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

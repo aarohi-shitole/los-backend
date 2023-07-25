@@ -1,0 +1,255 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061301",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "member",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "Title",
+      "fieldValues": "MR (Mr),MRS (Mrs),MISS (Miss)"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "middleName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "memberId",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "membershipNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "fatherName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "motherName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE (Male),FEMALE (Female),TRANSGENDER (Transgender),OTHER (Other)"
+    },
+    {
+      "fieldName": "dob",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "alternateMobile",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fax",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactTimeFrom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "contactTimeTo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "religion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "custCategory",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cast",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "aadharCardNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "panCard",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "passportNo",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "passportExpiry",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rationCard",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "residenceStatus",
+      "fieldType": "ResidentalStatus",
+      "fieldValues": "RESIDENT (Resident),NON_RESIDENT (Non_Resident),OTHER (Other)"
+    },
+    {
+      "fieldName": "maritalStatus",
+      "fieldType": "MaritalStatus",
+      "fieldValues": "MARRIED (Married),SINGLE (Single),DIVORCED (Divorced),WIDOW (Widow),OTHERS (Others)"
+    },
+    {
+      "fieldName": "familyMemberCount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "occupation",
+      "fieldType": "Occupation",
+      "fieldValues": "SALARIED (Salaried),BUSINESS (Business),PROFESSIONAL (Professional),SERVICE (Service),SELF_EMPLOYED (Self_Employed),AGRICULTURE (Agriculture),PENSIONER (Pensioner)"
+    },
+    {
+      "fieldName": "nationality",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "noOfDependents",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "applicationDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Status",
+      "fieldValues": "DRAFT (Draft),CREATED (Created),DOCUMENT_VERIFIED (Document_Verified),KYC_GENREATED (KYC_Genreated),LOAN_DEMAND (loan_Demand),LOAN_ACTIVE (Loan_Active),LOAN_CANCELLED (Loan_cancelled),LOAN_CLOSED (Loan_Closed)"
+    },
+    {
+      "fieldName": "highestQualification",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "hasAdharCardVerified",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "hasPanCardVerified",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "loanStatus",
+      "fieldType": "LoanStatus",
+      "fieldValues": "DRAFT (Draft),APPLIED (Applied),VERIFIED (Verified),PENDING (Pending),AWAITED (Awaited),AWAITED_FOR_LEG_VAL (Awaited_For_Legal_n_valuation),APPROVED (Approved),SCANTIONED (Secntioned),REJECTED (Rejected),CANCELLED (cancelled),DISBURSED (Disbursed),ACTIVE (Active),CLOSED (Closed)"
+    },
+    {
+      "fieldName": "enqRefrenceNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numberOfAssets",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "profileStepper",
+      "fieldType": "StepperNumber",
+      "fieldValues": "STEP_1 (Step_1),STEP_2 (Step_2),STEP_3 (Step_3),STEP_4 (Step_4),STEP_5 (Step_5),STEP_6 (Step_6)"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField5",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField6",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Member",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "enquiryDetails",
+      "ownerSide": true,
+      "relationshipName": "enquiryDetails",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "branch",
+      "relationshipName": "branch",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "member",
+      "relationshipName": "member",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "securityUser",
+      "relationshipName": "securityUser",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

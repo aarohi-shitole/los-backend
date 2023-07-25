@@ -1,0 +1,46 @@
+{
+  "loanOrignationSystemApp": {
+    "organisation": {
+      "home": {
+        "title": "Organisations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Organisation",
+        "createOrEditLabel": "Create or edit a Organisation",
+        "notFound": "No Organisations found"
+      },
+      "created": "A new Organisation is created with identifier {{ param }}",
+      "updated": "A Organisation is updated with identifier {{ param }}",
+      "deleted": "A Organisation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Organisation {{ id }}?"
+      },
+      "detail": {
+        "title": "Organisation"
+      },
+      "id": "ID",
+      "orgName": "Org Name",
+      "description": "Description",
+      "regNumber": "Reg Number",
+      "gstin": "Gstin",
+      "pan": "Pan",
+      "tan": "Tan",
+      "phone": "Phone",
+      "email": "Email",
+      "webSite": "Web Site",
+      "fax": "Fax",
+      "isActivate": "Is Activate",
+      "orgType": "Org Type",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "isDeleted": "Is Deleted",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "address": "Address"
+    }
+  }
+}

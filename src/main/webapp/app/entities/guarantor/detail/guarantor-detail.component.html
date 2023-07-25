@@ -1,0 +1,194 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="guarantor">
+      <h2 data-cy="guarantorDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.guarantor.detail.title">Guarantor</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ guarantor.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.title">Title</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.Title.' + guarantor.title }}">{{ guarantor.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ guarantor.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.middleName">Middle Name</span></dt>
+        <dd>
+          <span>{{ guarantor.middleName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ guarantor.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.membershipNo">Membership No</span></dt>
+        <dd>
+          <span>{{ guarantor.membershipNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.gender">Gender</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.Gender.' + guarantor.gender }}">{{ guarantor.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.dob">Dob</span></dt>
+        <dd>
+          <span>{{ guarantor.dob | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.email">Email</span></dt>
+        <dd>
+          <span>{{ guarantor.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.mobileNo">Mobile No</span></dt>
+        <dd>
+          <span>{{ guarantor.mobileNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.houseOwner">House Owner</span></dt>
+        <dd>
+          <span>{{ guarantor.houseOwner }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.occupation">Occupation</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.Occupation.' + guarantor.occupation }}">{{ guarantor.occupation }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.employerNameAdd">Employer Name Add</span></dt>
+        <dd>
+          <span>{{ guarantor.employerNameAdd }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.soclibilAmt">Soclibil Amt</span></dt>
+        <dd>
+          <span>{{ guarantor.soclibilAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.soclibilType">Soclibil Type</span></dt>
+        <dd>
+          <span>{{ guarantor.soclibilType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.otherlibilAmt">Otherlibil Amt</span></dt>
+        <dd>
+          <span>{{ guarantor.otherlibilAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.otherlibilType">Otherlibil Type</span></dt>
+        <dd>
+          <span>{{ guarantor.otherlibilType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.aadharCardNo">Aadhar Card No</span></dt>
+        <dd>
+          <span>{{ guarantor.aadharCardNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.panCard">Pan Card</span></dt>
+        <dd>
+          <span>{{ guarantor.panCard }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.maritalStatus">Marital Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.MaritalStatus.' + guarantor.maritalStatus }}">{{ guarantor.maritalStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.hasAdharVerified">Has Adhar Verified</span></dt>
+        <dd>
+          <span>{{ guarantor.hasAdharVerified }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.hasPanVerified">Has Pan Verified</span></dt>
+        <dd>
+          <span>{{ guarantor.hasPanVerified }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.numberOfAssets">Number Of Assets</span></dt>
+        <dd>
+          <span>{{ guarantor.numberOfAssets }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.grossAnnualInc">Gross Annual Inc</span></dt>
+        <dd>
+          <span>{{ guarantor.grossAnnualInc }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.netIncome">Net Income</span></dt>
+        <dd>
+          <span>{{ guarantor.netIncome }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.isIncomeTaxPayer">Is Income Tax Payer</span></dt>
+        <dd>
+          <span>{{ guarantor.isIncomeTaxPayer }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.isActive">Is Active</span></dt>
+        <dd>
+          <span>{{ guarantor.isActive }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ guarantor.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ guarantor.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ guarantor.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ guarantor.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ guarantor.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ guarantor.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ guarantor.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ guarantor.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ guarantor.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ guarantor.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ guarantor.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.memberAssets">Member Assets</span></dt>
+        <dd>
+          <div *ngIf="guarantor.memberAssets">
+            <a [routerLink]="['/member-assets', guarantor.memberAssets.id, 'view']">{{ guarantor.memberAssets.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.employementDetails">Employement Details</span></dt>
+        <dd>
+          <div *ngIf="guarantor.employementDetails">
+            <a [routerLink]="['/employement-details', guarantor.employementDetails.id, 'view']">{{ guarantor.employementDetails.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.guarantor.member">Member</span></dt>
+        <dd>
+          <div *ngIf="guarantor.member">
+            <a [routerLink]="['/member', guarantor.member.id, 'view']">{{ guarantor.member.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/guarantor', guarantor.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

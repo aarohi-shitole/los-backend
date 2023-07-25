@@ -1,0 +1,45 @@
+{
+  "loanOrignationSystemApp": {
+    "memberExistingfacility": {
+      "home": {
+        "title": "Member Existingfacilities",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Member Existingfacility",
+        "createOrEditLabel": "Create or edit a Member Existingfacility",
+        "notFound": "No Member Existingfacilities found"
+      },
+      "created": "A new Member Existingfacility is created with identifier {{ param }}",
+      "updated": "A Member Existingfacility is updated with identifier {{ param }}",
+      "deleted": "A Member Existingfacility is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Member Existingfacility {{ id }}?"
+      },
+      "detail": {
+        "title": "Member Existingfacility"
+      },
+      "id": "ID",
+      "year": "Year",
+      "facilityName": "Facility Name",
+      "facilitatedFrom": "Facilitated From",
+      "nature": "Nature",
+      "amtInLac": "Amt In Lac",
+      "purpose": "Purpose",
+      "sectionDate": "Section Date",
+      "outstandingInLac": "Outstanding In Lac",
+      "status": "Status",
+      "rating": "Rating",
+      "isDeleted": "Is Deleted",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "member": "Member"
+    }
+  }
+}

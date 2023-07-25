@@ -1,0 +1,108 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="incomeDetails">
+      <h2 data-cy="incomeDetailsDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.incomeDetails.detail.title">Income Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ incomeDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.year">Year</span></dt>
+        <dd>
+          <span>{{ incomeDetails.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.grossIncome">Gross Income</span></dt>
+        <dd>
+          <span>{{ incomeDetails.grossIncome }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.expenses">Expenses</span></dt>
+        <dd>
+          <span>{{ incomeDetails.expenses }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.netIncome">Net Income</span></dt>
+        <dd>
+          <span>{{ incomeDetails.netIncome }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.paidTaxes">Paid Taxes</span></dt>
+        <dd>
+          <span>{{ incomeDetails.paidTaxes }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.cashSurplus">Cash Surplus</span></dt>
+        <dd>
+          <span>{{ incomeDetails.cashSurplus }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.incomeType">Income Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.IncomeType.' + incomeDetails.incomeType }}">{{ incomeDetails.incomeType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ incomeDetails.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ incomeDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ incomeDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ incomeDetails.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ incomeDetails.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ incomeDetails.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ incomeDetails.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ incomeDetails.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ incomeDetails.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ incomeDetails.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ incomeDetails.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.incomeDetails.member">Member</span></dt>
+        <dd>
+          <div *ngIf="incomeDetails.member">
+            <a [routerLink]="['/member', incomeDetails.member.id, 'view']">{{ incomeDetails.member.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/income-details', incomeDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

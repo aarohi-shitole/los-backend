@@ -1,0 +1,98 @@
+{
+  "applications": "*",
+  "changelogDate": "20220929061327",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "enquiry_details",
+  "fields": [
+    {
+      "fieldName": "customerName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "purpose",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobileNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "refrenceNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isDeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "lastModified",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField1",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField2",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField3",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "freeField4",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "EnquiryDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "state",
+      "relationshipName": "state",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "district",
+      "relationshipName": "district",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "taluka",
+      "relationshipName": "taluka",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "city",
+      "relationshipName": "city",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "product",
+      "relationshipName": "product",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

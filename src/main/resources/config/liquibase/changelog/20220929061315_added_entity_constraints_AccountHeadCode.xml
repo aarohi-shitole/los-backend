@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity AccountHeadCode.
+    -->
+    <changeSet id="20220929061315-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="ledger_accounts_id"
+                                 baseTableName="account_head_code"
+                                 constraintName="fk_account_head_code__ledger_accounts_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ledger_accounts"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,271 @@
+<div>
+  <h2 id="page-heading" data-cy="MasterAgreementHeading">
+    <span jhiTranslate="loanOrignationSystemApp.masterAgreement.home.title">Master Agreements</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.masterAgreement.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-master-agreement"
+        [routerLink]="['/master-agreement/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.masterAgreement.home.createLabel"> Create a new Master Agreement </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="masterAgreements?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.masterAgreement.home.notFound">No Master Agreements found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="masterAgreements && masterAgreements.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="memberId">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.memberId">Member Id</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="portfolioCode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.portfolioCode">Portfolio Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="productCode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.productCode">Product Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="homeBranch">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.homeBranch">Home Branch</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="servBranch">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.servBranch">Serv Branch</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="homeState">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.homeState">Home State</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="servState">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.servState">Serv State</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="gstExempted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.gstExempted">Gst Exempted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prefRepayMode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.prefRepayMode">Pref Repay Mode</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tdsCode">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.tdsCode">Tds Code</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tdsRate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.tdsRate">Tds Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sanctionedAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.sanctionedAmount">Sanctioned Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="originationApplnNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.originationApplnNo">Origination Appln No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="cycleDay">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.cycleDay">Cycle Day</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tenor">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.tenor">Tenor</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="interestRate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.interestRate">Interest Rate</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="repayFreq">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.repayFreq">Repay Freq</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.masterAgreement.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let masterAgreement of masterAgreements; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/master-agreement', masterAgreement.id, 'view']">{{ masterAgreement.id }}</a>
+          </td>
+          <td>{{ masterAgreement.memberId }}</td>
+          <td>{{ masterAgreement.portfolioCode }}</td>
+          <td>{{ masterAgreement.productCode }}</td>
+          <td>{{ masterAgreement.homeBranch }}</td>
+          <td>{{ masterAgreement.servBranch }}</td>
+          <td>{{ masterAgreement.homeState }}</td>
+          <td>{{ masterAgreement.servState }}</td>
+          <td>{{ masterAgreement.gstExempted }}</td>
+          <td>{{ masterAgreement.prefRepayMode }}</td>
+          <td>{{ masterAgreement.tdsCode }}</td>
+          <td>{{ masterAgreement.tdsRate }}</td>
+          <td>{{ masterAgreement.sanctionedAmount }}</td>
+          <td>{{ masterAgreement.originationApplnNo }}</td>
+          <td>{{ masterAgreement.cycleDay }}</td>
+          <td>{{ masterAgreement.tenor }}</td>
+          <td>{{ masterAgreement.interestRate }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.RepaymentFreqency.' + masterAgreement.repayFreq }}">
+            {{ masterAgreement.repayFreq }}
+          </td>
+          <td>{{ masterAgreement.isDeleted }}</td>
+          <td>{{ masterAgreement.lastModified | formatMediumDatetime }}</td>
+          <td>{{ masterAgreement.lastModifiedBy }}</td>
+          <td>{{ masterAgreement.freeField1 }}</td>
+          <td>{{ masterAgreement.freeField2 }}</td>
+          <td>{{ masterAgreement.freeField3 }}</td>
+          <td>{{ masterAgreement.freeField4 }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/master-agreement', masterAgreement.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/master-agreement', masterAgreement.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(masterAgreement)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="masterAgreements && masterAgreements.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

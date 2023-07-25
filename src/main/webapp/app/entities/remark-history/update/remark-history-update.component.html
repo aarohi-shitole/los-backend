@@ -1,0 +1,282 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-remark-history-heading"
+        data-cy="RemarkHistoryCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.remarkHistory.home.createOrEditLabel"
+      >
+        Create or edit a Remark History
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.remark" for="field_remark">Remark</label>
+          <input type="text" class="form-control" name="remark" id="field_remark" data-cy="remark" formControlName="remark" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.loanAmt" for="field_loanAmt">Loan Amt</label>
+          <input type="number" class="form-control" name="loanAmt" id="field_loanAmt" data-cy="loanAmt" formControlName="loanAmt" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.modifiedAmt" for="field_modifiedAmt"
+            >Modified Amt</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="modifiedAmt"
+            id="field_modifiedAmt"
+            data-cy="modifiedAmt"
+            formControlName="modifiedAmt"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.loanInterest" for="field_loanInterest"
+            >Loan Interest</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="loanInterest"
+            id="field_loanInterest"
+            data-cy="loanInterest"
+            formControlName="loanInterest"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.modifiedInterest" for="field_modifiedInterest"
+            >Modified Interest</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="modifiedInterest"
+            id="field_modifiedInterest"
+            data-cy="modifiedInterest"
+            formControlName="modifiedInterest"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.branch" for="field_branch">Branch</label>
+          <input type="text" class="form-control" name="branch" id="field_branch" data-cy="branch" formControlName="branch" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.applicationNo" for="field_applicationNo"
+            >Application No</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="applicationNo"
+            id="field_applicationNo"
+            data-cy="applicationNo"
+            formControlName="applicationNo"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField1" for="field_freeField1"
+            >Free Field 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField2" for="field_freeField2"
+            >Free Field 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField3" for="field_freeField3"
+            >Free Field 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField4" for="field_freeField4"
+            >Free Field 4</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField5" for="field_freeField5"
+            >Free Field 5</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.freeField6" for="field_freeField6"
+            >Free Field 6</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="freeField6"
+            id="field_freeField6"
+            data-cy="freeField6"
+            formControlName="freeField6"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.securityUser" for="field_securityUser"
+            >Security User</label
+          >
+          <select
+            class="form-control"
+            id="field_securityUser"
+            data-cy="securityUser"
+            name="securityUser"
+            formControlName="securityUser"
+            [compareWith]="compareSecurityUser"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="securityUserOption" *ngFor="let securityUserOption of securityUsersSharedCollection">
+              {{ securityUserOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.remarkHistory.loanApplications" for="field_loanApplications"
+            >Loan Applications</label
+          >
+          <select
+            class="form-control"
+            id="field_loanApplications"
+            data-cy="loanApplications"
+            name="loanApplications"
+            formControlName="loanApplications"
+            [compareWith]="compareLoanApplications"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="loanApplicationsOption" *ngFor="let loanApplicationsOption of loanApplicationsSharedCollection">
+              {{ loanApplicationsOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

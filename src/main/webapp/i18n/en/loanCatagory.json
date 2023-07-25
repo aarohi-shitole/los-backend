@@ -1,0 +1,37 @@
+{
+  "loanOrignationSystemApp": {
+    "loanCatagory": {
+      "home": {
+        "title": "Loan Catagories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Loan Catagory",
+        "createOrEditLabel": "Create or edit a Loan Catagory",
+        "notFound": "No Loan Catagories found"
+      },
+      "created": "A new Loan Catagory is created with identifier {{ param }}",
+      "updated": "A Loan Catagory is updated with identifier {{ param }}",
+      "deleted": "A Loan Catagory is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Loan Catagory {{ id }}?"
+      },
+      "detail": {
+        "title": "Loan Catagory"
+      },
+      "id": "ID",
+      "productName": "Product Name",
+      "decription": "Decription",
+      "value": "Value",
+      "code": "Code",
+      "offer": "Offer",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "isDeleted": "Is Deleted",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4"
+    }
+  }
+}

@@ -1,0 +1,263 @@
+<div>
+  <h2 id="page-heading" data-cy="MemberExistingfacilityHeading">
+    <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.home.title">Member Existingfacilities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-member-existingfacility"
+        [routerLink]="['/member-existingfacility/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.home.createLabel"> Create a new Member Existingfacility </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="memberExistingfacilities?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.home.notFound">No Member Existingfacilities found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="memberExistingfacilities && memberExistingfacilities.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="year">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.year">Year</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="facilityName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.facilityName">Facility Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="facilitatedFrom">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.facilitatedFrom">Facilitated From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nature">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.nature">Nature</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="amtInLac">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.amtInLac">Amt In Lac</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="purpose">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.purpose">Purpose</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sectionDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.sectionDate">Section Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="outstandingInLac">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.outstandingInLac">Outstanding In Lac</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="rating">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.rating">Rating</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="member.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.memberExistingfacility.member">Member</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let memberExistingfacility of memberExistingfacilities; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/member-existingfacility', memberExistingfacility.id, 'view']">{{ memberExistingfacility.id }}</a>
+          </td>
+          <td>{{ memberExistingfacility.year }}</td>
+          <td>{{ memberExistingfacility.facilityName }}</td>
+          <td>{{ memberExistingfacility.facilitatedFrom }}</td>
+          <td>{{ memberExistingfacility.nature }}</td>
+          <td>{{ memberExistingfacility.amtInLac }}</td>
+          <td>{{ memberExistingfacility.purpose }}</td>
+          <td>{{ memberExistingfacility.sectionDate | formatMediumDatetime }}</td>
+          <td>{{ memberExistingfacility.outstandingInLac }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.FacilityStatus.' + memberExistingfacility.status }}">
+            {{ memberExistingfacility.status }}
+          </td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.CreditRating.' + memberExistingfacility.rating }}">
+            {{ memberExistingfacility.rating }}
+          </td>
+          <td>{{ memberExistingfacility.isDeleted }}</td>
+          <td>{{ memberExistingfacility.lastModified | formatMediumDatetime }}</td>
+          <td>{{ memberExistingfacility.lastModifiedBy }}</td>
+          <td>{{ memberExistingfacility.createdBy }}</td>
+          <td>{{ memberExistingfacility.createdOn | formatMediumDatetime }}</td>
+          <td>{{ memberExistingfacility.freeField1 }}</td>
+          <td>{{ memberExistingfacility.freeField2 }}</td>
+          <td>{{ memberExistingfacility.freeField3 }}</td>
+          <td>{{ memberExistingfacility.freeField4 }}</td>
+          <td>{{ memberExistingfacility.freeField5 }}</td>
+          <td>{{ memberExistingfacility.freeField6 }}</td>
+          <td>
+            <div *ngIf="memberExistingfacility.member">
+              <a [routerLink]="['/member', memberExistingfacility.member.id, 'view']">{{ memberExistingfacility.member.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/member-existingfacility', memberExistingfacility.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/member-existingfacility', memberExistingfacility.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(memberExistingfacility)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="memberExistingfacilities && memberExistingfacilities.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

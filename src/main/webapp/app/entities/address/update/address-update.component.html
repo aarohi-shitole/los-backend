@@ -1,0 +1,325 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-address-heading"
+        data-cy="AddressCreateUpdateHeading"
+        jhiTranslate="loanOrignationSystemApp.address.home.createOrEditLabel"
+      >
+        Create or edit a Address
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.addrStatus" for="field_addrStatus">Addr Status</label>
+          <select class="form-control" name="addrStatus" formControlName="addrStatus" id="field_addrStatus" data-cy="addrStatus">
+            <option [ngValue]="null">{{ 'loanOrignationSystemApp.AddressType.null' | translate }}</option>
+            <option *ngFor="let addressType of addressTypeValues" [value]="addressType">
+              {{ 'loanOrignationSystemApp.AddressType.' + addressType | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.addressLine1" for="field_addressLine1"
+            >Address Line 1</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="addressLine1"
+            id="field_addressLine1"
+            data-cy="addressLine1"
+            formControlName="addressLine1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.addressLine2" for="field_addressLine2"
+            >Address Line 2</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="addressLine2"
+            id="field_addressLine2"
+            data-cy="addressLine2"
+            formControlName="addressLine2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.addressLine3" for="field_addressLine3"
+            >Address Line 3</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="addressLine3"
+            id="field_addressLine3"
+            data-cy="addressLine3"
+            formControlName="addressLine3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.landMark" for="field_landMark">Land Mark</label>
+          <input type="text" class="form-control" name="landMark" id="field_landMark" data-cy="landMark" formControlName="landMark" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.pincode" for="field_pincode">Pincode</label>
+          <input type="text" class="form-control" name="pincode" id="field_pincode" data-cy="pincode" formControlName="pincode" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.longitude" for="field_longitude">Longitude</label>
+          <input type="number" class="form-control" name="longitude" id="field_longitude" data-cy="longitude" formControlName="longitude" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.latitude" for="field_latitude">Latitude</label>
+          <input type="number" class="form-control" name="latitude" id="field_latitude" data-cy="latitude" formControlName="latitude" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.mapNevUrl" for="field_mapNevUrl">Map Nev Url</label>
+          <input type="text" class="form-control" name="mapNevUrl" id="field_mapNevUrl" data-cy="mapNevUrl" formControlName="mapNevUrl" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.isPrefferedAdd" for="field_isPrefferedAdd"
+            >Is Preffered Add</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="isPrefferedAdd"
+            id="field_isPrefferedAdd"
+            data-cy="isPrefferedAdd"
+            formControlName="isPrefferedAdd"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.lastModified" for="field_lastModified"
+            >Last Modified</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastModified"
+              data-cy="lastModified"
+              type="datetime-local"
+              class="form-control"
+              name="lastModified"
+              formControlName="lastModified"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.lastModifiedBy" for="field_lastModifiedBy"
+            >Last Modified By</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lastModifiedBy"
+            id="field_lastModifiedBy"
+            data-cy="lastModifiedBy"
+            formControlName="lastModifiedBy"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.createdBy" for="field_createdBy">Created By</label>
+          <input type="text" class="form-control" name="createdBy" id="field_createdBy" data-cy="createdBy" formControlName="createdBy" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.createdOn" for="field_createdOn">Created On</label>
+          <div class="d-flex">
+            <input
+              id="field_createdOn"
+              data-cy="createdOn"
+              type="datetime-local"
+              class="form-control"
+              name="createdOn"
+              formControlName="createdOn"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.isDeleted" for="field_isDeleted">Is Deleted</label>
+          <input type="checkbox" class="form-check" name="isDeleted" id="field_isDeleted" data-cy="isDeleted" formControlName="isDeleted" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.freeField1" for="field_freeField1">Free Field 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField1"
+            id="field_freeField1"
+            data-cy="freeField1"
+            formControlName="freeField1"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.freeField2" for="field_freeField2">Free Field 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField2"
+            id="field_freeField2"
+            data-cy="freeField2"
+            formControlName="freeField2"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.freeField3" for="field_freeField3">Free Field 3</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField3"
+            id="field_freeField3"
+            data-cy="freeField3"
+            formControlName="freeField3"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.freeField4" for="field_freeField4">Free Field 4</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField4"
+            id="field_freeField4"
+            data-cy="freeField4"
+            formControlName="freeField4"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.freeField5" for="field_freeField5">Free Field 5</label>
+          <input
+            type="text"
+            class="form-control"
+            name="freeField5"
+            id="field_freeField5"
+            data-cy="freeField5"
+            formControlName="freeField5"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.state" for="field_state">State</label>
+          <select class="form-control" id="field_state" data-cy="state" name="state" formControlName="state" [compareWith]="compareState">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="stateOption" *ngFor="let stateOption of statesSharedCollection">{{ stateOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.district" for="field_district">District</label>
+          <select
+            class="form-control"
+            id="field_district"
+            data-cy="district"
+            name="district"
+            formControlName="district"
+            [compareWith]="compareDistrict"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="districtOption" *ngFor="let districtOption of districtsSharedCollection">{{ districtOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.taluka" for="field_taluka">Taluka</label>
+          <select
+            class="form-control"
+            id="field_taluka"
+            data-cy="taluka"
+            name="taluka"
+            formControlName="taluka"
+            [compareWith]="compareTaluka"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="talukaOption" *ngFor="let talukaOption of talukasSharedCollection">{{ talukaOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.city" for="field_city">City</label>
+          <select class="form-control" id="field_city" data-cy="city" name="city" formControlName="city" [compareWith]="compareCity">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="cityOption" *ngFor="let cityOption of citiesSharedCollection">{{ cityOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.member" for="field_member">Member</label>
+          <select
+            class="form-control"
+            id="field_member"
+            data-cy="member"
+            name="member"
+            formControlName="member"
+            [compareWith]="compareMember"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="memberOption" *ngFor="let memberOption of membersSharedCollection">{{ memberOption.id }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="loanOrignationSystemApp.address.securityUser" for="field_securityUser"
+            >Security User</label
+          >
+          <select
+            class="form-control"
+            id="field_securityUser"
+            data-cy="securityUser"
+            name="securityUser"
+            formControlName="securityUser"
+            [compareWith]="compareSecurityUser"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="securityUserOption" *ngFor="let securityUserOption of securityUsersSharedCollection">
+              {{ securityUserOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

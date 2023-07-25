@@ -1,0 +1,388 @@
+<div>
+  <h2 id="page-heading" data-cy="LoanApplicationsHeading">
+    <span jhiTranslate="loanOrignationSystemApp.loanApplications.home.title">Loan Applications</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.loanApplications.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-loan-applications"
+        [routerLink]="['/loan-applications/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.loanApplications.home.createLabel"> Create a new Loan Applications </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="loanApplications?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.loanApplications.home.notFound">No Loan Applications found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="loanApplications && loanApplications.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="applicationNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.applicationNo">Application No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="demandAmount">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.demandAmount">Demand Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanPurpose">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.loanPurpose">Loan Purpose</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="demandedLandAreaInHector">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.demandedLandAreaInHector">Demanded Land Area In Hector</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="seasonOfCropLoan">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.seasonOfCropLoan">Season Of Crop Loan</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanSteps">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.loanSteps">Loan Steps</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isInsured">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.isInsured">Is Insured</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="loanBenefitingArea">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.loanBenefitingArea">Loan Benefiting Area</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="costOfInvestment">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.costOfInvestment">Cost Of Investment</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mortgageDeedNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.mortgageDeedNo">Mortgage Deed No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mortgageDate">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.mortgageDate">Mortgage Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="extentMorgageValue">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.extentMorgageValue">Extent Morgage Value</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="downPaymentAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.downPaymentAmt">Down Payment Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ltvRatio">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.ltvRatio">Ltv Ratio</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="processingFee">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.processingFee">Processing Fee</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="penalInterest">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.penalInterest">Penal Interest</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="moratorium">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.moratorium">Moratorium</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="roi">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.roi">Roi</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="commityAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.commityAmt">Commity Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="commityRoi">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.commityRoi">Commity Roi</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="sectionAmt">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.sectionAmt">Section Amt</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="senctionRoi">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.senctionRoi">Senction Roi</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="year">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.year">Year</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="assignedTo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.assignedTo">Assigned To</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="assignedFrom">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.assignedFrom">Assigned From</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="securityDocUrl">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.securityDocUrl">Security Doc Url</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField7">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField7">Free Field 7</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="member.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.member">Member</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="securityUser.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.securityUser">Security User</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="product.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.loanApplications.product">Product</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loanApplications of loanApplications; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/loan-applications', loanApplications.id, 'view']">{{ loanApplications.id }}</a>
+          </td>
+          <td>{{ loanApplications.applicationNo }}</td>
+          <td>{{ loanApplications.demandAmount }}</td>
+          <td>{{ loanApplications.loanPurpose }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.LoanStatus.' + loanApplications.status }}">{{ loanApplications.status }}</td>
+          <td>{{ loanApplications.demandedLandAreaInHector }}</td>
+          <td>{{ loanApplications.seasonOfCropLoan }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.StepperNumber.' + loanApplications.loanSteps }}">
+            {{ loanApplications.loanSteps }}
+          </td>
+          <td>{{ loanApplications.isInsured }}</td>
+          <td>{{ loanApplications.loanBenefitingArea }}</td>
+          <td>{{ loanApplications.costOfInvestment }}</td>
+          <td>{{ loanApplications.mortgageDeedNo }}</td>
+          <td>{{ loanApplications.mortgageDate | formatMediumDatetime }}</td>
+          <td>{{ loanApplications.extentMorgageValue }}</td>
+          <td>{{ loanApplications.downPaymentAmt }}</td>
+          <td>{{ loanApplications.ltvRatio }}</td>
+          <td>{{ loanApplications.processingFee }}</td>
+          <td>{{ loanApplications.penalInterest }}</td>
+          <td>{{ loanApplications.moratorium }}</td>
+          <td>{{ loanApplications.roi }}</td>
+          <td>{{ loanApplications.commityAmt }}</td>
+          <td>{{ loanApplications.commityRoi }}</td>
+          <td>{{ loanApplications.sectionAmt }}</td>
+          <td>{{ loanApplications.senctionRoi }}</td>
+          <td>{{ loanApplications.year }}</td>
+          <td>{{ loanApplications.assignedTo }}</td>
+          <td>{{ loanApplications.assignedFrom }}</td>
+          <td>{{ loanApplications.securityDocUrl }}</td>
+          <td>{{ loanApplications.lastModified | formatMediumDatetime }}</td>
+          <td>{{ loanApplications.lastModifiedBy }}</td>
+          <td>{{ loanApplications.freeField1 }}</td>
+          <td>{{ loanApplications.freeField2 }}</td>
+          <td>{{ loanApplications.freeField3 }}</td>
+          <td>{{ loanApplications.freeField4 }}</td>
+          <td>{{ loanApplications.freeField5 }}</td>
+          <td>{{ loanApplications.freeField6 }}</td>
+          <td>{{ loanApplications.freeField7 }}</td>
+          <td>
+            <div *ngIf="loanApplications.member">
+              <a [routerLink]="['/member', loanApplications.member.id, 'view']">{{ loanApplications.member.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="loanApplications.securityUser">
+              <a [routerLink]="['/security-user', loanApplications.securityUser.id, 'view']">{{ loanApplications.securityUser.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="loanApplications.product">
+              <a [routerLink]="['/product', loanApplications.product.id, 'view']">{{ loanApplications.product.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/loan-applications', loanApplications.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/loan-applications', loanApplications.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(loanApplications)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="loanApplications && loanApplications.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ledgerAccounts">
+      <h2 data-cy="ledgerAccountsDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.detail.title">Ledger Accounts</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.accountNo">Account No</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.accountNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.accountName">Account Name</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.accountName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.accBalance">Acc Balance</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.accBalance }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.accHeadCode">Acc Head Code</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.accHeadCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.ledgerCode">Ledger Code</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.ledgerCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.appCode">App Code</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.appCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.ledgerClassification">Ledger Classification</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.LedgerClassification.' + ledgerAccounts.ledgerClassification }}">{{
+            ledgerAccounts.ledgerClassification
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.level">Level</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.level }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.year">Year</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.accountType">Account Type</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.accountType }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ ledgerAccounts.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.branch">Branch</span></dt>
+        <dd>
+          <div *ngIf="ledgerAccounts.branch">
+            <a [routerLink]="['/branch', ledgerAccounts.branch.id, 'view']">{{ ledgerAccounts.branch.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.ledgerAccounts.ledgerAccounts">Ledger Accounts</span></dt>
+        <dd>
+          <div *ngIf="ledgerAccounts.ledgerAccounts">
+            <a [routerLink]="['/ledger-accounts', ledgerAccounts.ledgerAccounts.id, 'view']">{{ ledgerAccounts.ledgerAccounts.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ledger-accounts', ledgerAccounts.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

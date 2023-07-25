@@ -1,0 +1,307 @@
+<div>
+  <h2 id="page-heading" data-cy="EmployementDetailsHeading">
+    <span jhiTranslate="loanOrignationSystemApp.employementDetails.home.title">Employement Details</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.employementDetails.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-employement-details"
+        [routerLink]="['/employement-details/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="loanOrignationSystemApp.employementDetails.home.createLabel"> Create a new Employement Details </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <jhi-filter [filters]="filters"></jhi-filter>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="employementDetails?.length === 0">
+    <span jhiTranslate="loanOrignationSystemApp.employementDetails.home.notFound">No Employement Details found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="employementDetails && employementDetails.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="type">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.type">Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="employerName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.employerName">Employer Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="status">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.status">Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="designation">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.designation">Designation</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="duration">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.duration">Duration</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="employerAdd">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.employerAdd">Employer Add</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prevCompanyName">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.prevCompanyName">Prev Company Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="prevCompanyduration">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.prevCompanyduration">Prev Companyduration</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="orgType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.orgType">Org Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="constitutionType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.constitutionType">Constitution Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="industryType">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.industryType">Industry Type</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="businessRegNo">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.businessRegNo">Business Reg No</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="compOwnerShip">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.compOwnerShip">Comp Owner Ship</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="partnerName1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.partnerName1">Partner Name 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="partnerName2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.partnerName2">Partner Name 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="partnerName3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.partnerName3">Partner Name 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="isDeleted">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.isDeleted">Is Deleted</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModified">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.lastModified">Last Modified</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastModifiedBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.lastModifiedBy">Last Modified By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdBy">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.createdBy">Created By</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="createdOn">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.createdOn">Created On</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField1">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField1">Free Field 1</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField2">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField2">Free Field 2</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField3">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField3">Free Field 3</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField4">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField4">Free Field 4</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField5">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField5">Free Field 5</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="freeField6">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.freeField6">Free Field 6</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="member.id">
+            <div class="d-flex">
+              <span jhiTranslate="loanOrignationSystemApp.employementDetails.member">Member</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employementDetails of employementDetails; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/employement-details', employementDetails.id, 'view']">{{ employementDetails.id }}</a>
+          </td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.Occupation.' + employementDetails.type }}">{{ employementDetails.type }}</td>
+          <td>{{ employementDetails.employerName }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.EmployementStatus.' + employementDetails.status }}">
+            {{ employementDetails.status }}
+          </td>
+          <td>{{ employementDetails.designation }}</td>
+          <td>{{ employementDetails.duration }}</td>
+          <td>{{ employementDetails.employerAdd }}</td>
+          <td>{{ employementDetails.prevCompanyName }}</td>
+          <td>{{ employementDetails.prevCompanyduration }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.CompanyType.' + employementDetails.orgType }}">{{ employementDetails.orgType }}</td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.ConstitutionType.' + employementDetails.constitutionType }}">
+            {{ employementDetails.constitutionType }}
+          </td>
+          <td jhiTranslate="{{ 'loanOrignationSystemApp.IndustryType.' + employementDetails.industryType }}">
+            {{ employementDetails.industryType }}
+          </td>
+          <td>{{ employementDetails.businessRegNo }}</td>
+          <td>{{ employementDetails.compOwnerShip }}</td>
+          <td>{{ employementDetails.partnerName1 }}</td>
+          <td>{{ employementDetails.partnerName2 }}</td>
+          <td>{{ employementDetails.partnerName3 }}</td>
+          <td>{{ employementDetails.isDeleted }}</td>
+          <td>{{ employementDetails.lastModified | formatMediumDatetime }}</td>
+          <td>{{ employementDetails.lastModifiedBy }}</td>
+          <td>{{ employementDetails.createdBy }}</td>
+          <td>{{ employementDetails.createdOn | formatMediumDatetime }}</td>
+          <td>{{ employementDetails.freeField1 }}</td>
+          <td>{{ employementDetails.freeField2 }}</td>
+          <td>{{ employementDetails.freeField3 }}</td>
+          <td>{{ employementDetails.freeField4 }}</td>
+          <td>{{ employementDetails.freeField5 }}</td>
+          <td>{{ employementDetails.freeField6 }}</td>
+          <td>
+            <div *ngIf="employementDetails.member">
+              <a [routerLink]="['/member', employementDetails.member.id, 'view']">{{ employementDetails.member.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/employement-details', employementDetails.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/employement-details', employementDetails.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(employementDetails)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="employementDetails && employementDetails.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [page]="page"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="navigateToPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

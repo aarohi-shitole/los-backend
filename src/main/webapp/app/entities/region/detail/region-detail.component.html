@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="region">
+      <h2 data-cy="regionDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.region.detail.title">Region</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ region.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.regionName">Region Name</span></dt>
+        <dd>
+          <span>{{ region.regionName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ region.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ region.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ region.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ region.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ region.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ region.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ region.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ region.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.region.organisation">Organisation</span></dt>
+        <dd>
+          <div *ngIf="region.organisation">
+            <a [routerLink]="['/organisation', region.organisation.id, 'view']">{{ region.organisation.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/region', region.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

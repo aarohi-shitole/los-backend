@@ -1,0 +1,122 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="amortizationDetails">
+      <h2 data-cy="amortizationDetailsDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.amortizationDetails.detail.title">Amortization Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.installmentDate">Installment Date</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.installmentDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="loanOrignationSystemApp.amortizationDetails.totalOutstandingPrincipleAmt"
+            >Total Outstanding Principle Amt</span
+          >
+        </dt>
+        <dd>
+          <span>{{ amortizationDetails.totalOutstandingPrincipleAmt }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="loanOrignationSystemApp.amortizationDetails.totalOutstandngInterestAmt">Total Outstandng Interest Amt</span>
+        </dt>
+        <dd>
+          <span>{{ amortizationDetails.totalOutstandngInterestAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.paidPrincipleAmt">Paid Principle Amt</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.paidPrincipleAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.paidInterestAmt">Paid Interest Amt</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.paidInterestAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.balPrincipleAmt">Bal Principle Amt</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.balPrincipleAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.balInterestAmt">Bal Interest Amt</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.balInterestAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.loanEmiAmt">Loan Emi Amt</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.loanEmiAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.principleEMI">Principle EMI</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.principleEMI }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.roi">Roi</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.roi }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.paymentStatus">Payment Status</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.paymentStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.year">Year</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ amortizationDetails.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.amortizationDetails.loanAccount">Loan Account</span></dt>
+        <dd>
+          <div *ngIf="amortizationDetails.loanAccount">
+            <a [routerLink]="['/loan-account', amortizationDetails.loanAccount.id, 'view']">{{ amortizationDetails.loanAccount.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/amortization-details', amortizationDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

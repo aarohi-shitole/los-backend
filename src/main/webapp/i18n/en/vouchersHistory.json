@@ -1,0 +1,33 @@
+{
+  "loanOrignationSystemApp": {
+    "vouchersHistory": {
+      "home": {
+        "title": "Vouchers Histories",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vouchers History",
+        "createOrEditLabel": "Create or edit a Vouchers History",
+        "notFound": "No Vouchers Histories found"
+      },
+      "created": "A new Vouchers History is created with identifier {{ param }}",
+      "updated": "A Vouchers History is updated with identifier {{ param }}",
+      "deleted": "A Vouchers History is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vouchers History {{ id }}?"
+      },
+      "detail": {
+        "title": "Vouchers History"
+      },
+      "id": "ID",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "voucherDate": "Voucher Date",
+      "code": "Code",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6"
+    }
+  }
+}

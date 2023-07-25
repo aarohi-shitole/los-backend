@@ -1,0 +1,258 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="member">
+      <h2 data-cy="memberDetailsHeading"><span jhiTranslate="loanOrignationSystemApp.member.detail.title">Member</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ member.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.title">Title</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.Title.' + member.title }}">{{ member.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ member.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.middleName">Middle Name</span></dt>
+        <dd>
+          <span>{{ member.middleName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ member.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.memberId">Member Id</span></dt>
+        <dd>
+          <span>{{ member.memberId }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.membershipNo">Membership No</span></dt>
+        <dd>
+          <span>{{ member.membershipNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.fatherName">Father Name</span></dt>
+        <dd>
+          <span>{{ member.fatherName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.motherName">Mother Name</span></dt>
+        <dd>
+          <span>{{ member.motherName }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.gender">Gender</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.Gender.' + member.gender }}">{{ member.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.dob">Dob</span></dt>
+        <dd>
+          <span>{{ member.dob | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.email">Email</span></dt>
+        <dd>
+          <span>{{ member.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.mobileNo">Mobile No</span></dt>
+        <dd>
+          <span>{{ member.mobileNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.alternateMobile">Alternate Mobile</span></dt>
+        <dd>
+          <span>{{ member.alternateMobile }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.fax">Fax</span></dt>
+        <dd>
+          <span>{{ member.fax }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.contactTimeFrom">Contact Time From</span></dt>
+        <dd>
+          <span>{{ member.contactTimeFrom }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.contactTimeTo">Contact Time To</span></dt>
+        <dd>
+          <span>{{ member.contactTimeTo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.religion">Religion</span></dt>
+        <dd>
+          <span>{{ member.religion }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.custCategory">Cust Category</span></dt>
+        <dd>
+          <span>{{ member.custCategory }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.cast">Cast</span></dt>
+        <dd>
+          <span>{{ member.cast }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.aadharCardNo">Aadhar Card No</span></dt>
+        <dd>
+          <span>{{ member.aadharCardNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.panCard">Pan Card</span></dt>
+        <dd>
+          <span>{{ member.panCard }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.passportNo">Passport No</span></dt>
+        <dd>
+          <span>{{ member.passportNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.passportExpiry">Passport Expiry</span></dt>
+        <dd>
+          <span>{{ member.passportExpiry }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.rationCard">Ration Card</span></dt>
+        <dd>
+          <span>{{ member.rationCard }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.residenceStatus">Residence Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.ResidentalStatus.' + member.residenceStatus }}">{{
+            member.residenceStatus
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.maritalStatus">Marital Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.MaritalStatus.' + member.maritalStatus }}">{{ member.maritalStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.familyMemberCount">Family Member Count</span></dt>
+        <dd>
+          <span>{{ member.familyMemberCount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.occupation">Occupation</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.Occupation.' + member.occupation }}">{{ member.occupation }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.nationality">Nationality</span></dt>
+        <dd>
+          <span>{{ member.nationality }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.noOfDependents">No Of Dependents</span></dt>
+        <dd>
+          <span>{{ member.noOfDependents }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.applicationDate">Application Date</span></dt>
+        <dd>
+          <span>{{ member.applicationDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.Status.' + member.status }}">{{ member.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.highestQualification">Highest Qualification</span></dt>
+        <dd>
+          <span>{{ member.highestQualification }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.hasAdharCardVerified">Has Adhar Card Verified</span></dt>
+        <dd>
+          <span>{{ member.hasAdharCardVerified }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.hasPanCardVerified">Has Pan Card Verified</span></dt>
+        <dd>
+          <span>{{ member.hasPanCardVerified }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.loanStatus">Loan Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.LoanStatus.' + member.loanStatus }}">{{ member.loanStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.enqRefrenceNo">Enq Refrence No</span></dt>
+        <dd>
+          <span>{{ member.enqRefrenceNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.numberOfAssets">Number Of Assets</span></dt>
+        <dd>
+          <span>{{ member.numberOfAssets }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.isActive">Is Active</span></dt>
+        <dd>
+          <span>{{ member.isActive }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.isDeleted">Is Deleted</span></dt>
+        <dd>
+          <span>{{ member.isDeleted }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.profileStepper">Profile Stepper</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.StepperNumber.' + member.profileStepper }}">{{ member.profileStepper }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ member.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ member.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ member.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ member.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ member.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ member.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ member.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ member.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ member.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ member.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.enquiryDetails">Enquiry Details</span></dt>
+        <dd>
+          <div *ngIf="member.enquiryDetails">
+            <a [routerLink]="['/enquiry-details', member.enquiryDetails.id, 'view']">{{ member.enquiryDetails.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.branch">Branch</span></dt>
+        <dd>
+          <div *ngIf="member.branch">
+            <a [routerLink]="['/branch', member.branch.id, 'view']">{{ member.branch.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.member">Member</span></dt>
+        <dd>
+          <div *ngIf="member.member">
+            <a [routerLink]="['/member', member.member.id, 'view']">{{ member.member.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.member.securityUser">Security User</span></dt>
+        <dd>
+          <div *ngIf="member.securityUser">
+            <a [routerLink]="['/security-user', member.securityUser.id, 'view']">{{ member.securityUser.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/member', member.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

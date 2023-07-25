@@ -1,0 +1,54 @@
+import dayjs from 'dayjs/esm';
+import { IMemberAssets } from 'app/entities/member-assets/member-assets.model';
+import { IEmployementDetails } from 'app/entities/employement-details/employement-details.model';
+import { IMember } from 'app/entities/member/member.model';
+import { Title } from 'app/entities/enumerations/title.model';
+import { Gender } from 'app/entities/enumerations/gender.model';
+import { Occupation } from 'app/entities/enumerations/occupation.model';
+import { MaritalStatus } from 'app/entities/enumerations/marital-status.model';
+
+export interface IGuarantor {
+  id: number;
+  title?: Title | null;
+  firstName?: string | null;
+  middleName?: string | null;
+  lastName?: string | null;
+  membershipNo?: string | null;
+  gender?: Gender | null;
+  dob?: dayjs.Dayjs | null;
+  email?: string | null;
+  mobileNo?: string | null;
+  houseOwner?: string | null;
+  occupation?: Occupation | null;
+  employerNameAdd?: string | null;
+  soclibilAmt?: number | null;
+  soclibilType?: string | null;
+  otherlibilAmt?: number | null;
+  otherlibilType?: string | null;
+  aadharCardNo?: string | null;
+  panCard?: string | null;
+  maritalStatus?: MaritalStatus | null;
+  hasAdharVerified?: boolean | null;
+  hasPanVerified?: boolean | null;
+  numberOfAssets?: number | null;
+  grossAnnualInc?: number | null;
+  netIncome?: number | null;
+  isIncomeTaxPayer?: boolean | null;
+  isActive?: boolean | null;
+  isDeleted?: boolean | null;
+  lastModified?: dayjs.Dayjs | null;
+  lastModifiedBy?: string | null;
+  createdBy?: string | null;
+  createdOn?: dayjs.Dayjs | null;
+  freeField1?: string | null;
+  freeField2?: string | null;
+  freeField3?: string | null;
+  freeField4?: string | null;
+  freeField5?: string | null;
+  freeField6?: string | null;
+  memberAssets?: Pick<IMemberAssets, 'id'> | null;
+  employementDetails?: Pick<IEmployementDetails, 'id'> | null;
+  member?: Pick<IMember, 'id'> | null;
+}
+
+export type NewGuarantor = Omit<IGuarantor, 'id'> & { id: null };

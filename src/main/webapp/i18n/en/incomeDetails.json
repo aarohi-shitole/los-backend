@@ -1,0 +1,42 @@
+{
+  "loanOrignationSystemApp": {
+    "incomeDetails": {
+      "home": {
+        "title": "Income Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Income Details",
+        "createOrEditLabel": "Create or edit a Income Details",
+        "notFound": "No Income Details found"
+      },
+      "created": "A new Income Details is created with identifier {{ param }}",
+      "updated": "A Income Details is updated with identifier {{ param }}",
+      "deleted": "A Income Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Income Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Income Details"
+      },
+      "id": "ID",
+      "year": "Year",
+      "grossIncome": "Gross Income",
+      "expenses": "Expenses",
+      "netIncome": "Net Income",
+      "paidTaxes": "Paid Taxes",
+      "cashSurplus": "Cash Surplus",
+      "incomeType": "Income Type",
+      "isDeleted": "Is Deleted",
+      "lastModified": "Last Modified",
+      "lastModifiedBy": "Last Modified By",
+      "createdBy": "Created By",
+      "createdOn": "Created On",
+      "freeField1": "Free Field 1",
+      "freeField2": "Free Field 2",
+      "freeField3": "Free Field 3",
+      "freeField4": "Free Field 4",
+      "freeField5": "Free Field 5",
+      "freeField6": "Free Field 6",
+      "member": "Member"
+    }
+  }
+}

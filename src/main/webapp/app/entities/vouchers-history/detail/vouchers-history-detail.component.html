@@ -1,0 +1,70 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vouchersHistory">
+      <h2 data-cy="vouchersHistoryDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.vouchersHistory.detail.title">Vouchers History</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.createdOn">Created On</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.createdOn | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.createdBy">Created By</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.createdBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.voucherDate">Voucher Date</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.voucherDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.code">Code</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.VoucherCode.' + vouchersHistory.code }}">{{ vouchersHistory.code }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.vouchersHistory.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ vouchersHistory.freeField6 }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vouchers-history', vouchersHistory.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

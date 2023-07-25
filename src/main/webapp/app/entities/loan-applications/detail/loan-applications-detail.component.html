@@ -1,0 +1,194 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="loanApplications">
+      <h2 data-cy="loanApplicationsDetailsHeading">
+        <span jhiTranslate="loanOrignationSystemApp.loanApplications.detail.title">Loan Applications</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ loanApplications.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.applicationNo">Application No</span></dt>
+        <dd>
+          <span>{{ loanApplications.applicationNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.demandAmount">Demand Amount</span></dt>
+        <dd>
+          <span>{{ loanApplications.demandAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.loanPurpose">Loan Purpose</span></dt>
+        <dd>
+          <span>{{ loanApplications.loanPurpose }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.status">Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.LoanStatus.' + loanApplications.status }}">{{ loanApplications.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.demandedLandAreaInHector">Demanded Land Area In Hector</span></dt>
+        <dd>
+          <span>{{ loanApplications.demandedLandAreaInHector }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.seasonOfCropLoan">Season Of Crop Loan</span></dt>
+        <dd>
+          <span>{{ loanApplications.seasonOfCropLoan }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.loanSteps">Loan Steps</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'loanOrignationSystemApp.StepperNumber.' + loanApplications.loanSteps }}">{{
+            loanApplications.loanSteps
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.isInsured">Is Insured</span></dt>
+        <dd>
+          <span>{{ loanApplications.isInsured }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.loanBenefitingArea">Loan Benefiting Area</span></dt>
+        <dd>
+          <span>{{ loanApplications.loanBenefitingArea }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.costOfInvestment">Cost Of Investment</span></dt>
+        <dd>
+          <span>{{ loanApplications.costOfInvestment }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.mortgageDeedNo">Mortgage Deed No</span></dt>
+        <dd>
+          <span>{{ loanApplications.mortgageDeedNo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.mortgageDate">Mortgage Date</span></dt>
+        <dd>
+          <span>{{ loanApplications.mortgageDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.extentMorgageValue">Extent Morgage Value</span></dt>
+        <dd>
+          <span>{{ loanApplications.extentMorgageValue }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.downPaymentAmt">Down Payment Amt</span></dt>
+        <dd>
+          <span>{{ loanApplications.downPaymentAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.ltvRatio">Ltv Ratio</span></dt>
+        <dd>
+          <span>{{ loanApplications.ltvRatio }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.processingFee">Processing Fee</span></dt>
+        <dd>
+          <span>{{ loanApplications.processingFee }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.penalInterest">Penal Interest</span></dt>
+        <dd>
+          <span>{{ loanApplications.penalInterest }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.moratorium">Moratorium</span></dt>
+        <dd>
+          <span>{{ loanApplications.moratorium }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.roi">Roi</span></dt>
+        <dd>
+          <span>{{ loanApplications.roi }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.commityAmt">Commity Amt</span></dt>
+        <dd>
+          <span>{{ loanApplications.commityAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.commityRoi">Commity Roi</span></dt>
+        <dd>
+          <span>{{ loanApplications.commityRoi }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.sectionAmt">Section Amt</span></dt>
+        <dd>
+          <span>{{ loanApplications.sectionAmt }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.senctionRoi">Senction Roi</span></dt>
+        <dd>
+          <span>{{ loanApplications.senctionRoi }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.year">Year</span></dt>
+        <dd>
+          <span>{{ loanApplications.year }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.assignedTo">Assigned To</span></dt>
+        <dd>
+          <span>{{ loanApplications.assignedTo }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.assignedFrom">Assigned From</span></dt>
+        <dd>
+          <span>{{ loanApplications.assignedFrom }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.securityDocUrl">Security Doc Url</span></dt>
+        <dd>
+          <span>{{ loanApplications.securityDocUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.lastModified">Last Modified</span></dt>
+        <dd>
+          <span>{{ loanApplications.lastModified | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.lastModifiedBy">Last Modified By</span></dt>
+        <dd>
+          <span>{{ loanApplications.lastModifiedBy }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField1">Free Field 1</span></dt>
+        <dd>
+          <span>{{ loanApplications.freeField1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField2">Free Field 2</span></dt>
+        <dd>
+          <span>{{ loanApplications.freeField2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField3">Free Field 3</span></dt>
+        <dd>
+          <span>{{ loanApplications.freeField3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField4">Free Field 4</span></dt>
+        <dd>
+          <span>{{ loanApplications.freeField4 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField5">Free Field 5</span></dt>
+        <dd>
+          <span>{{ loanApplications.freeField5 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField6">Free Field 6</span></dt>
+        <dd>
+          <span>{{ loanApplications.freeField6 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.freeField7">Free Field 7</span></dt>
+        <dd>
+          <span>{{ loanApplications.freeField7 }}</span>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.member">Member</span></dt>
+        <dd>
+          <div *ngIf="loanApplications.member">
+            <a [routerLink]="['/member', loanApplications.member.id, 'view']">{{ loanApplications.member.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.securityUser">Security User</span></dt>
+        <dd>
+          <div *ngIf="loanApplications.securityUser">
+            <a [routerLink]="['/security-user', loanApplications.securityUser.id, 'view']">{{ loanApplications.securityUser.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="loanOrignationSystemApp.loanApplications.product">Product</span></dt>
+        <dd>
+          <div *ngIf="loanApplications.product">
+            <a [routerLink]="['/product', loanApplications.product.id, 'view']">{{ loanApplications.product.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/loan-applications', loanApplications.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

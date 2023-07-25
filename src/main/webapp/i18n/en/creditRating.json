@@ -1,0 +1,11 @@
+{
+  "loanOrignationSystemApp": {
+    "CreditRating": {
+      "null": "",
+      "OUTSTANDING": "Outstanding",
+      "GOOD": "Good",
+      "FAIR": "Fair",
+      "POOR": "Poor"
+    }
+  }
+}
